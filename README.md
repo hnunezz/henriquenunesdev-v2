@@ -6,23 +6,23 @@ TODO:
 ## Home
 - Criar texto Home ✅
 - Links ✅
-- Download CV
+- Download CV❌
 - Work Exp ✅
 ## Home
 - Projetos✅
-- Texto aba projeto
-- View Projetos
+- Texto aba projeto✅
+- View Projetos❌
 ## Contact
 - Agende agora ✅
 - Link contato ✅
 ## About
 - Links About✅
-- Fotos About
+- Fotos About❌
 ## Setup
-- Textos Setup
+- Textos Setup❌
 ## More!
-- Botão trocar idioma
+- Botão trocar idioma❌
 - Aba Articles (FIGMA) ✅
-- Aba Articles
+- Aba Articles❌
 - Responsividade Header✅
 - Menu Hamburguer para mobile✅

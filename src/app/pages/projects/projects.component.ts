@@ -9,9 +9,9 @@ import { TimelineComponent } from '../../components/timeline/timeline.component'
     <h1 class="page-header">
       My projects
 
-      <span>Trabalhei em vários pequenos projetos ao longo dos anos, mas estes são os dos quais mais me orgulho. Alguns
-        deles são de código aberto, então, se você vir algo que desperte seu interesse, confira o código e contribua se
-        tiver ideias de como ele pode ser melhorado.</span>
+      <span>I have worked on many projects over the years, from small applications to large systems.
+        Some are private, but all were built with the same passion and dedication.
+        These are the personal projects I am most proud of.</span>
     </h1>
 
     <app-timeline />
