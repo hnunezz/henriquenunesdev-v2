@@ -1,0 +1,28 @@
+.page-header {
+  @apply flex flex-col gap-8 font-extrabold text-[40px] mb-14;
+
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  span {
+    font-size: 20px;
+    font-weight: 400;
+    padding-right: 40px;
+
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+}
+
+.hns-logo {
+  font-weight: 900;
+  font-style: italic;
+}

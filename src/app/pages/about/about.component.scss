@@ -1,0 +1,13 @@
+aside.side-l {
+  .c-img {
+    border-radius: 320px;
+    border: 1px solid #414141;
+    box-shadow: 0px 0px 24px 7px #59595940;
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 300px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+main {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 128px;
+
+  section:nth-child(1) {
+    aside.side-l {
+      .c-img {
+        border-radius: 320px;
+        border: 1px solid #414141;
+        box-shadow: 0px 0px 24px 7px #59595940;
+
+        img {
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 300px;
+            animation: scale-up-center-normal 1.5s ease 0s 1 normal none;
+
+        }
+      }
+
+    }
+
+    aside.side-r {
+      div {
+        span {
+          font-size: 70px;
+          color: white;
+          font-weight: bolder;
+
+          &:nth-child(1) {
+            -webkit-animation-name: fadeInRight;
+            animation-name: fadeInRight;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+          }
+
+          &:nth-child(2) {
+            font-weight: 200;
+            -webkit-animation-name: fadeInRight;
+            animation-name: fadeInRight;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+          }
+          &:nth-child(3) {
+            opacity: 1;
+            -webkit-animation-name: fadeInRight;
+            animation-name: fadeInRight;
+            -webkit-animation-duration: 1s;
+            animation-duration: 2s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+          }
+        }
+      }
+
+      p {
+        -webkit-animation-name: fadeInRight;
+        animation-name: fadeInRight;
+        -webkit-animation-duration: 1s;
+        animation-duration: 2s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+    }
+  }
+
+  section:nth-child(2) {
+    .work-exp {
+      div.header-container {
+        button {
+          &:hover {
+            transition: ease 0.3s;
+            box-shadow: 0px 0px 20px 3px rgba(89, 89, 89, 0.2509803922);
+          }
+        }
+      }
+    }
+  }
+}

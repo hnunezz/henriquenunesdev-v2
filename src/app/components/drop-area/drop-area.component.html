@@ -1,0 +1,28 @@
+<div class="flex gap-12 max-md:flex-col-reverse">
+      <div
+        #dropArea
+        class="drop-area rounded-r-lg w-[80%] h-80 relative rounder-[12px] bg-[#fafafa00] grid place-items-center border-2 border-dashed border-gray-secondary max-md:w-full"
+        [class.drop-allowed]="hoverAllowed"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave()"
+        (drop)="onDrop($event)"
+      >
+        @if (items.length === 0) {
+          <span class="opacity-60 font-semibold">Arraste as tecnologias aqui pra dentro!</span>
+        }
+
+        @for (it of items; track $index) {
+          <i
+          class="fa-brands fa-{{ it.label }} cursor-grab select-none text-[72px] transition-all duration-300 ease-in-out chip placed"
+          [style.left.px]="it.x"
+          [style.color]="it.color"
+          [style.top.px]="it.y"></i>
+        }
+      </div>
+
+      <div class="palette w-[20%] p-5 justify-center items-center text-center grid grid-cols-[repeat(auto-fill,minmax(50px,1fr))] rounded-lg gap-2 border solid border-gray-secondary max-md:w-full">
+        @for (p of palette; track $index) {
+        <i draggable="true" class="cursor-grab select-none text-ft-primary text-[42px] transition-all duration-300 ease-in-out hover:text-[#505050] chip" class="fa-brands fa-{{p.label}}" (dragstart)="onDragStart($event, p.id)"></i>
+        }
+      </div>
+    </div>

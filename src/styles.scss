@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./assets/base.scss";
+@import "./assets/utils.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+body {
+  --bg-app: #0c0c0c;
+  --text-app-primary: #fff;
+  --primary-brand: #7b3af2;
+  --ft-primary: #ffffff;
+  --gray-primary: #a1a1aa;
+  --gray-secondary: #414141;
+
+  background-color: var(--bg-app);
+  color: var(--text-app-primary);
+}
+
+.light {
+  --bg-app: #e8e8e8;
+  --text-app-primary: #27272a;
+  --primary-brand: #7b3af2;
+  --ft-primary: #27272a;
+  --gray-primary: #27272a;
+  --gray-secondary: #414141;
+
+  background-color: var(--bg-app);
+  color: var(--text-app-primary);
+}

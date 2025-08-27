@@ -1,0 +1,110 @@
+<main class="grid gap-32 px-10">
+  <section class="flex gap-6 max-md:flex-col">
+
+    <aside class="side-l flex flex-col items-center gap-16">
+      <div class="c-img bg-[#343434] h-80 w-80 flex items-center justify-center">
+        <img class="h-80" src="assets/img/hns1.jpeg">
+      </div>
+
+      <div class="icons text-[40px] flex gap-4">
+        <i class="fa-brands fa-github text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('https://github.com/hnunezz')"></i>
+        <i class="fa-brands fa-x-twitter text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('')"></i>
+        <i class="fa-brands fa-instagram text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('https://www.instagram.com/hnunes0/')"></i>
+        <i class="fa-brands fa-linkedin text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
+      </div>
+    </aside>
+
+    <aside class="side-r flex flex-col gap-16">
+      <div class="flex flex-col justify-center h-80 max-xl:h-auto">
+        <span class="hns-logo text-ft-primary">
+          hn.
+        </span>
+        <span class="text-ft-primary">
+          henrique nunes
+        </span>
+        <span class="text-ft-primary">
+          Software engineer
+        </span>
+      </div>
+
+      <p class="text-ft-primary font-light text-xl max-sm:text-center">
+        I'm Henrique Nunes, a software engineer specializing in front-end applications. I live in São Paulo and I really
+        enjoy technology.
+      </p>
+    </aside>
+  </section>
+
+  <section class="flex justify-between max-md:flex-col-reverse max-md:items-center max-md:gap-[82px]">
+    <app-timeline />
+
+    <div class="work-exp w-[360px] flex flex-col gap-4">
+      <div class="header-container flex justify-between items-center">
+        <span class="text-ft-primary text-[22px] font-black">Work exp.</span>
+        <button
+          class="bg-[#202020] text-white w-[50%] h-10 outline-none border-none rounded-lg font-semibold flex justify-center items-center gap-1.5 cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">
+          <p class="text-white">
+            Download CV
+          </p>
+          <i class="fa-solid fa-angles-down"></i>
+        </button>
+      </div>
+
+      <div class="rounded-lg border border-solid border-gray-secondary">
+        <ul class="flex flex-col gap-8 p-3">
+          <li class="flex gap-3 transition-all duration-300 ease-in-out p-2 hover:bg-[#54545442] hover:rounded-lg">
+            <div class="w-[50px] h-10 rounded-[60px] bg-ft-primary flex justify-center items-center">
+              <img class="rounded-full" src="assets/img/eds.jpeg">
+            </div>
+            <span class="text-ft-primary font-semibold w-full">
+              <span class="text-ft-primary font-semibold w-full">Extreme Digital Solutions</span>
+              <div class="flex justify-between w-full">
+                <small class="font-extralight text-gray-primary">Front-end Senior at PMERJ</small>
+                <small class="font-extralight text-gray-primary">2024 - Present</small>
+              </div>
+            </span>
+          </li>
+          <li class="flex gap-3 transition-all duration-300 ease-in-out p-2 hover:bg-[#54545442] hover:rounded-lg">
+            <div class="w-[50px] h-10 rounded-[60px] bg-ft-primary flex justify-center items-center">
+              <img class="rounded-full" src="assets/img/nava.jpeg">
+            </div>
+            <span class="text-ft-primary font-semibold w-full">
+              <span class="text-ft-primary font-semibold w-full">Nava</span>
+              <div class="flex justify-between w-full">
+                <small class="font-extralight text-gray-primary">Mid-level Dev. at Santander</small>
+                <small class="font-extralight text-gray-primary">2023 - 2024</small>
+              </div>
+            </span>
+          </li>
+          <li class="flex gap-3 transition-all duration-300 ease-in-out p-2 hover:bg-[#54545442] hover:rounded-lg">
+            <div class="w-[50px] h-10 rounded-[60px] bg-ft-primary flex justify-center items-center">
+              <img class="rounded-full" src="assets/img/black101.jpeg">
+            </div>
+            <span class="text-ft-primary font-semibold w-full">
+              <span class="text-ft-primary font-semibold w-full">Black101</span>
+              <div class="flex justify-between w-full">
+                <small class="font-extralight text-gray-primary">Mid-level Dev.</small>
+                <small class="font-extralight text-gray-primary">2022 - 2023</small>
+              </div>
+            </span>
+          </li>
+          <li class="flex gap-3 transition-all duration-300 ease-in-out p-2 hover:bg-[#54545442] hover:rounded-lg">
+            <div class="w-[50px] h-10 rounded-[60px] bg-ft-primary flex justify-center items-center">
+              <img class="rounded-full" src="assets/img/atlas.jpeg">
+            </div>
+            <span class="text-ft-primary font-semibold w-full">
+              <span class="text-ft-primary font-semibold w-full">Atlas Inovações</span>
+              <div class="flex justify-between w-full">
+                <small class="font-extralight text-gray-primary">Front-end Jr Dev. </small>
+                <small class="font-extralight text-gray-primary">2022 - 2022</small>
+              </div>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
