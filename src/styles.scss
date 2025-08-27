@@ -16,6 +16,8 @@
     border-color 0.2s ease;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   --bg-app: #0c0c0c;
   --text-app-primary: #fff;

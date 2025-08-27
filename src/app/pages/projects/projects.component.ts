@@ -7,7 +7,7 @@ import { TimelineComponent } from '../../components/timeline/timeline.component'
   template: `
   <main class="px-10">
     <h1 class="page-header">
-      Meus projetos
+      My projects
 
       <span>Trabalhei em vários pequenos projetos ao longo dos anos, mas estes são os dos quais mais me orgulho. Alguns
         deles são de código aberto, então, se você vir algo que desperte seu interesse, confira o código e contribua se

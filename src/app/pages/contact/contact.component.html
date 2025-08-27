@@ -1,21 +1,23 @@
-<main class="px-10">
+<main class="px-10 max-md:px-1">
 
-  <h1 class="page-header">
+  <h1 class="page-header  max-md:px-4">
     Contact me
 
     <span>Exchange ideas? Job proposal? New website? <b>Talk to me!</b></span>
-    <span
-      class="text-ft-primary text-2xl font-bold cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">Agende
-      agora <b class="text-primary-brand">-></b></span>
+    <span (click)="goTo('https://cal.com/henrique-nunes/')"
+      class="text-ft-primary text-2xl font-bold cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">Schedule
+      now
+      <b class="text-primary-brand">-></b></span>
   </h1>
 
-  <div class="float-start flex flex-col gap-4">
-    <i
-      class="text-[30px] fa-brands fa-linkedin cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
+  <div class="float-start flex flex-col gap-4 max-md:px-4">
+    <i class="text-[30px] fa-brands fa-linkedin cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+      (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
 
     <hr class="h-[1px] text-gray-secondary bg-gray-secondary text-[0px] border-0 mx-[12%] float-right">
 
-    <span class="gap-2 font-bold text-ft-primary text-xl flex items-center cursor-pointer transition-all duration-300 ease-in-out">
+    <span
+      class="gap-2 font-bold text-ft-primary text-xl flex items-center cursor-pointer transition-all duration-300 ease-in-out max-md:text-sm">
       <i class="text-[30px] fa-regular fa-envelope"></i>
       nunesdealmeidahenrique&#64;gmail.com
     </span>

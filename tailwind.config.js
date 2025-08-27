@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        menu: "var(--bg-app)",
         dark: "var(--bg-app)",
         "primary-brand": "var(--primary-brand)",
         "ft-primary": "var(--ft-primary)",

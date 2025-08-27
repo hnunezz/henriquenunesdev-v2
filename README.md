@@ -4,24 +4,25 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 TODO:
 ## Home
-- Criar texto Home
+- Criar texto Home ✅
 - Links ✅
 - Download CV
 - Work Exp ✅
 ## Home
-- Projetos
+- Projetos✅
 - Texto aba projeto
 - View Projetos
 ## Contact
-- Agende agora
+- Agende agora ✅
 - Link contato ✅
 ## About
-- Links About
+- Links About✅
 - Fotos About
 ## Setup
 - Textos Setup
 ## More!
 - Botão trocar idioma
+- Aba Articles (FIGMA) ✅
 - Aba Articles
-- Responsividade Header
-- Menu Hamburguer para mobile
+- Responsividade Header✅
+- Menu Hamburguer para mobile✅

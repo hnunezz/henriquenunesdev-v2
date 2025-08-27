@@ -17,13 +17,6 @@ import { PagesAnchor } from '../../app.component';
       All rights reserved. </span>
   </footer>
   `,
-  styles: `
-    a {
-      &:nth-last-child(-n+2) {
-        @apply col-span-3 !important;
-      }
-    }
-  `
 })
 export class FooterComponent {
   router = inject(Router);
