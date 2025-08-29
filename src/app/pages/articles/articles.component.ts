@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './articles.component.scss'
 })
 export class ArticlesComponent {
-
+  goTo(url: string) {
+    window.open(url, '_blank');
+  }
 }

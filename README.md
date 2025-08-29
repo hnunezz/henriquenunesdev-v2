@@ -23,6 +23,7 @@ TODO:
 ## More!
 - Botão trocar idioma❌
 - Aba Articles (FIGMA) ✅
-- Aba Articles❌
+- Aba Articles ✅
+- View Articles ❌
 - Responsividade Header✅
 - Menu Hamburguer para mobile✅

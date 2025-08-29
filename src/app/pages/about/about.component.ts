@@ -11,10 +11,10 @@ import { DropAreaComponent } from '../../components/drop-area/drop-area.componen
 export class AboutComponent {
 
   cards: CardItem[] = [
-    { title: 'Projeto A', subtitle: 'Angular + Nest', image: 'assets/img/hns1.jpeg' },
-    { title: 'Projeto B', subtitle: 'UI/UX', image: 'assets/img/hns1.jpeg' },
-    { title: 'Projeto C', subtitle: 'Data Viz', image: 'assets/img/hns1.jpeg' },
-    { title: 'Projeto D', subtitle: 'Design System', image: 'assets/img/hns1.jpeg' },
+    { title: 'Projeto B', subtitle: 'UI/UX', image: 'zaira.jpg' },
+    { title: 'Projeto B', subtitle: 'UI/UX', image: 'zaira.jpg' },
+    { title: 'Projeto B', subtitle: 'UI/UX', image: 'zaira.jpg' },
+    { title: 'Projeto B', subtitle: 'UI/UX', image: 'zaira.jpg' },
   ];
 
   goTo(url: string) {

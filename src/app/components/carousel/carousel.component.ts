@@ -41,7 +41,7 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
   /** timer de autoplay opcional (comente se não quiser) */
   private timer: any = null;
   @Input() autoplay = true;
-  @Input() interval = 3000;
+  @Input() interval = 1000;
 
   /** array renderizado com clones (head + items + tail) */
   renderItems: Signal<CardItem[]> = computed(() => {

@@ -12,7 +12,7 @@
     <div class="track" [class.dragging]="dragging" [style.transform]="transform()"
          (transitionend)="onTransitionEnd()">
       <div class="slide max-md:w-full" *ngFor="let it of renderItems(); let i = index">
-          <img *ngIf="it.image" class="thumb" [src]="it.image" [alt]="it.title" loading="lazy" decoding="async">
+          <img *ngIf="it.image" class="thumb" [src]="'assets/img/carousel/'+it.image" [alt]="it.title" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
