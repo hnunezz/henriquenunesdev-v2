@@ -1,0 +1,16 @@
+<main class="px-10 max-md:px-1">
+  <h1 class="page-header  max-md:px-4">
+    <div (click)="router.navigate(['/projects'])"
+      class="h-10 w-10 rounded-full flex justify-center items-center cursor-pointer bg-[#27272a] transition-all duration-300 ease-in-out hover:bg-[#27272a85] hover:text-primary-brand">
+      <i class="fa-solid fa-arrow-left text-xl"></i>
+    </div>
+    {{projectFiltered().title}}
+
+
+    <span>{{projectFiltered().description}}</span>
+    <span class="flex items-center gap-3 text-sm transition-all duration-300 ease-in-out hover:text-primary-brand font-bold cursor-pointer" (click)="goTo(projectFiltered().link)"><i class="fa-solid fa-link text-primary-brand text-lg"></i> {{projectFiltered().link}}</span>
+  </h1>
+
+    <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+
+</main>

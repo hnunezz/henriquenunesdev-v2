@@ -1,44 +1,14 @@
 <section class="border-r-0 border-y-0 border-l-[3px] border-solid border-primary-brand max-md:ml-4">
   <ul class="flex flex-col gap-16 pt-5">
-    <li class="relative">
-      <div class="absolute left-[-12px] w-5 h-5 rounded-[20px] bg-primary-brand"></div>
-      <div class="flex flex-col pl-5 gap-2">
-        <small class="text-gray-primary font-light">2025</small>
-        <span class="text-ft-primary font-extrabold text-[26px]">Hex6 BoardGame</span>
-        <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">see more ></small>
-      </div>
-    </li>
-    <li class="relative">
-      <div class="absolute left-[-12px] w-5 h-5 rounded-[20px] bg-primary-brand"></div>
-      <div class="flex flex-col pl-5 gap-2">
-        <small class="text-gray-primary font-light">2025</small>
-        <span class="text-ft-primary font-extrabold text-[26px]">Whats my dream mean</span>
-        <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">see more ></small>
-      </div>
-    </li>
-    <li class="relative">
-      <div class="absolute left-[-12px] w-5 h-5 rounded-[20px] bg-primary-brand"></div>
-      <div class="flex flex-col pl-5 gap-2">
-        <small class="text-gray-primary font-light">2024</small>
-        <span class="text-ft-primary font-extrabold text-[26px]">Ultimate Champion Creator</span>
-        <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">see more ></small>
-      </div>
-    </li>
-    <!-- <li class="relative">
-      <div class="absolute left-[-12px] w-5 h-5 rounded-[20px] bg-primary-brand"></div>
-      <div class="flex flex-col pl-5 gap-2">
-        <small class="text-gray-primary font-light">2024</small>
-        <span class="text-ft-primary font-extrabold text-[26px]">Weeding App</span>
-        <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">see more ></small>
-      </div>
-    </li>
-    <li class="relative">
-      <div class="absolute left-[-12px] w-5 h-5 rounded-[20px] bg-primary-brand"></div>
-      <div class="flex flex-col pl-5 gap-2">
-        <small class="text-gray-primary font-light">2022</small>
-        <span class="text-ft-primary font-extrabold text-[26px]">Weeding App</span>
-        <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">see more ></small>
-      </div>
-    </li> -->
+    @for (project of projects(); track $index) {
+      <li class="relative">
+        <div class="absolute left-[-12px] w-5 h-5 rounded-[20px] bg-primary-brand"></div>
+        <div class="flex flex-col pl-5 gap-2">
+          <small class="text-gray-primary font-light">{{project.year}}</small>
+          <span class="text-ft-primary font-extrabold text-[26px]">{{project.title}}</span>
+          <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="seeMore(project.path)">see more ></small>
+        </div>
+      </li>
+    }
   </ul>
 </section>

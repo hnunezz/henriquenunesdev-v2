@@ -17,7 +17,8 @@ TODO:
 - Link contato ✅
 ## About
 - Links About✅
-- Fotos About❌
+- Fotos About✅
+- Fotos Perfil About❌
 ## Setup
 - Textos Setup❌
 ## More!

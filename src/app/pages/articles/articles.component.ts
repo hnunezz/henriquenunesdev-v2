@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-articles',
   imports: [],
   templateUrl: './articles.component.html',
-  styleUrl: './articles.component.scss'
 })
 export class ArticlesComponent {
   goTo(url: string) {

@@ -1,6 +1,22 @@
-import { Component } from '@angular/core';
-import { TimelineComponent } from '../../components/timeline/timeline.component';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
+import { TimelineComponent } from '../../components/timeline/timeline.component';
+import { ProjectsService } from '../../projects.service';
+
+export interface IProject {
+  year: string;
+  title: string;
+  description: string;
+  path: string;
+  link: string;
+  images: [
+    {
+      url: string,
+      alt: string,
+    }
+  ];
+}
 @Component({
   selector: 'app-projects',
   imports: [TimelineComponent],
@@ -14,10 +30,11 @@ import { TimelineComponent } from '../../components/timeline/timeline.component'
         These are the personal projects I am most proud of.</span>
     </h1>
 
-    <app-timeline />
+    <app-timeline [projects]="projectsSignal()"/>
   </main>
   `,
 })
 export class ProjectsComponent {
-
+  private projectsService = inject(ProjectsService);
+  projectsSignal = toSignal(this.projectsService.get(), { initialValue: [] });
 }

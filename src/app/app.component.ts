@@ -38,8 +38,8 @@ export class AppComponent {
   title = 'Henrique Nunes';
 
   constructor() {
-    this.listenRoutes();
     this.getTheme();
+    this.listenRoutes();
   }
 
   private listenRoutes() {
@@ -58,8 +58,14 @@ export class AppComponent {
   }
 
   private formatRouteTitle(route: string): string {
-  const clean = route.replace('/', '');
-  return clean.charAt(0).toUpperCase() + clean.slice(1);
+  const cleanPath = route.split('?')[0].split('#')[0];
+  const firstSegment = cleanPath.replace(/^\/+/, '').split('/')[0] || 'home';
+
+  return firstSegment
+    .split('-')
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
 }
 
   private getTheme() {
