@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ThemeService } from './theme.service';
+import { ThemeService } from './core/services/theme.service';
 import { Title } from '@angular/platform-browser';
 import { MenuComponent } from './components/menu/menu.component';
 

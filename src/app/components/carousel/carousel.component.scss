@@ -6,8 +6,8 @@
   overflow: hidden;
   padding: 1rem 0;
   /* controle responsivo (ajuste se quiser) */
-  --gap: 16px;
-  --per-view: 3;
+  --gap: 6px;
+  --per-view: 4;
 }
 @media (max-width: 900px) {
   .carousel {
@@ -16,7 +16,7 @@
 }
 @media (max-width: 600px) {
   .carousel {
-    --per-view: 1.2;
+    --per-view: 2;
   }
 }
 

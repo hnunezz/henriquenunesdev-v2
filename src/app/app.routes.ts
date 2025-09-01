@@ -11,14 +11,19 @@ export const routes: Routes = [
     redirectTo: "/home",
     pathMatch: "full",
   },
-  {path: "home", component: HomeComponent},
+  { path: "home", component: HomeComponent },
   {
     path: "projects",
     loadChildren: () =>
       import('./pages/projects/projects.routes').then((c) => c.routes),
   },
-  {path: "articles", component: ArticlesComponent},
-  {path: "contact", component: ContactComponent},
-  {path: "about", component: AboutComponent},
-  {path: "setup", component: SetupComponent},
+  {
+    path: "articles",
+    loadChildren: () =>
+      import('./pages/articles/articles.routes').then((c) => c.routes),
+  },
+  { path: "contact", component: ContactComponent },
+  { path: "about", component: AboutComponent },
+  { path: "setup", component: SetupComponent },
+  { path: '**', redirectTo: '/home' },
 ];

@@ -1,16 +1,25 @@
 <main class="px-10 max-md:px-1">
-  <h1 class="page-header  max-md:px-4">
+  <h1 class="page-header  max-md:px-4 max-md:text-center">
     <div (click)="router.navigate(['/projects'])"
-      class="h-10 w-10 rounded-full flex justify-center items-center cursor-pointer bg-[#27272a] transition-all duration-300 ease-in-out hover:bg-[#27272a85] hover:text-primary-brand">
-      <i class="fa-solid fa-arrow-left text-xl"></i>
+      class="h-10 w-10 rounded-full flex justify-center items-center cursor-pointer bg-[#27272a] transition-all duration-300 ease-in-out  text-[#c8c8c8] hover:text-primary-brand">
+      <i class="fa-solid fa-arrow-left text-xl "></i>
     </div>
     {{projectFiltered().title}}
 
 
-    <span>{{projectFiltered().description}}</span>
-    <span class="flex items-center gap-3 text-sm transition-all duration-300 ease-in-out hover:text-primary-brand font-bold cursor-pointer" (click)="goTo(projectFiltered().link)"><i class="fa-solid fa-link text-primary-brand text-lg"></i> {{projectFiltered().link}}</span>
+    <span class="text-base text-gray-primary max-md:text-center pr-0" [innerHTML]="projectFiltered().description | safeHtml"></span>
+    <span class="flex items-center gap-3 text-sm transition-all duration-300 ease-in-out hover:text-primary-brand font-bold cursor-pointer text-left pr-0" (click)="goTo(projectFiltered().link)"><i class="fa-solid fa-link text-primary-brand text-lg"></i> {{projectFiltered().link}}</span>
   </h1>
 
+  @if (projectFiltered().images.length > 0) {
     <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
 
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8 max-md:flex max-md:flex-col items-center">
+      @for (images of projectFiltered().images; track $index) {
+        <div class="group flex flex-col justify-between p-2 min-h-52 w-[95%] border solid border-gray-secondary bg-transparent cursor-pointer rounded-lg">
+          <img class="rounded-lg" [src]="images.url" [alt]="images.alt">
+        </div>
+      }
+    </div>
+  }
 </main>

@@ -2,7 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { PagesAnchor } from '../../app.component';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../core/services/theme.service';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../menu/menu.service';
 

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TimelineComponent } from '../../components/timeline/timeline.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ProjectsService } from '../../projects.service';
+import { ProjectsService } from '../../core/services/projects.service';
 
 @Component({
   selector: 'app-home',

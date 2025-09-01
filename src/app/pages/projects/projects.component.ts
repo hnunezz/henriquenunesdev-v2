@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { TimelineComponent } from '../../components/timeline/timeline.component';
-import { ProjectsService } from '../../projects.service';
+import { ProjectsService } from '../../core/services/projects.service';
 
 export interface IProject {
   year: string;
@@ -10,12 +10,7 @@ export interface IProject {
   description: string;
   path: string;
   link: string;
-  images: [
-    {
-      url: string,
-      alt: string,
-    }
-  ];
+  images: { url: string, alt: string }[];
 }
 @Component({
   selector: 'app-projects',

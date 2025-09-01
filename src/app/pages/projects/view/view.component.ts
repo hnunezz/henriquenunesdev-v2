@@ -1,13 +1,13 @@
 import { Component, computed, inject, Input, OnInit } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Router, RouterLink } from '@angular/router';
-import { ProjectsService } from '../../../projects.service';
+import { ProjectsService } from '../../../core/services/projects.service';
+import { SafeHtmlPipe } from '../../../core/pipe/safe-html.pipe';
 
 @Component({
   selector: 'app-view',
-  imports: [RouterLink],
+  imports: [RouterLink,SafeHtmlPipe],
   templateUrl: './view.component.html',
-  styleUrl: './view.component.scss'
 })
 export class ViewProjectComponent {
   @Input() path: string = '';

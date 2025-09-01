@@ -11,7 +11,8 @@ TODO:
 ## Home
 - Projetos✅
 - Texto aba projeto✅
-- View Projetos❌
+- View Projetos✅
+- Hex6 GameBoard❌
 ## Contact
 - Agende agora ✅
 - Link contato ✅
