@@ -16,10 +16,10 @@ export class AboutComponent {
     { title: 'Zaira', subtitle: 'Zaira', image: 'zaira.jpg' },
     { title: 'Setup', subtitle: 'Setup', image: 'image.png' },
     { title: 'voando', subtitle: 'voando', image: 'voando.jpeg' },
-    { title: 'Eu mesmoo!', subtitle: 'Henrique', image: 'Henrique-5.jpeg' },
+    { title: 'Eu mesmoo!', subtitle: 'Henrique', image: 'hns1.jpeg' },
     { title: 'Eu mesmoo!', subtitle: 'Henrique', image: 'Praia.jpeg' },
     { title: 'Setup-2', subtitle: 'MG_5824', image: 'IMG_5824.jpeg' },
-    { title: 'Setup-2', subtitle: '6AF19D3-', image: 'Henrique-4.jpeg' },
+    // { title: 'Setup-2', subtitle: '6AF19D3-', image: 'Henrique-4.jpeg' },
     { title: 'Setup-2', subtitle: 'Setup-2', image: 'Setup-2.jpeg' },
   ];
 

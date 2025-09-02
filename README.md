@@ -25,7 +25,7 @@ TODO:
 - Textos Setup✅
 - Adicionar links ao setup ❌
 ## More!
-- Botão trocar idioma❌
+- Botão trocar idioma✅
 - Aba Articles (FIGMA) ✅
 - Aba Articles ✅
 - View Articles ✅
