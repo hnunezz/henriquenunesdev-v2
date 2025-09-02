@@ -3,26 +3,25 @@ import { toSignal } from '@angular/core/rxjs-interop';
 
 import { TimelineComponent } from '../../components/timeline/timeline.component';
 import { ProjectsService } from '../../core/services/projects.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 export interface IProject {
   year: string;
   title: string;
-  description: string;
+  descriptionKey: string;
   path: string;
   link: string;
   images: { url: string, alt: string }[];
 }
 @Component({
   selector: 'app-projects',
-  imports: [TimelineComponent],
+  imports: [TimelineComponent,TranslateModule],
   template: `
   <main class="px-10">
     <h1 class="page-header">
-      My projects
+      {{"PROJECTS.TITLE" | translate}}
 
-      <span>I have worked on many projects over the years, from small applications to large systems.
-        Some are private, but all were built with the same passion and dedication.
-        These are the personal projects I am most proud of.</span>
+      <span>{{"PROJECTS.DESCRIPTION" | translate}}</span>
     </h1>
 
     <app-timeline [projects]="projectsSignal()"/>

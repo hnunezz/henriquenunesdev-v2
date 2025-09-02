@@ -3,10 +3,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { ArticlesService, IArticles } from '../../core/services/articles.service';
 import { ShortDateIntlPipe } from '../../core/pipe/short-date.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-articles',
-  imports: [ShortDateIntlPipe],
+  imports: [ShortDateIntlPipe,TranslateModule],
   templateUrl: './articles.component.html',
 })
 export class ArticlesComponent implements OnInit{

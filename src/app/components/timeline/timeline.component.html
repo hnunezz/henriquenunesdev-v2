@@ -6,7 +6,7 @@
         <div class="flex flex-col pl-5 gap-2">
           <small class="text-gray-primary font-light">{{project.year}}</small>
           <span class="text-ft-primary font-extrabold text-[26px]">{{project.title}}</span>
-          <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="seeMore(project.path)">see more ></small>
+          <small class="text-gray-primary font-medium ont-normal text-lg cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="seeMore(project.path)">{{'TIMELINE.ACTION' | translate}} ></small>
         </div>
       </li>
     }

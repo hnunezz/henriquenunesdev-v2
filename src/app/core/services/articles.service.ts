@@ -1,7 +1,6 @@
-import { DestroyRef, inject, Injectable } from '@angular/core';
-import { map, Observable, of, shareReplay, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { map, Observable, shareReplay } from 'rxjs';
 
 export interface IArticles {
   title: string;

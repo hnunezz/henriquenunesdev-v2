@@ -11,11 +11,11 @@
         </div>
       </div>
 
-      @for (nav of navigation; track $index) {
+      @for (nav of navigation(); track $index) {
       <li
         class="p-3 text-center rounded-lg transition-all duration-300 ease-in-out text-[#e8e8e8] border solid border-transparent hover:border-[#7b3af2] hover:bg-[#7a3af21f] cursor-pointer font-medium hover:text-white hover:font-bold"
         (click)="onSelect(nav.anchor)">
-        <span class="text-2xl">{{nav.label}}</span>
+        <span class="text-2xl"> {{nav.labelKey | translate}}</span>
       </li>
       }
     </ul>

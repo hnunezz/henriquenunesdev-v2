@@ -20,22 +20,18 @@
     <aside class="flex flex-col gap-8 max-md:text-center">
       <h1 class="text-6xl font-extrabold">Henrique Nunes</h1>
       <p>
-        I'm Henrique Nunes, 23 years old, and I've been programming since 2018. I turned my hobby into a profession in
-        2021, when I started my career in technology. Since then, I've worked primarily in <b
-          class="text-ft-primary">Front-End Development</b>,
-        specializing in the <b class="text-red-500">Angular Framework</b>, which has become my main work tool.
+        {{"ABOUT.LINE_1.DESCRIPTION" | translate}}
+        <b class="text-ft-primary"> {{"ABOUT.LINE_1.FRONT-END" | translate}}</b>,
+        {{"ABOUT.LINE_1.SPECIALIZING" | translate}} <b class="text-red-500">{{"ABOUT.LINE_1.ANGULAR" | translate}}</b>,
+        {{"ABOUT.LINE_1.WORK_TOOL" | translate}}.
         <br /> <br />
 
-        Developing has always been a hobby before becoming a profession. I enjoy developing solutions, studying, and
-        consuming a lot of content from the dev community!
+        {{"ABOUT.LINE_2.DESCRIPTION" | translate}}
         <br /> <br />
 
-        Outside of VSCode, I really like tattoos and I'm passionate about soccer (<b
-          class="text-ft-primary">Corinthians</b>).<br/> I appreciate a good beer and listen to good rap music. <br/> I listen to anything that
-        sparks good energy. <b class="text-ft-primary italic">TOCA
-          RAUL</b>! <br />
-        I collect stickers and some cool records, and I'm always up to date with fashion and streetwear in general. Long
-        live hip-hop.
+        {{"ABOUT.LINE_3.DESCRIPTION" | translate}}
+        (<b class="text-ft-primary">Corinthians</b>).<br /> {{"ABOUT.LINE_3.DESCRIPTION_2" | translate}}  <b class="text-ft-primary italic">TOCA RAUL</b>! <br />
+        {{"ABOUT.LINE_3.DESCRIPTION_3" | translate}}
 
       </p>
     </aside>
@@ -44,13 +40,13 @@
   <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
 
   <div class="px-10">
-    <h1 class="text-3xl font-extrabold pl-5 mb-12 max-md:p-0 max-md:text-center">some technologies</h1>
+    <h1 class="text-3xl font-extrabold pl-5 mb-12 max-md:p-0 max-md:text-center">{{"ABOUT.TITLE_SECT1" | translate}}</h1>
 
     <app-drop-area />
   </div>
 
   <div>
-    <h1 class="text-3xl font-extrabold mb-12 pl-[60px] max-md:p-0 max-md:text-center">more things about me</h1>
+    <h1 class="text-3xl font-extrabold mb-12 pl-[60px] max-md:p-0 max-md:text-center">{{"ABOUT.TITLE_SECT2" | translate}}</h1>
 
     <app-card-carousel [data]="cards" [interval]="3500">
     </app-card-carousel>

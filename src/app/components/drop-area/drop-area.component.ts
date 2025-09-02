@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 type PlacedItem = { id: number; label: string; color: string; x: number; y: number };
 
 @Component({
   selector: 'app-drop-area',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './drop-area.component.html',
   styles: `
     .drop-area {

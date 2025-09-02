@@ -8,7 +8,7 @@
         (drop)="onDrop($event)"
       >
         @if (items.length === 0) {
-          <span class="opacity-60 font-semibold text-center max-md:text-xs">Bring the technologies in here!</span>
+          <span class="opacity-60 font-semibold text-center max-md:text-xs">{{"ABOUT.DROPAREA" | translate}}</span>
         }
 
         @for (it of items; track $index) {

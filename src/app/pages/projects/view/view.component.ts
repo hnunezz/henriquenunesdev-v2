@@ -1,12 +1,13 @@
-import { Component, computed, inject, Input, OnInit } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Router, RouterLink } from '@angular/router';
-import { ProjectsService } from '../../../core/services/projects.service';
+import { Router } from '@angular/router';
 import { SafeHtmlPipe } from '../../../core/pipe/safe-html.pipe';
+import { ProjectsService } from '../../../core/services/projects.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view',
-  imports: [RouterLink,SafeHtmlPipe],
+  imports: [SafeHtmlPipe,TranslateModule],
   templateUrl: './view.component.html',
 })
 export class ViewProjectComponent {

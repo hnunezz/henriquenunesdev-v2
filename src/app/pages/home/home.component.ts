@@ -4,10 +4,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ProjectsService } from '../../core/services/projects.service';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [TimelineComponent],
+  imports: [TimelineComponent, TranslateModule
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -23,9 +25,9 @@ export class HomeComponent {
   ]
 
   constructor(
-  private http: HttpClient,
-  @Inject(PLATFORM_ID) private platformId: Object
-) {}
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   goTo(url: string) {
     window.open(url, '_blank');

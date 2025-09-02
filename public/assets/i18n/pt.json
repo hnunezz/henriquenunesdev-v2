@@ -1,8 +1,117 @@
 {
-  "LANG": {
-    "SWITCH": "Mudar para {{lang}}"
-  },
   "HOME": {
-    "HELLO": "Olá, mundo!"
+    "DESCRIPTION": "Sou Henrique Nunes, engenheiro de software especializado em aplicações front-end. Moro em São Paulo e gosto muito de tecnologia.",
+    "WORK_EXP": "Experiências"
+  },
+  "TIMELINE": {
+    "ACTION": "ver mais"
+  },
+  "PROJECTS": {
+    "TITLE": "Meus projetos",
+    "DESCRIPTION": "Trabalhei em muitos projetos ao longo dos anos, de pequenas aplicações a grandes sistemas. Alguns são privados, mas todos foram feitos com a mesma paixão e dedicação. Estes são os projetos pessoais que mais me orgulho."
+  },
+  "ARTICLES": {
+    "TITLE": "Artigos",
+    "DESCRIPTION": "algumas coisas que venho escrevendo, me acompanhe no",
+    "READ": "ler artigo"
+  },
+  "CONTACT": {
+    "TITLE": "Contato",
+    "DESCRIPTION": "Trocar ideias? Proposta de trabalho? Novo site?",
+    "TALKTOME": "Fale comigo!",
+    "SCHEDULE": "Agende agora"
+  },
+  "ABOUT": {
+    "TITLE_SECT1": "algumas tecnologias",
+    "TITLE_SECT2": "mais coisas sobre mim",
+    "DROPAREA": "Arraste as tecnologias para cá!",
+    "LINE_1": {
+      "DESCRIPTION": "Sou Henrique Nunes, tenho 23 anos e programo desde 2018. Transformei meu hobby em profissão em 2021, quando iniciei minha carreira em tecnologia. Desde então, tenho trabalhado principalmente com",
+      "FRONT-END": "Desenvolvimento Front-End",
+      "SPECIALIZING": "especializando no ",
+      "ANGULAR": "Framework Angular",
+      "WORK_TOOL": "que se tornou minha principal ferramenta de trabalho"
+    },
+    "LINE_2": {
+      "DESCRIPTION": "Desenvolver sempre foi um hobby antes de virar profissão. Gosto de criar soluções, estudar e consumir muito conteúdo da comunidade dev!"
+    },
+    "LINE_3": {
+      "DESCRIPTION": " Fora do VSCode, gosto muito de tatuagens e sou apaixonado por futebol",
+      "DESCRIPTION_2": "Aprecio uma boa cerveja e ouvir um bom rap. Escuto qualquer coisa que traga boas energias.",
+      "DESCRIPTION_3": "Coleciono adesivos e alguns discos maneiros, e estou sempre por dentro de moda e streetwear no geral. Vida longa ao hip-hop."
+    }
+  },
+  "FOOTER": {
+    "DESCRIPTION": "Todos os direitos reservados"
+  },
+  "SETUP": {
+    "DESCRIPTION": "Um pouco sobre minha rotina, o que tenho na mesa e os equipamentos que uso no dia a dia.",
+    "WORKSTATION": {
+      "ITEM_1": {
+        "DESCRIPTION": "O melhor notebook que já tive — prático para o dia a dia e impecável em desempenho, além da integração suave com o ecossistema Apple."
+      },
+      "ITEM_2": {
+        "DESCRIPTION": "Um monitor voltado para games que não atrapalha o trabalho diário. É até legal brincar nas configurações... eu só quase não uso."
+      },
+      "ITEM_3": {
+        "DESCRIPTION": "Fones muito práticos para o dia a dia, com ótima qualidade de som e supressão de ruído."
+      },
+      "ITEM_4": {
+        "DESCRIPTION": "Teclado simples, ergonômico e bem em conta, que encaixa perfeito no ecossistema Apple."
+      },
+      "ITEM_5": {
+        "DESCRIPTION": "Mouse gamer que uso quando bate a vontade de jogar."
+      },
+      "ITEM_6": {
+        "DESCRIPTION": "Melhor custo-benefício de microfone de mesa que já vi — qualidade de som fantástica."
+      }
+    },
+    "DEV_TOOLS": {
+      "ITEM_1": {
+        "DESCRIPTION": "A melhor IDE que já usei — muitas extensões e uso para todas as linguagens."
+      },
+      "ITEM_2": {
+        "DESCRIPTION": "Minha ferramenta preferida para lidar com APIs RESTful."
+      },
+      "ITEM_3": {
+        "DESCRIPTION": "Ferramenta que uso para prototipar e tirar ideias do papel."
+      },
+      "ITEM_4": {
+        "DESCRIPTION": "Conjunto de agentes de IA que me ajudam em várias tarefas do dia a dia."
+      }
+    },
+    "PRODUCTIVITY": {
+      "ITEM_1": {
+        "DESCRIPTION": "Como bom entusiasta de tecnologia, adoro fazer anotações em cadernos que levo sempre comigo."
+      },
+      "ITEM_2": {
+        "DESCRIPTION": "Minha vida é organizada no Notion — várias seções, páginas e gatilhos, do financeiro às notas e listas de tarefas."
+      },
+      "ITEM_3": {
+        "DESCRIPTION": "O Apple Focus é poderoso quando as notificações são a maior fonte de distração do dia."
+      },
+      "ITEM_4": {
+        "DESCRIPTION": "Não consigo programar sem música — me ajuda muito a focar."
+      }
+    }
+  },
+  "NAV": {
+    "HOME": "Início",
+    "PROJECTS": "Projetos",
+    "ARTICLES": "Artigos",
+    "CONTACT": "Contato",
+    "ABOUT": "Sobre",
+    "SETUP": "Setup"
+  },
+  "PROJECTS-VIEW": {
+    "HEX6": {
+      "DESCRIPTION": "Jogo de tabuleiro estratégico, baseado em peças hexagonais. O objetivo é alinhar 10 peças da mesma cor para marcar pontos e progredir na partida."
+    },
+    "WMDM": {
+      "DESCRIPTION": "Um projeto interativo de interpretação de sonhos, desenvolvido com a API da OpenAI para fornecer respostas inteligentes com base em significados tradicionais, culturais e psicológicos.<br/><br/>A aplicação foi construída com <b>Angular v19 + NextJS</b>.<br/><br/>A experiência do usuário é o foco principal: interface leve, campo para digitar sonhos e retorno instantâneo da análise."
+    },
+    "UCC": {
+      "DESCRIPTION": "Crie seu próprio campeão de LoL combinando habilidades icônicas! Monte os comandos <b>P</b>, <b>Q</b>, <b>W</b>, <b>E</b> e <b>R</b> com qualquer skill do jogo.<br/><br/>Use a criatividade! Combine efeitos, sinergias e estratégias para surpreender os oponentes.<br/><br/>Compartilhe sua criação! Mostre seu campeão personalizado nas redes e desafie seus amigos!"
+    }
   }
 }

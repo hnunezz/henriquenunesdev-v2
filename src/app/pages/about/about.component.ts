@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CardCarouselComponent, CardItem } from '../../components/carousel/carousel.component';
 import { DropAreaComponent } from '../../components/drop-area/drop-area.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
-  imports: [DropAreaComponent, CardCarouselComponent],
+  imports: [DropAreaComponent, CardCarouselComponent, TranslateModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })

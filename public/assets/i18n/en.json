@@ -1,8 +1,117 @@
 {
-  "LANG": {
-    "SWITCH": "Switch to {{lang}}"
-  },
   "HOME": {
-    "HELLO": "Hello, world!"
+    "DESCRIPTION": "I'm Henrique Nunes, a software engineer specializing in front-end applications. I live in São Paulo and I really enjoy technology.",
+    "WORK_EXP": "Work exp."
+  },
+  "TIMELINE": {
+    "ACTION": "see more"
+  },
+  "PROJECTS": {
+    "TITLE": "My projects",
+    "DESCRIPTION": "I have worked on many projects over the years, from small applications to large systems. Some are private, but all were built with the same passion and dedication. These are the personal projects I am most proud of."
+  },
+  "ARTICLES": {
+    "TITLE": "Articles",
+    "DESCRIPTION": "some things I've been writing, follow me on",
+    "READ": "read article"
+  },
+  "CONTACT": {
+    "TITLE": "Contact me",
+    "DESCRIPTION": "Exchange ideas? Job proposal? New website? ",
+    "TALKTOME": "Talk to me!",
+    "SCHEDULE": "Schedule now"
+  },
+  "ABOUT": {
+    "TITLE_SECT1": "some technologies",
+    "TITLE_SECT2": "more things about me",
+    "DROPAREA": "Bring the technologies in here!",
+    "LINE_1": {
+      "DESCRIPTION": "I'm Henrique Nunes, 23 years old, and I've been programming since 2018. I turned my hobby into a profession in 2021, when I started my career in technology. Since then, I've worked primarily in",
+      "FRONT-END": "Front-End Development",
+      "SPECIALIZING": "specializing in the ",
+      "ANGULAR": "Angular Framework",
+      "WORK_TOOL": "which has become my main work tool"
+    },
+    "LINE_2": {
+      "DESCRIPTION": "Developing has always been a hobby before becoming a profession. I enjoy developing solutions, studying, andconsuming a lot of content from the dev community!"
+    },
+    "LINE_3": {
+      "DESCRIPTION": " Outside of VSCode, I really like tattoos and I'm passionate about soccer",
+      "DESCRIPTION_2": "I appreciate a good beer and listen to good rap music. I listen to anything that sparks good energy.",
+      "DESCRIPTION_3": "I collect stickers and some cool records, and I'm always up to date with fashion and streetwear in general. Longlive hip-hop."
+    }
+  },
+  "FOOTER": {
+    "DESCRIPTION": "All rights reserved"
+  },
+  "SETUP": {
+    "DESCRIPTION": "A little about my routine, what I have on my desk and the equipment I use on a day a day.",
+    "WORKSTATION": {
+      "ITEM_1": {
+        "DESCRIPTION": "The best laptop I've ever owned — practical for everyday use and flawless in performance, plus the smooth integration with the Apple ecosystem."
+      },
+      "ITEM_2": {
+        "DESCRIPTION": "A monitor geared for gaming that doesn't compromise daily work. It's even fun to tweak the settings... I just don't use them much."
+      },
+      "ITEM_3": {
+        "DESCRIPTION": "Very practical earbuds for daily use, with great sound and solid noise cancellation."
+      },
+      "ITEM_4": {
+        "DESCRIPTION": "Simple, ergonomic, and very affordable keyboard that fits perfectly into the Apple ecosystem."
+      },
+      "ITEM_5": {
+        "DESCRIPTION": "Gaming mouse I use when it's time to play something."
+      },
+      "ITEM_6": {
+        "DESCRIPTION": "Best cost-benefit desktop microphone I've seen — fantastic sound quality."
+      }
+    },
+    "DEV_TOOLS": {
+      "ITEM_1": {
+        "DESCRIPTION": "Best IDE I've used — tons of extensions, and I use it across all languages."
+      },
+      "ITEM_2": {
+        "DESCRIPTION": "My go-to tool to interact with RESTful APIs."
+      },
+      "ITEM_3": {
+        "DESCRIPTION": "My tool for prototyping and taking ideas off the ground."
+      },
+      "ITEM_4": {
+        "DESCRIPTION": "A set of AI agents that help me with several day-to-day tasks."
+      }
+    },
+    "PRODUCTIVITY": {
+      "ITEM_1": {
+        "DESCRIPTION": "As a true tech enthusiast, I love taking notes in notebooks I carry everywhere."
+      },
+      "ITEM_2": {
+        "DESCRIPTION": "My life is organized in Notion — multiple sections, pages, and triggers, from finances to notes and todo lists."
+      },
+      "ITEM_3": {
+        "DESCRIPTION": "Apple Focus is powerful when notifications are the biggest distraction in a busy day."
+      },
+      "ITEM_4": {
+        "DESCRIPTION": "I can't code without music — it helps me focus a lot."
+      }
+    }
+  },
+  "NAV": {
+    "HOME": "Home",
+    "PROJECTS": "Projects",
+    "ARTICLES": "Articles",
+    "CONTACT": "Contact",
+    "ABOUT": "About",
+    "SETUP": "Setup"
+  },
+  "PROJECTS-VIEW": {
+    "HEX6": {
+      "DESCRIPTION": "Strategic board game, based on hexagonal tiles. The goal is to align 10 tiles of the same color to score points and progress in the match."
+    },
+    "WMDM": {
+      "DESCRIPTION": "An interactive dream interpretation project was developed using the OpenAI API to provide intelligent responses based on traditional, cultural, and psychological meanings.<br/><br/>The application was built with <b>Angular v19 + NextJS</b>.<br/><br/>The user experience is the main focus: featuring a lightweight interface, a field to enter dreams, and instant analysis feedback."
+    },
+    "UCC": {
+      "DESCRIPTION": "Create your own LoL champion by combining iconic abilities! Combine the <b>P</b>, <b>Q</b>, <b>W</b>, <b>E</b>, and <b>R</b> commands with any skill in the game.<br/><br/>Get creative! Combine effects, synergies, and strategies to surprise your opponents.<br/><br/>Share your creation! Show off your custom champion on social media and challenge your friends!"
+    }
   }
 }

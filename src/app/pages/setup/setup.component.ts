@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-setup',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './setup.component.html',
   styleUrl: './setup.component.scss'
 })
@@ -14,30 +15,29 @@ export class SetupComponent {
       items: [
         {
           title: 'MacBook Pro de 14”, M4 Pro, 24 GB de RAM (2024)',
-          description: `The best laptop I've ever had, very practical for everyday use and leaves nothing to be
-                  desired in terms of performance, apart from the integration with the Apple ecosystem`,
+          descriptionKey: 'SETUP.WORKSTATION.ITEM_1.DESCRIPTION',
         },
         {
           title: `Montior AOC 24" 144Hz 1MS FreeSync`,
-          description: `Monitor very prepared for games and this does not change the day-to-day experience at all, in fact, it is even cool to have all the settings... I just don't use it`,
+          descriptionKey: 'SETUP.WORKSTATION.ITEM_2.DESCRIPTION',
         },
         {
           title: 'JBL Tune 130nc TWS',
-          description: `Very practical headphones for everyday use, extraordinary sound quality and noise suppression`,
+          descriptionKey: 'SETUP.WORKSTATION.ITEM_3.DESCRIPTION',
         },
         {
           title: 'Logitech Pebble Keys 2 K380s',
-          description: `Simple, ergonomic and very cheap keyboard for the Apple ecosystem`,
+          descriptionKey: 'SETUP.WORKSTATION.ITEM_4.DESCRIPTION',
         },
         {
           title: 'Logitech G PRO Wireless',
-          description: `Gaming mouse used when I decide to play something`,
+          descriptionKey: 'SETUP.WORKSTATION.ITEM_5.DESCRIPTION',
         },
         {
           title: 'Fifine AmpliGame A8 Microphone',
-          description: `Best value desktop microphone I've ever seen, fantastic sound quality`,
+          descriptionKey: 'SETUP.WORKSTATION.ITEM_6.DESCRIPTION',
         },
-      ]
+      ],
     },
     {
       id: 2,
@@ -45,21 +45,21 @@ export class SetupComponent {
       items: [
         {
           title: 'VSCode',
-          description: `Best IDE I've ever used, lots of extensions and I use it for all languages`,
+          descriptionKey: 'SETUP.DEV_TOOLS.ITEM_1.DESCRIPTION',
         },
         {
           title: 'Postman',
-          description: 'Best tool to handle Restful API',
+          descriptionKey: 'SETUP.DEV_TOOLS.ITEM_2.DESCRIPTION',
         },
         {
           title: 'Figma',
-          description: 'Figma is the tool I use to prototype and get some ideas off the ground',
+          descriptionKey: 'SETUP.DEV_TOOLS.ITEM_3.DESCRIPTION',
         },
         {
           title: 'AI Agents',
-          description: 'Set of AI agents that help me with various daily tasks',
+          descriptionKey: 'SETUP.DEV_TOOLS.ITEM_4.DESCRIPTION',
         },
-      ]
+      ],
     },
     {
       id: 3,
@@ -67,21 +67,22 @@ export class SetupComponent {
       items: [
         {
           title: 'Notebooks',
-          description: 'As a good technology enthusiast, I really enjoy taking notes in notebooks that I always carry with me.',
+          descriptionKey: 'SETUP.PRODUCTIVITY.ITEM_1.DESCRIPTION',
         },
         {
           title: 'Notion',
-          description: 'My whole life is organized in Notion, with several sections, pages and triggers, from financial to notes and Todo Lists',
+          descriptionKey: 'SETUP.PRODUCTIVITY.ITEM_2.DESCRIPTION',
         },
         {
           title: 'Apple Focus',
-          description: 'Apple Focus activated has many powers when the biggest focus of distraction in everyday life is our notifications',
+          descriptionKey: 'SETUP.PRODUCTIVITY.ITEM_3.DESCRIPTION',
         },
         {
           title: 'Spotify',
-          description: `I can't program without music and it helps me a lot to focus on tasks`,
+          descriptionKey: 'SETUP.PRODUCTIVITY.ITEM_4.DESCRIPTION',
         },
-      ]
-    }
-  ]
+      ],
+    },
+  ];
+
 }
