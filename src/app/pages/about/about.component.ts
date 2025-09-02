@@ -26,3 +26,10 @@ export class AboutComponent {
     window.open(url, '_blank');
   }
 }
+
+// Sou Henrique Nunes, tenho 23 anos e programo desde 2018. Transformei meu hobby em profissão em 2021, quando iniciei minha carreira na área de tecnologia. Desde então, atuo principalmente com Desenvolvimento Front-End, com especialização no framework Angular, que se tornou minha principal ferramenta de trabalho.
+
+// Desenvolver antes de ser uma profissão, sempre foi um hobby, gosto de desenvolver soluções, estudar e consumir bastante conteúdo da bolha dev!.
+
+// Fora do VSCode curto muito tatuagem e sou apaixonado futebol (Corinthiano roxo!) Não perco a chance de sofrer pelo timão. Aprecio uma boa cerveja ouvindo um bom RAP, ouço tudo que desperta uma boa energia, TOCA RAUL!
+// Coleciono adesivos e uns discos maneiro, sempre antenado também em moda e streetwear num geral, viva o hip-hop.

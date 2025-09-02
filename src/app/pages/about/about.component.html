@@ -6,37 +6,37 @@
       </div>
 
       <div class="text-[40px] flex gap-4">
- <i
-          class="fa-brands fa-github text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="goTo('https://github.com/hnunezz')"></i>
-        <i
-          class="fa-brands fa-x-twitter text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="goTo('')"></i>
-        <i
-          class="fa-brands fa-instagram text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="goTo('https://www.instagram.com/hnunes0/')"></i>
-        <i
-          class="fa-brands fa-linkedin text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand" (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
+        <i class="fa-brands fa-github text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('https://github.com/hnunezz')"></i>
+        <i class="fa-brands fa-x-twitter text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('')"></i>
+        <i class="fa-brands fa-instagram text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('https://www.instagram.com/hnunes0/')"></i>
+        <i class="fa-brands fa-linkedin text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+          (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
       </div>
     </aside>
 
     <aside class="flex flex-col gap-8 max-md:text-center">
       <h1 class="text-6xl font-extrabold">Henrique Nunes</h1>
       <p>
-        Sou Henrique Nunes, tenho 23 anos e programo desde 2018. Transformei meu hobby em profissão em 2021, quando
-        iniciei minha carreira na área de tecnologia.
-        Desde então, atuo principalmente com <b class="text-ft-primary">Desenvolvimento Front-End</b>, com especialização no
-        framework <b class="text-red-500">Angular</b>, que se tornou minha principal
-        ferramenta de trabalho.
+        I'm Henrique Nunes, 23 years old, and I've been programming since 2018. I turned my hobby into a profession in
+        2021, when I started my career in technology. Since then, I've worked primarily in <b
+          class="text-ft-primary">Front-End Development</b>,
+        specializing in the <b class="text-red-500">Angular Framework</b>, which has become my main work tool.
         <br /> <br />
 
-
-        Desenvolver antes de ser uma profissão, sempre foi um hobby, gosto de desenvolver soluções, estudar e consumir
-        bastante conteúdo da bolha dev!.
+        Developing has always been a hobby before becoming a profession. I enjoy developing solutions, studying, and
+        consuming a lot of content from the dev community!
         <br /> <br />
 
-        Fora do VSCode curto muito tatuagem e sou apaixonado futebol (<b class="text-ft-primary">Corinthiano</b> roxo!) Não perco a chance de
-        sofrer pelo timão.
-        Aprecio uma boa cerveja ouvindo um bom RAP, ouço tudo que desperta uma boa energia, <b class="text-ft-primary">TOCA
-          RAUL!</b> <br />
-        Coleciono adesivos e uns discos maneiro, sempre antenado também em moda e streetwear num geral, viva o hip-hop.
+        Outside of VSCode, I really like tattoos and I'm passionate about soccer (<b
+          class="text-ft-primary">Corinthians</b>).<br/> I appreciate a good beer and listen to good rap music. <br/> I listen to anything that
+        sparks good energy. <b class="text-ft-primary italic">TOCA
+          RAUL</b>! <br />
+        I collect stickers and some cool records, and I'm always up to date with fashion and streetwear in general. Long
+        live hip-hop.
+
       </p>
     </aside>
   </div>
@@ -46,15 +46,13 @@
   <div class="px-10">
     <h1 class="text-3xl font-extrabold pl-5 mb-12 max-md:p-0 max-md:text-center">some technologies</h1>
 
-    <app-drop-area/>
+    <app-drop-area />
   </div>
 
   <div>
     <h1 class="text-3xl font-extrabold mb-12 pl-[60px] max-md:p-0 max-md:text-center">more things about me</h1>
 
-    <app-card-carousel
-      [data]="cards"
-      [interval]="3500">
+    <app-card-carousel [data]="cards" [interval]="3500">
     </app-card-carousel>
   </div>
 </main>

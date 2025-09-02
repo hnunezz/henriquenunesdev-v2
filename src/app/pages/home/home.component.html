@@ -54,7 +54,7 @@
       </div>
 
       <div class="rounded-lg border border-solid border-gray-secondary">
-        <ul class="flex flex-col gap-8 p-3">
+        <ul class="flex flex-col gap-8 p-3 max-md:py-3 max-md:px-2">
           @for (work of works; track $index) {
             <li class="flex gap-3 transition-all duration-300 ease-in-out p-2 hover:bg-[#54545442] hover:rounded-lg">
               <div class="w-[50px] h-10 rounded-[60px] bg-[transparent] flex justify-center items-center">
@@ -62,9 +62,9 @@
               </div>
               <span class="text-ft-primary font-semibold w-full">
                 <span class="text-ft-primary font-semibold w-full">{{work.title}}</span>
-                <div class="flex justify-between w-full">
+                <div class="flex justify-between w-full max-md:gap-3">
                   <small class="font-extralight text-gray-primary">{{work.role}}</small>
-                  <small class="font-extralight text-gray-primary">{{work.date}}</small>
+                  <small class="font-extralight text-gray-primary max-md:whitespace-nowrap">{{work.date}}</small>
                 </div>
               </span>
             </li>

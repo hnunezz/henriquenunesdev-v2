@@ -20,12 +20,14 @@ TODO:
 - Links About✅
 - Fotos About✅
 - Fotos Perfil About❌
+- Traduzir pro ingles❌
 ## Setup
-- Textos Setup❌
+- Textos Setup✅
+- Adicionar links ao setup ❌
 ## More!
 - Botão trocar idioma❌
 - Aba Articles (FIGMA) ✅
 - Aba Articles ✅
-- View Articles ❌
+- View Articles ✅
 - Responsividade Header✅
 - Menu Hamburguer para mobile✅

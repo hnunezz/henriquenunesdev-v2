@@ -12,11 +12,24 @@ export class ProjectsService {
       year: '2025',
       title: 'Hex6 BoardGame',
       description: `
-        N/A
+        Strategic board game, based on hexagonal tiles. The goal is to align 10 tiles of the same color to score points and progress in the match.
       `,
       path: 'hex-6-board-game',
-      link: 'N/A',
-      images: [],
+      link: 'https://github.com/hnunezz/Hex6-BoardGame',
+      images: [
+        {
+          url: 'assets/img/projects/HEX1.png',
+          alt: 'HEX1',
+        },
+        {
+          url: 'assets/img/projects/HEX2.png',
+          alt: 'HEX2',
+        },
+        {
+          url: 'assets/img/projects/HEX3.png',
+          alt: 'HEX3',
+        },
+      ],
     },
     {
       year: '2025',

@@ -42,3 +42,44 @@ body {
   background-color: var(--bg-app);
   color: var(--text-app-primary);
 }
+
+
+.article {
+    line-height: 30px;
+
+  blockquote {
+        @apply text-ft-primary;
+
+    font-style: italic !important;
+  }
+
+  figure {
+    text-align: center;
+    margin: 20px 0;
+    // display: none;
+
+    figcaption {
+      display: none;
+    }
+  }
+
+  h3 {
+    @apply text-ft-primary text-2xl font-extrabold;
+  }
+
+  strong {
+    @apply text-ft-primary
+  }
+
+  ul {
+    list-style-type: disc;
+
+    li {
+      @apply text-gray-primary;
+
+      strong {
+        @apply text-ft-primary;
+      }
+    }
+  }
+}

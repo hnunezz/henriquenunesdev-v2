@@ -1,1 +1,14 @@
-<p>view-article works!</p>
+<main class="px-10 max-md:px-1">
+  <h1 class="page-header text-2xl text-center mb-0">
+    {{article.title}}
+
+    <i class=" text-[30px] fa-brands fa-medium cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
+      (click)="goTo(article.link)"> </i>
+  </h1>
+
+  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-20">
+
+  <div class="flex justify-center items-center">
+    <div class="article flex flex-col gap-8 text-lg w-[80%] font-medium text-gray-primary" [innerHTML]="article.content | safeHtml"></div>
+  </div>
+</main>
