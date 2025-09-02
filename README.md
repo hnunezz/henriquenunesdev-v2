@@ -6,13 +6,13 @@ TODO:
 ## Home
 - Criar texto Home ✅
 - Links ✅
-- Download CV❌
+- Download CV✅
 - Work Exp ✅
 ## Home
 - Projetos✅
 - Texto aba projeto✅
 - View Projetos✅
-- Hex6 GameBoard❌
+- Hex6 GameBoard✅
 ## Contact
 - Agende agora ✅
 - Link contato ✅
@@ -20,7 +20,7 @@ TODO:
 - Links About✅
 - Fotos About✅
 - Fotos Perfil About❌
-- Traduzir pro ingles❌
+- Traduzir pro ingles✅
 ## Setup
 - Textos Setup✅
 - Adicionar links ao setup ❌
