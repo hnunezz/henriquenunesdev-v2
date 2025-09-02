@@ -19,7 +19,7 @@ TODO:
 ## About
 - Links About✅
 - Fotos About✅
-- Fotos Perfil About❌
+- Fotos Perfil About✅
 - Traduzir pro ingles✅
 ## Setup
 - Textos Setup✅
