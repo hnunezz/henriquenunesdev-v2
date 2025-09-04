@@ -1,6 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { IProject } from '../../pages/projects/projects.component';
-import { delay, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ProjectsService {
       title: 'Hex6 BoardGame',
       descriptionKey: 'PROJECTS-VIEW.HEX6.DESCRIPTION',
       path: 'hex-6-board-game',
-      link: 'https://github.com/hnunezz/Hex6-BoardGame',
+      link: 'https://hex6-boardgame.vercel.app/',
       images: [
         {
           url: 'assets/img/projects/HEX1.png',
