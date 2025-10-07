@@ -22,20 +22,16 @@ export class SetupComponent {
           descriptionKey: 'SETUP.WORKSTATION.ITEM_2.DESCRIPTION',
         },
         {
-          title: 'JBL Tune 130nc TWS',
+          title: 'Airpods Max',
           descriptionKey: 'SETUP.WORKSTATION.ITEM_3.DESCRIPTION',
         },
         {
-          title: 'Logitech Pebble Keys 2 K380s',
+          title: 'Apple Magic keyboard',
           descriptionKey: 'SETUP.WORKSTATION.ITEM_4.DESCRIPTION',
         },
         {
-          title: 'Logitech G PRO Wireless',
+          title: 'Magic Trackpad',
           descriptionKey: 'SETUP.WORKSTATION.ITEM_5.DESCRIPTION',
-        },
-        {
-          title: 'Fifine AmpliGame A8 Microphone',
-          descriptionKey: 'SETUP.WORKSTATION.ITEM_6.DESCRIPTION',
         },
       ],
     },
@@ -66,7 +62,7 @@ export class SetupComponent {
       title: 'Productivity',
       items: [
         {
-          title: 'Notebooks',
+          title: 'SETUP.NAME',
           descriptionKey: 'SETUP.PRODUCTIVITY.ITEM_1.DESCRIPTION',
         },
         {

@@ -45,6 +45,7 @@
     "DESCRIPTION": "Todos os direitos reservados"
   },
   "SETUP": {
+    "NAME": "Cadernos",
     "DESCRIPTION": "Um pouco sobre minha rotina, o que tenho na mesa e os equipamentos que uso no dia a dia.",
     "WORKSTATION": {
       "ITEM_1": {
@@ -54,13 +55,13 @@
         "DESCRIPTION": "Um monitor voltado para games que não atrapalha o trabalho diário. É até legal brincar nas configurações... eu só quase não uso."
       },
       "ITEM_3": {
-        "DESCRIPTION": "Fones muito práticos para o dia a dia, com ótima qualidade de som e supressão de ruído."
+        "DESCRIPTION": "Fone voltado para o uso dentro do ecossistema, muito práticos para o dia a dia, com ótima qualidade de som e supressão de ruído."
       },
       "ITEM_4": {
-        "DESCRIPTION": "Teclado simples, ergonômico e bem em conta, que encaixa perfeito no ecossistema Apple."
+        "DESCRIPTION": "Teclado simples, ergonômico e que encaixa perfeitamente no meu ecossistema Apple."
       },
       "ITEM_5": {
-        "DESCRIPTION": "Mouse gamer que uso quando bate a vontade de jogar."
+        "DESCRIPTION": "Uma dica: aprenda a usar o trackpad do seu notebook, ele te da poderes!!"
       },
       "ITEM_6": {
         "DESCRIPTION": "Melhor custo-benefício de microfone de mesa que já vi — qualidade de som fantástica."
@@ -82,7 +83,7 @@
     },
     "PRODUCTIVITY": {
       "ITEM_1": {
-        "DESCRIPTION": "Como bom entusiasta de tecnologia, adoro fazer anotações em cadernos que levo sempre comigo."
+        "DESCRIPTION": "Adoro fazer anotações em cadernos que levo sempre comigo."
       },
       "ITEM_2": {
         "DESCRIPTION": "Minha vida é organizada no Notion — várias seções, páginas e gatilhos, do financeiro às notas e listas de tarefas."

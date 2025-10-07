@@ -4,7 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ProjectsService } from '../../core/services/projects.service';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +27,8 @@ export class HomeComponent {
   constructor(
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) { }
+  ) {
+  }
 
   goTo(url: string) {
     window.open(url, '_blank');
@@ -37,7 +38,9 @@ export class HomeComponent {
   downloadCV() {
     if (!isPlatformBrowser(this.platformId)) return;
 
-    this.http.get('assets/cv/henrique-nunes-cv.pdf', { responseType: 'blob' })
+    const lang = localStorage.getItem("lang");
+
+    this.http.get(`assets/cv/henrique-nunes-cv-${lang}.pdf`, { responseType: 'blob' })
       .subscribe((blob) => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');

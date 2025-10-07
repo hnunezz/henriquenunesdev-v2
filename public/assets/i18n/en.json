@@ -45,6 +45,7 @@
     "DESCRIPTION": "All rights reserved"
   },
   "SETUP": {
+    "NAME": "Notebook",
     "DESCRIPTION": "A little about my routine, what I have on my desk and the equipment I use on a day a day.",
     "WORKSTATION": {
       "ITEM_1": {
@@ -54,13 +55,13 @@
         "DESCRIPTION": "A monitor geared for gaming that doesn't compromise daily work. It's even fun to tweak the settings... I just don't use them much."
       },
       "ITEM_3": {
-        "DESCRIPTION": "Very practical earbuds for daily use, with great sound and solid noise cancellation."
+        "DESCRIPTION": "Headphones designed for use within the ecosystem, very practical for everyday use, with excellent sound quality and noise cancellation."
       },
       "ITEM_4": {
-        "DESCRIPTION": "Simple, ergonomic, and very affordable keyboard that fits perfectly into the Apple ecosystem."
+        "DESCRIPTION": "Simple, ergonomic  that fits perfectly into the my Apple ecosystem."
       },
       "ITEM_5": {
-        "DESCRIPTION": "Gaming mouse I use when it's time to play something."
+        "DESCRIPTION": "A tip: learn to use the trackpad, it gives you powers"
       },
       "ITEM_6": {
         "DESCRIPTION": "Best cost-benefit desktop microphone I've seen — fantastic sound quality."
@@ -82,7 +83,7 @@
     },
     "PRODUCTIVITY": {
       "ITEM_1": {
-        "DESCRIPTION": "As a true tech enthusiast, I love taking notes in notebooks I carry everywhere."
+        "DESCRIPTION": "I love taking notes in notebooks I carry everywhere."
       },
       "ITEM_2": {
         "DESCRIPTION": "My life is organized in Notion — multiple sections, pages, and triggers, from finances to notes and todo lists."
