@@ -13,7 +13,7 @@ export class ProjectsService {
       title: 'Conecta Currículo',
       descriptionKey: 'PROJECTS-VIEW.CONECTA_CURRICULO.DESCRIPTION',
       path: 'conecta-curriculo',
-      link: 'https://conecta-curriculo/',
+      link: 'https://conecta-curriculo.com',
       miniLogo: 'assets/img/projects/conecta-curriculo/mini-logo.png', // Exemplo de mini logo
       status: 'online',
       usersCount: 12,
