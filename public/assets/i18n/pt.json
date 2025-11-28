@@ -105,6 +105,9 @@
     "SETUP": "Setup"
   },
   "PROJECTS-VIEW": {
+    "CONECTA_CURRICULO": {
+      "DESCRIPTION": "Plataforma web de <b>análise inteligente de currículos com IA</b> que compara perfis profissionais com descrições de vagas, fornecendo insights detalhados, pontuação de aderência e sugestões personalizadas de melhoria. <br/> A plataforma oferece uma solução completa para profissionais que buscam otimizar suas candidaturas, fornecendo análises precisas e acionáveis que ajudam a identificar pontos de melhoria e aumentar a aderência entre perfil e vaga."
+    },
     "HEX6": {
       "DESCRIPTION": "Jogo de tabuleiro estratégico, baseado em peças hexagonais. O objetivo é alinhar 10 peças da mesma cor para marcar pontos e progredir na partida."
     },

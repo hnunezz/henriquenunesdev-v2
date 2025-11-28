@@ -1,10 +1,12 @@
-import { Component, Inject, inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { TimelineComponent } from '../../components/timeline/timeline.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProjectsService } from '../../core/services/projects.service';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SEOService } from '../../core/services/seo.service';
+import { SchemaService } from '../../core/services/schema.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   private projectsService = inject(ProjectsService);
+  private seoService = inject(SEOService);
+  private schemaService = inject(SchemaService);
   projectsSignal = toSignal(this.projectsService.get(), { initialValue: [] });
 
   works = [
@@ -28,6 +32,41 @@ export class HomeComponent {
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
+  }
+
+  ngOnInit(): void {
+    this.seoService.updateSEO({
+      title: 'Início',
+      description: 'Henrique Nunes - Software Engineer especializado em Front-end. Portfólio, projetos e experiência profissional em desenvolvimento web.',
+      keywords: 'Henrique Nunes, Software Engineer, Front-end Developer, Angular, TypeScript, Portfólio',
+      url: '/home'
+    });
+
+    // Add Person Schema
+    this.schemaService.addPersonSchema({
+      name: 'Henrique Nunes',
+      jobTitle: 'Software Engineer',
+      description: 'Software Engineer especializado em Front-end, trabalhando com Angular e tecnologias modernas.',
+      url: 'https://henriquenunes.com',
+      image: 'https://henriquenunes.com/assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG',
+      sameAs: [
+        'https://github.com/hnunezz',
+        'https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/',
+        'https://www.instagram.com/hnunes0/',
+        'https://medium.com/@nunesdealmeidahenrique'
+      ],
+      address: {
+        addressLocality: 'São Paulo',
+        addressCountry: 'BR'
+      }
+    });
+
+    // Add WebSite Schema
+    this.schemaService.addWebSiteSchema({
+      name: 'Henrique Nunes',
+      url: 'https://henriquenunes.com',
+      description: 'Portfólio de Henrique Nunes - Software Engineer especializado em Front-end'
+    });
   }
 
   goTo(url: string) {

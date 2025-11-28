@@ -10,10 +10,56 @@ export class ProjectsService {
   private projects: IProject[] = [
     {
       year: '2025',
+      title: 'Conecta Currículo',
+      descriptionKey: 'PROJECTS-VIEW.CONECTA_CURRICULO.DESCRIPTION',
+      path: 'conecta-curriculo',
+      link: 'https://conecta-curriculo/',
+      miniLogo: 'assets/img/projects/conecta-curriculo/mini-logo.png', // Exemplo de mini logo
+      status: 'online',
+      usersCount: 12,
+      technologies: [
+        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
+        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+      ],
+      images: [
+        {
+          url: 'assets/img/projects/conecta-curriculo/CC1.png',
+          alt: 'CC1',
+        },
+        {
+          url: 'assets/img/projects/conecta-curriculo/CC2.png',
+          alt: 'CC2',
+        },
+        {
+          url: 'assets/img/projects/conecta-curriculo/CC3.png',
+          alt: 'CC3',
+        },
+        {
+          url: 'assets/img/projects/conecta-curriculo/CC4.png',
+          alt: 'CC4',
+        },
+        {
+          url: 'assets/img/projects/conecta-curriculo/CC5.png',
+          alt: 'CC5',
+        },
+      ],
+    },
+    {
+      year: '2025',
       title: 'Hex6 BoardGame',
       descriptionKey: 'PROJECTS-VIEW.HEX6.DESCRIPTION',
       path: 'hex-6-board-game',
+      status: 'online',
       link: 'https://hex6-boardgame.vercel.app/',
+      technologies: [
+        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+      ],
       images: [
         {
           url: 'assets/img/projects/HEX1.png',
@@ -35,6 +81,14 @@ export class ProjectsService {
       descriptionKey: 'PROJECTS-VIEW.WMDM.DESCRIPTION',
       path: 'whats-my-dream-mean',
       link: 'https://whats-my-dream-mean.vercel.app/',
+      status: 'online',
+      technologies: [
+        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' } ,
+        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+      ],
       images: [
         {
           url: 'assets/img/projects/WMDM1.png',
@@ -56,6 +110,13 @@ export class ProjectsService {
       descriptionKey: 'PROJECTS-VIEW.UCC.DESCRIPTION',
       path: 'ultimate-champion-creator',
       link: 'https://ultimate-champion-creator.vercel.app/',
+      status: 'online',
+      technologies: [
+        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+      ],
       images: [
         {
           url: 'assets/img/projects/UCC1.png',

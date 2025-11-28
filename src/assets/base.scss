@@ -67,7 +67,6 @@ h1 {
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 15px solid rgba(236, 2, 2, 0); /* creates padding around scroll thumb */
 }
-
 @keyframes scale-up-center-normal {
   0% {
     transform: scale(0.5);
@@ -126,3 +125,4 @@ h1 {
     transform: none;
   }
 }
+

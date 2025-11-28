@@ -1,0 +1,9 @@
+.tech-icon {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--hover-color, #7b3af2) !important;
+    transform: scale(1.2);
+  }
+}
+
