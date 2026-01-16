@@ -17,6 +17,18 @@ export interface ITechnology {
   color: string; // Cor para hover (ex: '#DD0031', '#61DAFB')
 }
 
+export interface IConversionMetric {
+  icon: string;
+  label: string;
+  value: string;
+  description?: string;
+}
+
+export interface IBeforeAfterImages {
+  before: { url: string, alt: string }[];
+  after: { url: string, alt: string }[];
+}
+
 export interface IProject {
   year: string;
   title: string;
@@ -30,6 +42,9 @@ export interface IProject {
   usersCount?: number; // Número de usuários
   testimonials?: ITestimonial[]; // Relatos/referências reais
   technologies?: ITechnology[]; // Tecnologias utilizadas no projeto
+  projectType?: 'client' | 'freelance' | 'personal'; // Tipo de projeto
+  beforeAfterImages?: IBeforeAfterImages; // Imagens antes/depois para projetos de cliente/freelance
+  conversionMetrics?: IConversionMetric[]; // Métricas de conversão para projetos de cliente/freelance
 }
 @Component({
   selector: 'app-projects',

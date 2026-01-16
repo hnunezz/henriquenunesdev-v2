@@ -105,6 +105,17 @@
     "SETUP": "Setup"
   },
   "PROJECTS-VIEW": {
+    "USERS_COUNT": "Usuários",
+    "ANTES_E_DEPOIS": {
+      "ANTES": "Antes",
+      "DEPOIS": "Depois",
+      "METRICAS": "Métricas de Conversão",
+      "METRICA_OPTIONS" : {
+        "VISITAS": "Visitas",
+        "CONVERSAO": "Conversão",
+        "TEMPO_CARREGAMENTO": "Tempo de Carregamento"
+      }
+    },
     "CONECTA_CURRICULO": {
       "DESCRIPTION": "Plataforma web de <b>análise inteligente de currículos com IA</b> que compara perfis profissionais com descrições de vagas, fornecendo insights detalhados, pontuação de aderência e sugestões personalizadas de melhoria. <br/> A plataforma oferece uma solução completa para profissionais que buscam otimizar suas candidaturas, fornecendo análises precisas e acionáveis que ajudam a identificar pontos de melhoria e aumentar a aderência entre perfil e vaga."
     },
@@ -116,6 +127,9 @@
     },
     "UCC": {
       "DESCRIPTION": "Crie seu próprio campeão de LoL combinando habilidades icônicas! Monte os comandos <b>P</b>, <b>Q</b>, <b>W</b>, <b>E</b> e <b>R</b> com qualquer skill do jogo.<br/><br/>Use a criatividade! Combine efeitos, sinergias e estratégias para surpreender os oponentes.<br/><br/>Compartilhe sua criação! Mostre seu campeão personalizado nas redes e desafie seus amigos!"
+    },
+    "IG-CLEAN": {
+      "DESCRIPTION": "A <b>IG Clean</b> é um cliente para o qual foi solicitada uma reformulação visual e funcional em seu site institucional. Trata-se de uma empresa consolidada no mercado de serviços terceirizados, e o objetivo do projeto foi modernizar a experiência digital, aprimorando usabilidade, navegação e identidade visual, sem perder a solidez e credibilidade já reconhecidas pela marca."
     }
   }
 }

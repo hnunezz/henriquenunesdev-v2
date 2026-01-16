@@ -9,6 +9,68 @@ export class ProjectsService {
 
   private projects: IProject[] = [
     {
+      year: '2026',
+      title: 'IG Clean',
+      path: 'ig-clean',
+      link: 'http://igclean.com.br/',
+      descriptionKey: 'PROJECTS-VIEW.IG-CLEAN.DESCRIPTION',
+      projectType: 'client',
+      technologies: [
+        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+      ],
+      conversionMetrics: [
+        {
+          icon: 'fa-people-group',
+          label: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.VISITAS',
+          value: '+60%',
+        },
+        {
+          icon: 'fa-clock',
+          label: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.TEMPO_CARREGAMENTO',
+          value: '-90%',
+        },
+      ],
+      beforeAfterImages: {
+        before: [
+          {
+            url: 'assets/img/projects/igclean/Antes1.png',
+            alt: 'Antes - Tela inicial antiga',
+          },
+          {
+            url: 'assets/img/projects/igclean/Antes2.png',
+            alt: 'Antes - Interface antiga',
+          },
+          {
+            url: 'assets/img/projects/igclean/Antes3.png',
+            alt: 'Antes - Design antigo',
+          },
+        ],
+        after: [
+          {
+            url: 'assets/img/projects/igclean/Depois1.png',
+            alt: 'Depois - Nova tela inicial',
+          },
+          {
+            url: 'assets/img/projects/igclean/Depois2.png',
+            alt: 'Depois - Nova interface',
+          },
+          {
+            url: 'assets/img/projects/igclean/Depois4.png',
+            alt: 'Depois - Melhorias implementadas',
+          },
+          {
+            url: 'assets/img/projects/igclean/Depois3.png',
+            alt: 'Depois - Novo design',
+          },
+
+        ]
+      },
+      images: []
+    },
+    {
       year: '2025',
       title: 'Conecta Currículo',
       descriptionKey: 'PROJECTS-VIEW.CONECTA_CURRICULO.DESCRIPTION',
@@ -16,7 +78,7 @@ export class ProjectsService {
       link: 'https://conecta-curriculo.com',
       miniLogo: 'assets/img/projects/conecta-curriculo/mini-logo.png', // Exemplo de mini logo
       status: 'online',
-      usersCount: 12,
+      usersCount: 27,
       technologies: [
         { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
         { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
@@ -77,7 +139,7 @@ export class ProjectsService {
     },
     {
       year: '2025',
-      title: 'Whats my dream mean',
+      title: "What's my dream mean",
       descriptionKey: 'PROJECTS-VIEW.WMDM.DESCRIPTION',
       path: 'whats-my-dream-mean',
       link: 'https://whats-my-dream-mean.vercel.app/',
@@ -85,7 +147,7 @@ export class ProjectsService {
       technologies: [
         { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
         { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
-        { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' } ,
+        { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
         { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
         { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
       ],

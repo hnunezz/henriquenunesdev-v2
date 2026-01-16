@@ -105,6 +105,17 @@
     "SETUP": "Setup"
   },
   "PROJECTS-VIEW": {
+    "USERS_COUNT": "Users",
+    "ANTES_E_DEPOIS": {
+      "ANTES": "Before",
+      "DEPOIS": "After",
+      "METRICAS": "Conversion Metrics",
+      "METRICA_OPTIONS" : {
+        "VISITAS": "Visits",
+        "CONVERSAO": "Conversion",
+        "TEMPO_CARREGAMENTO": "Loading Time"
+      }
+    },
     "CONECTA_CURRICULO": {
       "DESCRIPTION": "Web platform for <b>intelligent AI curriculum analysis</b> that compares professional profiles with job descriptions, providing detailed insights, a fit score, and personalized suggestions for improvement. <br/> The platform offers a complete solution for professionals seeking to optimize their applications, delivering precise and actionable analyses that help identify areas for enhancement and increase the alignment between profile and job."
     },
@@ -116,6 +127,9 @@
     },
     "UCC": {
       "DESCRIPTION": "Create your own LoL champion by combining iconic abilities! Combine the <b>P</b>, <b>Q</b>, <b>W</b>, <b>E</b>, and <b>R</b> commands with any skill in the game.<br/><br/>Get creative! Combine effects, synergies, and strategies to surprise your opponents.<br/><br/>Share your creation! Show off your custom champion on social media and challenge your friends!"
+    },
+    "IG-CLEAN": {
+      "DESCRIPTION": "The <b>IG Clean</b> is a client for which a visual and functional change was requested to its institutional website. It is an established company in the market of third-party services, and the objective of the project was to modernize the digital experience, improving usability, navigation and visual identity, without losing the solidity and credibility already recognized by the brand."
     }
   }
 }

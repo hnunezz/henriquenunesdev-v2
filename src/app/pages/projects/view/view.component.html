@@ -29,7 +29,7 @@
         @if (projectFiltered().usersCount) {
         <span class="text-gray-primary text-sm flex items-center gap-1">
           <i class="fa-solid fa-users"></i>
-          {{projectFiltered().usersCount | number}} usuários
+          {{projectFiltered().usersCount | number}} {{'PROJECTS-VIEW.USERS_COUNT' | translate}}
         </span>
         }
       </div>
@@ -46,16 +46,14 @@
       [innerHTML]="projectFiltered().descriptionKey | translate | safeHtml"></span>
 
     @if (projectFiltered().technologies && projectFiltered().technologies!.length > 0) {
-      <div class="flex items-center gap-4 flex-wrap mt-4">
-        @for (tech of projectFiltered().technologies; track tech.name) {
-          <div class="group relative">
-            <i [class]="tech.icon + ' text-2xl text-gray-primary transition-all duration-300 cursor-pointer'"
-               [style.--hover-color]="tech.color"
-               [title]="tech.name"
-               class="tech-icon"></i>
-          </div>
-        }
+    <div class="flex items-center gap-4 flex-wrap mt-4">
+      @for (tech of projectFiltered().technologies; track tech.name) {
+      <div class="group relative">
+        <i [class]="tech.icon + ' text-2xl text-gray-primary transition-all duration-300 cursor-pointer'"
+          [style.--hover-color]="tech.color" [title]="tech.name" class="tech-icon"></i>
       </div>
+      }
+    </div>
     }
   </div>
 
@@ -78,6 +76,71 @@
     </div>
   </div>
   }
+
+  @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
+  projectFiltered().beforeAfterImages) {
+  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+
+  @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
+  projectFiltered().conversionMetrics && projectFiltered().conversionMetrics!.length > 0) {
+
+  <div class="mb-8 max-md:px-4">
+    <h2 class="text-2xl font-extrabold text-ft-primary mb-6">{{'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate}}</h2>
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6 max-md:flex max-md:flex-col">
+      @for (metric of projectFiltered().conversionMetrics; track $index) {
+      <div
+        class="border border-gray-secondary rounded-lg p-6 bg-[#1a1a1a] hover:border-primary-brand transition-all duration-300">
+        <div class="flex items-center gap-3 mb-3">
+          <i [class]="'fa-solid ' + metric.icon + ' text-primary-brand text-2xl'"></i>
+          <h3 class="text-lg font-bold text-ft-primary">{{metric.label | translate}}</h3>
+        </div>
+        <p class="text-3xl font-extrabold text-primary-brand mb-2">{{metric.value}}</p>
+      </div>
+      }
+    </div>
+  </div>
+  }
+
+  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+
+  <div class="mb-8 max-md:px-4">
+    @if (projectFiltered().beforeAfterImages!.before.length > 0 && projectFiltered().beforeAfterImages!.after.length >
+    0) {
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <div class="flex flex-col gap-4">
+        <h3 class="text-xl font-bold text-ft-primary flex items-center gap-2">
+          <i class="fa-solid fa-circle-arrow-left text-red-500"></i>
+          {{'PROJECTS-VIEW.ANTES_E_DEPOIS.ANTES' | translate}}
+        </h3>
+        <div class="grid grid-cols-1 gap-4">
+          @for (beforeImg of projectFiltered().beforeAfterImages!.before; track $index) {
+          <div
+            class="border border-gray-secondary rounded-lg p-2 bg-[#1a1a1a] hover:border-red-500 transition-all duration-300">
+            <img class="rounded-lg w-full h-auto" [src]="beforeImg.url" [alt]="beforeImg.alt">
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h3 class="text-xl font-bold text-ft-primary flex items-center gap-2">
+          <i class="fa-solid fa-circle-arrow-right text-green-500"></i>
+          {{'PROJECTS-VIEW.ANTES_E_DEPOIS.DEPOIS' | translate}}
+        </h3>
+        <div class="grid grid-cols-1 gap-4">
+          @for (afterImg of projectFiltered().beforeAfterImages!.after; track $index) {
+          <div
+            class="border border-gray-secondary rounded-lg p-2 bg-[#1a1a1a] hover:border-green-500 transition-all duration-300">
+            <img class="rounded-lg w-full h-auto" [src]="afterImg.url" [alt]="afterImg.alt">
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  }
+
 
   @if (projectFiltered().images.length > 0) {
   <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
