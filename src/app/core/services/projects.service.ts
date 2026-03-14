@@ -151,63 +151,6 @@ export class ProjectsService {
         },
       ],
     },
-    // {
-    //   year: '2025',
-    //   title: 'Hex6 BoardGame',
-    //   descriptionKey: 'PROJECTS-VIEW.HEX6.DESCRIPTION',
-    //   path: 'hex-6-board-game',
-    //   status: 'online',
-    //   link: 'https://hex6-boardgame.vercel.app/',
-    //   technologies: [
-    //     { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
-    //     { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
-    //     { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-    //     { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
-    //   ],
-    //   images: [
-    //     {
-    //       url: 'assets/img/projects/HEX1.png',
-    //       alt: 'HEX1',
-    //     },
-    //     {
-    //       url: 'assets/img/projects/HEX2.png',
-    //       alt: 'HEX2',
-    //     },
-    //     {
-    //       url: 'assets/img/projects/HEX3.png',
-    //       alt: 'HEX3',
-    //     },
-    //   ],
-    // },
-    // {
-    //   year: '2025',
-    //   title: "What's my dream mean",
-    //   descriptionKey: 'PROJECTS-VIEW.WMDM.DESCRIPTION',
-    //   path: 'whats-my-dream-mean',
-    //   link: 'https://whats-my-dream-mean.vercel.app/',
-    //   status: 'online',
-    //   technologies: [
-    //     { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
-    //     { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
-    //     { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
-    //     { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-    //     { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
-    //   ],
-    //   images: [
-    //     {
-    //       url: 'assets/img/projects/WMDM1.png',
-    //       alt: 'WMDM1',
-    //     },
-    //     {
-    //       url: 'assets/img/projects/WMDM3.png',
-    //       alt: 'WMDM3',
-    //     },
-    //     {
-    //       url: 'assets/img/projects/WMDM2.png',
-    //       alt: 'WMDM2',
-    //     },
-    //   ],
-    // },
     {
       year: '2024',
       title: 'Ultimate Champion Creator',
