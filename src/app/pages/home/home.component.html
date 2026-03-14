@@ -1,73 +1,106 @@
-<main class="grid gap-32 px-10 max-md:px-1">
-  <section class="flex gap-6 max-md:flex-col">
-
-    <aside class="side-l flex flex-col items-center gap-16">
-      <div class="c-img bg-[#343434] h-80 w-80 flex items-center justify-center">
-        <img class="h-80" src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG" alt="Henrique Nunes">
+<main class="grid gap-32 px-10 max-md:px-4">
+  <section class="flex gap-10 max-md:flex-col max-md:items-center">
+    <aside class="side-l flex flex-col items-center gap-10">
+      <div class="c-img h-72 w-72 flex items-center justify-center">
+        <img
+          class="h-72"
+          src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG"
+          alt="Henrique Nunes"
+        />
       </div>
 
-      <div class="icons text-[40px] flex gap-4">
-        <i class="fa-brands fa-github text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
-          (click)="goTo('https://github.com/hnunezz')"></i>
-        <i class="fa-brands fa-x-twitter text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
-          (click)="goTo('')"></i>
-        <i class="fa-brands fa-instagram text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
-          (click)="goTo('https://www.instagram.com/hnunes0/')"></i>
-        <i class="fa-brands fa-linkedin text-ft-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
-          (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
+      <div class="icons text-3xl flex gap-5">
+        <i
+          class="fa-brands fa-github text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="goTo('https://github.com/hnunezz')"
+        ></i>
+        <i
+          class="fa-brands fa-x-twitter text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="goTo('')"
+        ></i>
+        <i
+          class="fa-brands fa-instagram text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="goTo('https://www.instagram.com/hnunes0/')"
+        ></i>
+        <i
+          class="fa-brands fa-linkedin text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="
+            goTo(
+              'https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/'
+            )
+          "
+        ></i>
       </div>
     </aside>
 
-    <aside class="side-r flex flex-col gap-16">
-      <div class="flex flex-col justify-center h-80 max-xl:h-auto max-sm:text-center">
-        <span class="hns-logo text-ft-primary">
-          hn.
-        </span>
-        <span class="text-ft-primary">
-          henrique nunes
-        </span>
-        <span class="text-ft-primary">
-          Software engineer
-        </span>
+    <aside class="side-r flex flex-col gap-12">
+      <div
+        class="flex flex-col justify-center h-72 max-xl:h-auto max-sm:text-center"
+      >
+        <span class="hns-logo text-ft-primary"> hn. </span>
+        <span class="text-ft-primary"> henrique nunes </span>
+        <span class="text-ft-primary"> Software engineer </span>
       </div>
 
-      <p class="text-ft-primary font-light text-xl max-sm:text-center">
-        {{ 'HOME.DESCRIPTION' | translate }}
+      <p
+        class="text-gray-primary font-light text-lg leading-relaxed max-sm:text-center max-w-xl"
+      >
+        {{ "HOME.DESCRIPTION" | translate }}
       </p>
     </aside>
   </section>
 
-  <section class="flex justify-between max-md:flex-col-reverse max-md:items-center max-md:gap-[82px]">
-    <app-timeline [projects]="projectsSignal()"/>
+  <section
+    class="flex justify-between max-md:flex-col-reverse max-md:items-center max-md:gap-20 mb-8"
+  >
+    <app-timeline [projects]="projectsSignal()" />
 
-    <div class="work-exp w-[360px] flex flex-col gap-4 max-sm:px-4">
+    <div
+      class="work-exp w-[360px] flex flex-col gap-5 max-sm:px-0 max-sm:w-full"
+    >
       <div class="header-container flex justify-between items-center">
-        <span class="text-ft-primary text-[22px] font-black">{{ 'HOME.WORK_EXP' | translate }}</span>
+        <span class="text-ft-primary text-lg font-bold tracking-tight">{{
+          "HOME.WORK_EXP" | translate
+        }}</span>
         <button
           (click)="downloadCV()"
-          class="bg-[#202020] text-white w-[50%] h-10 outline-none border-none rounded-lg font-semibold flex justify-center items-center gap-1.5 cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">
-          <p class="text-white">
-            Download CV
-          </p>
-          <i class="fa-solid fa-angles-down"></i>
+          class="cv-btn h-9 px-4 outline-none border border-gray-secondary rounded-lg text-sm font-medium flex items-center gap-2 cursor-pointer transition-all duration-300 ease-in-out text-gray-primary hover:text-primary-brand hover:border-primary-brand"
+        >
+          Download CV
+          <i class="fa-solid fa-arrow-down text-xs"></i>
         </button>
       </div>
 
-      <div class="rounded-lg border border-solid border-gray-secondary">
-        <ul class="flex flex-col gap-8 p-3 max-md:py-3 max-md:px-2">
+      <div class="rounded-xl border border-gray-secondary bg-surface p-1">
+        <ul class="flex flex-col gap-1">
           @for (work of works; track $index) {
-            <li class="flex gap-3 transition-all duration-300 ease-in-out p-2 hover:bg-[#54545442] hover:rounded-lg">
-              <div class="w-[50px] h-10 rounded-[60px] bg-[transparent] flex justify-center items-center">
-                <img class="rounded-full" [src]="work.path" [alt]="work.title">
+          <li
+            class="flex gap-3 transition-all duration-300 ease-in-out p-3 hover:bg-surface-hover rounded-lg cursor-default"
+          >
+            <div
+              class="w-10 h-10 rounded-full flex-shrink-0 flex justify-center items-center overflow-hidden"
+            >
+              <img
+                class="rounded-full w-10 h-10 object-cover"
+                [src]="work.path"
+                [alt]="work.title"
+              />
+            </div>
+            <div class="flex flex-col w-full min-w-0">
+              <span class="text-ft-primary font-semibold text-sm">{{
+                work.title
+              }}</span>
+              <div class="flex justify-between w-full gap-2">
+                <small class="font-normal text-gray-primary text-xs">{{
+                  work.role
+                }}</small>
+                <small
+                  class="font-normal text-gray-primary text-xs whitespace-nowrap"
+                  >{{ work.date }}</small
+                >
               </div>
-              <span class="text-ft-primary font-semibold w-full">
-                <span class="text-ft-primary font-semibold w-full">{{work.title}}</span>
-                <div class="flex justify-between w-full max-md:gap-3">
-                  <small class="font-extralight text-gray-primary">{{work.role}}</small>
-                  <small class="font-extralight text-gray-primary max-md:whitespace-nowrap">{{work.date}}</small>
-                </div>
-              </span>
-            </li>
+            </div>
+          </li>
           }
         </ul>
       </div>

@@ -7,15 +7,17 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-footer',
   imports: [RouterLink, TranslateModule],
   template: `
-  <footer class="border-t-[1px] border-solid border-gray-secondary h-[200px] flex justify-center items-center flex-col text-center gap-[18px] max-md:h-[300px] max-md:justify-evenly">
-    <div class="flex gap-8 max-md:grid max-md:grid-cols-6 max-md:grid-rows-2 max-md:auto-cols-fr">
-      @for (nav of navigation(); track $index) {
-        <a class="font-bold cursor-pointer text-ft-primary transition-all duration-300 ease-in-out hover:text-primary-brand col-span-2" [routerLink]="nav.anchor">{{nav.labelKey | translate}}</a>
-     }
-    </div>
+  <footer class="border-t border-solid border-gray-secondary py-12 flex justify-center items-center flex-col text-center gap-6 max-md:py-10">
+    <span class="hns-logo text-2xl text-ft-primary mb-2">hn.</span>
 
-    <span>© 2025 Henrique Nunes <br />
-     {{"FOOTER.DESCRIPTION" | translate}}. </span>
+    <nav class="flex gap-6 flex-wrap justify-center max-md:gap-4">
+      @for (nav of navigation(); track $index) {
+        <a class="text-sm font-medium cursor-pointer text-gray-primary transition-all duration-300 ease-in-out hover:text-primary-brand" [routerLink]="nav.anchor">{{nav.labelKey | translate}}</a>
+     }
+    </nav>
+
+    <span class="text-xs text-gray-primary mt-2">© 2025 Henrique Nunes ·
+     {{"FOOTER.DESCRIPTION" | translate}}</span>
   </footer>
   `,
 })

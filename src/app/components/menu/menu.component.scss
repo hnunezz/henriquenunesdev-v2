@@ -5,36 +5,32 @@ div {
   &.active {
     display: block !important;
     transition: ease 0.3s;
-    background-color: #0a0a0ae6;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 }
 
 .fab-menu {
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-  -webkit-animation-duration: 1s;
-  animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-elevated);
+  animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@-webkit-keyframes zoomIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-  50% {
-    opacity: 1;
-  }
+.header-action-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
 }
-@keyframes zoomIn {
+
+@keyframes slideDown {
   0% {
     opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3);
+    transform: translateY(-16px) scale(0.97);
   }
-  50% {
+  100% {
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

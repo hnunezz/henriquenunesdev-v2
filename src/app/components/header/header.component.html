@@ -1,23 +1,22 @@
 <header class="items-center grid">
 
   @if (router.url !== '/home' && router.url !== '/about') {
-  <div class="flex items-center gap-4 hover:opacity-80  cursor-pointer" [routerLink]="'/home'">
-    <div class="c-img bg-app h-12 w-12 flex items-center">
-      <img class="h-12" src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG">
+  <div class="flex items-center gap-3 hover:opacity-80 cursor-pointer group" [routerLink]="'/home'">
+    <div class="c-img h-10 w-10 flex items-center">
+      <img class="h-10" src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG" alt="Henrique Nunes">
     </div>
-
-    <span class="hns-logo text-2xl text-app-primary">
+    <span class="hns-logo text-xl text-ft-primary group-hover:text-primary-brand transition-colors duration-300">
       hn.
     </span>
   </div>
   } @else {
-  &nbsp;
+  <span></span>
   }
 
-  <nav class="flex bg-[#27272a] rounded-[5000px] h-[60px] image.pngjustify-evenly items-center z-50 px-3 max-md:hidden">
+  <nav class="nav-pill flex rounded-full h-[52px] justify-evenly items-center z-50 px-2 max-md:hidden">
     @for (nav of navigation(); track $index) {
     <span
-      class="cursor-pointer text-base font-medium text-[#c8c8c8] transition-all duration-300 ease-in-out hover:text-white hover:font-bold px-3"
+      class="nav-link cursor-pointer text-sm font-medium text-[#a1a1aa] transition-all duration-300 ease-in-out hover:text-white px-4 py-2 rounded-full"
       [ngClass]="{'active': router.url === nav.anchor}" [routerLink]="nav.anchor">
       {{nav.labelKey | translate}}
     </span>
@@ -28,25 +27,24 @@
     &nbsp;
   </p>
 
-
-  <div class="flex justify-end gap-3">
+  <div class="flex justify-end gap-2">
     <div (click)="open()"
-      class="mobile-nav relative bg-[#27272a] rounded-[5000px] w-[40px] h-[40px] z-50 justify-center items-center cursor-pointer hidden max-md:flex transition-all duration-300 ease-in-out hover:opacity-85">
-      <i class="fa-solid fa-bars text-white text-xl "></i>
+      class="mobile-nav header-action-btn justify-center items-center cursor-pointer hidden max-md:flex">
+      <i class="fa-solid fa-bars text-[#e8e8e8] text-lg"></i>
     </div>
 
     <div (click)="toggleLang()"
-      class="relative bg-[#27272a] rounded-[5000px] w-[40px] h-[40px] z-50 flex justify-center items-center cursor-pointer max-md:flex transition-all duration-300 ease-in-out hover:opacity-85">
-       <span class="text-xl">{{ nextFlag() }}</span>
+      class="header-action-btn flex justify-center items-center cursor-pointer">
+       <span class="text-lg">{{ nextFlag() }}</span>
     </div>
 
     <div
-      class="flex bg-[#27272a] rounded-[5000px] w-[40px] h-[40px] z-30 justify-center items-center cursor-pointer transition-all duration-300 ease-in-out hover:opacity-85"
+      class="header-action-btn flex justify-center items-center cursor-pointer"
       (click)="themeService.toggleTheme()">
       @if (themeService.currentTheme() === 'light') {
-      <i class="fa-regular fa-moon text-[#8ee7fc] text-xl"></i>
+      <i class="fa-regular fa-moon text-[#8ee7fc] text-lg"></i>
       } @else {
-      <i class="fa-regular fa-sun text-[#edf153] text-xl"></i>
+      <i class="fa-regular fa-sun text-[#edf153] text-lg"></i>
       }
     </div>
   </div>

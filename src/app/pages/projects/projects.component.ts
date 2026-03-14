@@ -50,7 +50,7 @@ export interface IProject {
   selector: 'app-projects',
   imports: [TimelineComponent,TranslateModule],
   template: `
-  <main class="px-10">
+  <main class="px-10 max-md:px-4">
     <h1 class="page-header">
       {{"PROJECTS.TITLE" | translate}}
 

@@ -1,55 +1,54 @@
-<main class="px-10 max-md:px-1">
-  <div class="flex flex-col items-start gap-4 max-md:px-4">
-    <div class="flex items-center gap-4 mb-6">
+<main class="px-10 max-md:px-4">
+  <div class="flex flex-col items-start gap-4">
+    <div class="flex items-center gap-4 mb-4">
       <div (click)="router.navigate(['/projects'])"
-        class="h-10 w-10 rounded-full flex justify-center items-center cursor-pointer bg-[#27272a] transition-all duration-300 ease-in-out text-[#c8c8c8] hover:text-primary-brand flex-shrink-0">
-        <i class="fa-solid fa-arrow-left text-xl"></i>
+        class="h-9 w-9 rounded-full flex justify-center items-center cursor-pointer border border-gray-secondary bg-surface transition-all duration-300 ease-in-out text-gray-primary hover:text-primary-brand hover:border-primary-brand flex-shrink-0">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
       </div>
 
-      <div class="flex items-center gap-4 flex-wrap">
+      <div class="flex items-center gap-3 flex-wrap">
         @if (projectFiltered().logo) {
-        <img [src]="projectFiltered().logo" [alt]="projectFiltered().title + ' logo'" class="h-8 w-auto object-contain">
+        <img [src]="projectFiltered().logo" [alt]="projectFiltered().title + ' logo'" class="h-7 w-auto object-contain">
         }
-        <h1 class="page-header text-4xl font-extrabold mb-0 max-md:text-2xl">
+        <h1 class="text-3xl font-extrabold tracking-tight mb-0 max-md:text-2xl">
           {{projectFiltered().title}}
         </h1>
       </div>
     </div>
 
-
-    <div class="flex flex-col items-start gap-4 mb-4 flex-wrap">
+    <div class="flex flex-col items-start gap-3 mb-4 flex-wrap">
       @if (projectFiltered().status) {
-      <div class="flex items-center gap-4">
-        <span class="px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-2"
+      <div class="flex items-center gap-3">
+        <span class="px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2"
           [class.bg-green-500]="projectFiltered().status === 'online'"
           [class.bg-red-500]="projectFiltered().status === 'offline'" [class.text-white]="true">
-          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
           {{projectFiltered().status === 'online' ? 'Online' : 'Offline'}}
         </span>
         @if (projectFiltered().usersCount) {
-        <span class="text-gray-primary text-sm flex items-center gap-1">
-          <i class="fa-solid fa-users"></i>
+        <span class="text-gray-primary text-xs flex items-center gap-1.5">
+          <i class="fa-solid fa-users text-xs"></i>
           {{projectFiltered().usersCount | number}} {{'PROJECTS-VIEW.USERS_COUNT' | translate}}
         </span>
         }
       </div>
       }
-      <span
-        class="flex items-center gap-3 text-sm transition-all duration-300 ease-in-out hover:text-primary-brand font-bold cursor-pointer"
+      <a
+        class="flex items-center gap-2 text-sm transition-all duration-300 ease-in-out text-gray-primary hover:text-primary-brand font-medium cursor-pointer"
         (click)="goTo(projectFiltered().link)">
-        <i class="fa-solid fa-link text-primary-brand text-lg"></i>
+        <i class="fa-solid fa-arrow-up-right-from-square text-primary-brand text-xs"></i>
         {{projectFiltered().link}}
-      </span>
+      </a>
     </div>
 
-    <span class="text-base text-gray-primary max-md:text-start pr-0 block mb-4"
-      [innerHTML]="projectFiltered().descriptionKey | translate | safeHtml"></span>
+    <p class="text-sm text-gray-primary leading-relaxed max-w-2xl mb-4"
+      [innerHTML]="projectFiltered().descriptionKey | translate | safeHtml"></p>
 
     @if (projectFiltered().technologies && projectFiltered().technologies!.length > 0) {
-    <div class="flex items-center gap-4 flex-wrap mt-4">
+    <div class="flex items-center gap-3 flex-wrap mt-2">
       @for (tech of projectFiltered().technologies; track tech.name) {
       <div class="group relative">
-        <i [class]="tech.icon + ' text-2xl text-gray-primary transition-all duration-300 cursor-pointer'"
+        <i [class]="tech.icon + ' text-xl text-gray-primary transition-all duration-300 cursor-pointer'"
           [style.--hover-color]="tech.color" [title]="tech.name" class="tech-icon"></i>
       </div>
       }
@@ -58,18 +57,18 @@
   </div>
 
   @if (projectFiltered().testimonials && projectFiltered().testimonials!.length > 0) {
-  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+  <hr class="divider !my-10">
 
-  <div class="mb-8 max-md:px-4">
-    <h2 class="text-2xl font-extrabold text-ft-primary mb-6">Relatos e Impacto Real</h2>
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6 max-md:flex max-md:flex-col">
+  <div class="mb-8">
+    <h2 class="text-xl font-bold text-ft-primary mb-6 tracking-tight">Relatos e Impacto Real</h2>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 max-md:flex max-md:flex-col">
       @for (testimonial of projectFiltered().testimonials; track $index) {
       <div
-        class="border border-gray-secondary rounded-lg p-6 bg-[#1a1a1a] hover:border-primary-brand transition-all duration-300">
-        <h3 class="text-xl font-bold text-ft-primary mb-2">{{testimonial.title}}</h3>
-        <p class="text-gray-primary mb-4">{{testimonial.description}}</p>
+        class="border border-gray-secondary rounded-xl p-5 bg-surface hover:border-primary-brand hover:bg-primary-brand-soft transition-all duration-300">
+        <h3 class="text-base font-bold text-ft-primary mb-2">{{testimonial.title}}</h3>
+        <p class="text-gray-primary text-sm leading-relaxed mb-3">{{testimonial.description}}</p>
         @if (testimonial.author) {
-        <p class="text-sm text-gray-primary italic">— {{testimonial.author}}</p>
+        <p class="text-xs text-gray-primary italic">— {{testimonial.author}}</p>
         }
       </div>
       }
@@ -79,43 +78,43 @@
 
   @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
   projectFiltered().beforeAfterImages) {
-  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+  <hr class="divider !my-10">
 
   @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
   projectFiltered().conversionMetrics && projectFiltered().conversionMetrics!.length > 0) {
 
-  <div class="mb-8 max-md:px-4">
-    <h2 class="text-2xl font-extrabold text-ft-primary mb-6">{{'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate}}</h2>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6 max-md:flex max-md:flex-col">
+  <div class="mb-8">
+    <h2 class="text-xl font-bold text-ft-primary mb-6 tracking-tight">{{'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate}}</h2>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4 max-md:flex max-md:flex-col">
       @for (metric of projectFiltered().conversionMetrics; track $index) {
       <div
-        class="border border-gray-secondary rounded-lg p-6 bg-[#1a1a1a] hover:border-primary-brand transition-all duration-300">
-        <div class="flex items-center gap-3 mb-3">
-          <i [class]="'fa-solid ' + metric.icon + ' text-primary-brand text-2xl'"></i>
-          <h3 class="text-lg font-bold text-ft-primary">{{metric.label | translate}}</h3>
+        class="border border-gray-secondary rounded-xl p-5 bg-surface hover:border-primary-brand hover:bg-primary-brand-soft transition-all duration-300">
+        <div class="flex items-center gap-2.5 mb-3">
+          <i [class]="'fa-solid ' + metric.icon + ' text-primary-brand text-lg'"></i>
+          <h3 class="text-sm font-semibold text-ft-primary">{{metric.label | translate}}</h3>
         </div>
-        <p class="text-3xl font-extrabold text-primary-brand mb-2">{{metric.value}}</p>
+        <p class="text-2xl font-extrabold text-primary-brand">{{metric.value}}</p>
       </div>
       }
     </div>
   </div>
   }
 
-  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+  <hr class="divider !my-10">
 
-  <div class="mb-8 max-md:px-4">
+  <div class="mb-8">
     @if (projectFiltered().beforeAfterImages!.before.length > 0 && projectFiltered().beforeAfterImages!.after.length >
     0) {
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
       <div class="flex flex-col gap-4">
-        <h3 class="text-xl font-bold text-ft-primary flex items-center gap-2">
-          <i class="fa-solid fa-circle-arrow-left text-red-500"></i>
+        <h3 class="text-base font-bold text-ft-primary flex items-center gap-2">
+          <i class="fa-solid fa-circle-arrow-left text-red-500 text-sm"></i>
           {{'PROJECTS-VIEW.ANTES_E_DEPOIS.ANTES' | translate}}
         </h3>
-        <div class="grid grid-cols-1 gap-4">
+        <div class="grid grid-cols-1 gap-3">
           @for (beforeImg of projectFiltered().beforeAfterImages!.before; track $index) {
           <div
-            class="border border-gray-secondary rounded-lg p-2 bg-[#1a1a1a] hover:border-red-500 transition-all duration-300">
+            class="border border-gray-secondary rounded-xl p-2 bg-surface hover:border-red-500 transition-all duration-300 overflow-hidden">
             <img class="rounded-lg w-full h-auto" [src]="beforeImg.url" [alt]="beforeImg.alt">
           </div>
           }
@@ -123,14 +122,14 @@
       </div>
 
       <div class="flex flex-col gap-4">
-        <h3 class="text-xl font-bold text-ft-primary flex items-center gap-2">
-          <i class="fa-solid fa-circle-arrow-right text-green-500"></i>
+        <h3 class="text-base font-bold text-ft-primary flex items-center gap-2">
+          <i class="fa-solid fa-circle-arrow-right text-green-500 text-sm"></i>
           {{'PROJECTS-VIEW.ANTES_E_DEPOIS.DEPOIS' | translate}}
         </h3>
-        <div class="grid grid-cols-1 gap-4">
+        <div class="grid grid-cols-1 gap-3">
           @for (afterImg of projectFiltered().beforeAfterImages!.after; track $index) {
           <div
-            class="border border-gray-secondary rounded-lg p-2 bg-[#1a1a1a] hover:border-green-500 transition-all duration-300">
+            class="border border-gray-secondary rounded-xl p-2 bg-surface hover:border-green-500 transition-all duration-300 overflow-hidden">
             <img class="rounded-lg w-full h-auto" [src]="afterImg.url" [alt]="afterImg.alt">
           </div>
           }
@@ -141,15 +140,14 @@
   </div>
   }
 
-
   @if (projectFiltered().images.length > 0) {
-  <hr class="h-[1px] border-gray-secondary text-[0px] mx-[10%] my-8">
+  <hr class="divider !my-10">
 
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8 max-md:flex max-md:flex-col items-center">
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-4 max-md:flex max-md:flex-col items-center">
     @for (images of projectFiltered().images; track $index) {
     <div
-      class="group flex flex-col justify-between p-2 min-h-52 w-[95%] border solid border-gray-secondary bg-transparent cursor-pointer rounded-lg">
-      <img class="rounded-lg" [src]="images.url" [alt]="images.alt">
+      class="group p-2 w-full border border-gray-secondary bg-surface rounded-xl transition-all duration-300 hover:border-primary-brand overflow-hidden">
+      <img class="rounded-lg w-full h-auto" [src]="images.url" [alt]="images.alt">
     </div>
     }
   </div>

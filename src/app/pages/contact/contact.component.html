@@ -1,25 +1,32 @@
-<main class="px-10 max-md:px-1">
+<main class="px-10 max-md:px-4">
 
-  <h1 class="page-header  max-md:px-4">
+  <h1 class="page-header max-md:px-0">
     {{"CONTACT.TITLE" | translate}}
 
-    <span>{{"CONTACT.DESCRIPTION" | translate}} <b>{{"CONTACT.TALKTOME" | translate}} </b></span>
-    <span (click)="goTo('https://cal.com/henrique-nunes/')"
-      class="text-ft-primary text-2xl font-bold cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand">{{"CONTACT.SCHEDULE" | translate}}
-      <b class="text-primary-brand">-></b></span>
+    <span>{{"CONTACT.DESCRIPTION" | translate}} <b class="text-ft-primary">{{"CONTACT.TALKTOME" | translate}}</b></span>
   </h1>
 
-  <div class="float-start flex flex-col gap-4 max-md:px-4">
-    <i class="text-[30px] fa-brands fa-linkedin cursor-pointer transition-all duration-300 ease-in-out hover:text-primary-brand"
-      (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
+  <div class="flex flex-col gap-8">
+    <button (click)="goTo('https://cal.com/henrique-nunes/')"
+      class="group flex items-center gap-3 w-fit px-6 py-3 rounded-xl bg-primary-brand text-white font-semibold text-lg cursor-pointer border-none outline-none transition-all duration-300 ease-in-out hover:shadow-elevated hover:scale-[1.02]">
+      {{"CONTACT.SCHEDULE" | translate}}
+      <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+    </button>
 
-    <hr class="h-[1px] text-gray-secondary bg-gray-secondary text-[0px] border-0 mx-[12%] float-right">
+    <hr class="divider !mx-0 !my-4 max-w-xs">
 
-    <span
-      class="gap-2 font-bold text-ft-primary text-xl flex items-center cursor-pointer transition-all duration-300 ease-in-out max-md:text-sm">
-      <i class="text-[30px] fa-regular fa-envelope"></i>
-      eu&#64;henriquenunes.com
-    </span>
+    <div class="flex flex-col gap-4">
+      <a class="flex items-center gap-3 text-gray-primary text-base cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary w-fit"
+        (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')">
+        <i class="text-2xl fa-brands fa-linkedin"></i>
+        <span class="font-medium">LinkedIn</span>
+      </a>
+
+      <a class="flex items-center gap-3 text-gray-primary text-base cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary w-fit">
+        <i class="text-2xl fa-regular fa-envelope"></i>
+        <span class="font-medium">eu&#64;henriquenunes.com</span>
+      </a>
+    </div>
   </div>
 
 </main>

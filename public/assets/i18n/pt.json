@@ -110,11 +110,16 @@
       "ANTES": "Antes",
       "DEPOIS": "Depois",
       "METRICAS": "Métricas de Conversão",
-      "METRICA_OPTIONS" : {
+      "METRICA_OPTIONS": {
         "VISITAS": "Visitas",
         "CONVERSAO": "Conversão",
-        "TEMPO_CARREGAMENTO": "Tempo de Carregamento"
+        "TEMPO_CARREGAMENTO": "Tempo de Carregamento",
+        "USO_MEMORIA": "Uso de Memória",
+        "TECNOLOGIAS": "Tecnologias"
       }
+    },
+    "PLVNO": {
+      "DESCRIPTION": "Editor de plantas baixas"
     },
     "CONECTA_CURRICULO": {
       "DESCRIPTION": "Plataforma web de <b>análise inteligente de currículos com IA</b> que compara perfis profissionais com descrições de vagas, fornecendo insights detalhados, pontuação de aderência e sugestões personalizadas de melhoria. <br/> A plataforma oferece uma solução completa para profissionais que buscam otimizar suas candidaturas, fornecendo análises precisas e acionáveis que ajudam a identificar pontos de melhoria e aumentar a aderência entre perfil e vaga."
@@ -130,6 +135,9 @@
     },
     "IG-CLEAN": {
       "DESCRIPTION": "A <b>IG Clean</b> é um cliente para o qual foi solicitada uma reformulação visual e funcional em seu site institucional. Trata-se de uma empresa consolidada no mercado de serviços terceirizados, e o objetivo do projeto foi modernizar a experiência digital, aprimorando usabilidade, navegação e identidade visual, sem perder a solidez e credibilidade já reconhecidas pela marca."
+    },
+    "POKEFRENZY": {
+      "DESCRIPTION": "<b>Pokefrenzy</b> é um servidor de PokeTibia com cerca de 300 jogadores, onde tive a oportunidade de trabalhar com a equipe de desenvolvimento para modernizar e melhorar a experiência dos jogadores com o site do servidor."
     }
   }
 }

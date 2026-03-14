@@ -3,72 +3,114 @@ import { Observable, of } from 'rxjs';
 import { IProject } from '../../pages/projects/projects.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectsService {
-
   private projects: IProject[] = [
+    // {
+    //   year: '2026',
+    //   title: 'Pokefrenzy',
+    //   path: 'pokefrenzy',
+    //   link: 'https://pokefrenzy.com/',
+    //   descriptionKey: 'PROJECTS-VIEW.POKEFRENZY.DESCRIPTION',
+    //   projectType: 'client',
+    //   technologies: [
+    //     { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+    //     { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+    //     { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+    //     { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
+    //   ],
+    //   conversionMetrics:[
+    //     {
+    //       icon: 'fa-solid fa-memory',
+    //       label: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.USO_MEMORIA',
+    //       value: '-40%',
+    //       description: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.USO_MEMORIA_DESCRIPTION',
+    //     },
+    //     {
+    //       icon: 'fa-solid fa-code',
+    //       label: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.TECNOLOGIAS',
+    //       value: 'Next -> Angular',
+    //       description: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.TECNOLOGIAS_DESCRIPTION',
+    //     },
+    //   ],
+    //   beforeAfterImages: {
+    //     before: [
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/antes1.png',
+    //         alt: 'Antes - Tela inicial antiga',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/antes2.png',
+    //         alt: 'Antes - Interface antiga',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/antes3.png',
+    //         alt: 'Antes - Design antigo',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/antes4.png',
+    //         alt: 'Antes - Design antigo',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/antes5.png',
+    //         alt: 'Antes - Design antigo',
+    //       },
+    //     ],
+    //     after: [
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/depois1.png',
+    //         alt: 'Depois - Nova tela inicial',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/depois2.png',
+    //         alt: 'Depois - Nova interface',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/depois3.png',
+    //         alt: 'Depois - Novo design',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/depois4.png',
+    //         alt: 'Depois - Melhorias implementadas',
+    //       },
+    //       {
+    //         url: 'assets/img/projects/pokefrenzy/depois5.png',
+    //         alt: 'Depois - Melhorias implementadas',
+    //       },
+    //     ],
+    //   },
+    //   images: [],
+    // },
     {
       year: '2026',
-      title: 'IG Clean',
-      path: 'ig-clean',
-      link: 'http://igclean.com.br/',
-      descriptionKey: 'PROJECTS-VIEW.IG-CLEAN.DESCRIPTION',
-      projectType: 'client',
+      title: 'PLVNO',
+      descriptionKey: 'PROJECTS-VIEW.PLVNO.DESCRIPTION',
+      path: 'plvno',
+      link: 'https://plvno.com',
+      miniLogo: 'assets/img/projects/plvno/mini.png',
+      status: 'online',
       technologies: [
         { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
         { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
         { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
       ],
-      conversionMetrics: [
+      images: [
         {
-          icon: 'fa-people-group',
-          label: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.VISITAS',
-          value: '+60%',
+          url: 'assets/img/projects/plvno/1.png',
+          alt: '1',
         },
         {
-          icon: 'fa-clock',
-          label: 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICA_OPTIONS.TEMPO_CARREGAMENTO',
-          value: '-90%',
+          url: 'assets/img/projects/plvno/2.png',
+          alt: '2',
+        },
+        {
+          url: 'assets/img/projects/plvno/3.png',
+          alt: '3',
         },
       ],
-      beforeAfterImages: {
-        before: [
-          {
-            url: 'assets/img/projects/igclean/Antes1.png',
-            alt: 'Antes - Tela inicial antiga',
-          },
-          {
-            url: 'assets/img/projects/igclean/Antes2.png',
-            alt: 'Antes - Interface antiga',
-          },
-          {
-            url: 'assets/img/projects/igclean/Antes3.png',
-            alt: 'Antes - Design antigo',
-          },
-        ],
-        after: [
-          {
-            url: 'assets/img/projects/igclean/Depois1.png',
-            alt: 'Depois - Nova tela inicial',
-          },
-          {
-            url: 'assets/img/projects/igclean/Depois2.png',
-            alt: 'Depois - Nova interface',
-          },
-          {
-            url: 'assets/img/projects/igclean/Depois4.png',
-            alt: 'Depois - Melhorias implementadas',
-          },
-          {
-            url: 'assets/img/projects/igclean/Depois3.png',
-            alt: 'Depois - Novo design',
-          },
-
-        ]
-      },
-      images: []
     },
     {
       year: '2025',
@@ -84,7 +126,7 @@ export class ProjectsService {
         { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
         { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
         { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
       ],
       images: [
         {
@@ -109,63 +151,63 @@ export class ProjectsService {
         },
       ],
     },
-    {
-      year: '2025',
-      title: 'Hex6 BoardGame',
-      descriptionKey: 'PROJECTS-VIEW.HEX6.DESCRIPTION',
-      path: 'hex-6-board-game',
-      status: 'online',
-      link: 'https://hex6-boardgame.vercel.app/',
-      technologies: [
-        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
-        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
-        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
-      ],
-      images: [
-        {
-          url: 'assets/img/projects/HEX1.png',
-          alt: 'HEX1',
-        },
-        {
-          url: 'assets/img/projects/HEX2.png',
-          alt: 'HEX2',
-        },
-        {
-          url: 'assets/img/projects/HEX3.png',
-          alt: 'HEX3',
-        },
-      ],
-    },
-    {
-      year: '2025',
-      title: "What's my dream mean",
-      descriptionKey: 'PROJECTS-VIEW.WMDM.DESCRIPTION',
-      path: 'whats-my-dream-mean',
-      link: 'https://whats-my-dream-mean.vercel.app/',
-      status: 'online',
-      technologies: [
-        { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
-        { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
-        { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
-        { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
-      ],
-      images: [
-        {
-          url: 'assets/img/projects/WMDM1.png',
-          alt: 'WMDM1',
-        },
-        {
-          url: 'assets/img/projects/WMDM3.png',
-          alt: 'WMDM3',
-        },
-        {
-          url: 'assets/img/projects/WMDM2.png',
-          alt: 'WMDM2',
-        },
-      ],
-    },
+    // {
+    //   year: '2025',
+    //   title: 'Hex6 BoardGame',
+    //   descriptionKey: 'PROJECTS-VIEW.HEX6.DESCRIPTION',
+    //   path: 'hex-6-board-game',
+    //   status: 'online',
+    //   link: 'https://hex6-boardgame.vercel.app/',
+    //   technologies: [
+    //     { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+    //     { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+    //     { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+    //     { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
+    //   ],
+    //   images: [
+    //     {
+    //       url: 'assets/img/projects/HEX1.png',
+    //       alt: 'HEX1',
+    //     },
+    //     {
+    //       url: 'assets/img/projects/HEX2.png',
+    //       alt: 'HEX2',
+    //     },
+    //     {
+    //       url: 'assets/img/projects/HEX3.png',
+    //       alt: 'HEX3',
+    //     },
+    //   ],
+    // },
+    // {
+    //   year: '2025',
+    //   title: "What's my dream mean",
+    //   descriptionKey: 'PROJECTS-VIEW.WMDM.DESCRIPTION',
+    //   path: 'whats-my-dream-mean',
+    //   link: 'https://whats-my-dream-mean.vercel.app/',
+    //   status: 'online',
+    //   technologies: [
+    //     { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
+    //     { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
+    //     { icon: 'fa-brands fa-node-js', name: 'Node.js', color: '#339933' },
+    //     { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
+    //     { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
+    //   ],
+    //   images: [
+    //     {
+    //       url: 'assets/img/projects/WMDM1.png',
+    //       alt: 'WMDM1',
+    //     },
+    //     {
+    //       url: 'assets/img/projects/WMDM3.png',
+    //       alt: 'WMDM3',
+    //     },
+    //     {
+    //       url: 'assets/img/projects/WMDM2.png',
+    //       alt: 'WMDM2',
+    //     },
+    //   ],
+    // },
     {
       year: '2024',
       title: 'Ultimate Champion Creator',
@@ -177,7 +219,7 @@ export class ProjectsService {
         { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
         { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },
         { icon: 'fa-brands fa-html5', name: 'HTML5', color: '#E34F26' },
-        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' }
+        { icon: 'fa-brands fa-css3', name: 'Tailwind CSS', color: '#1572B6' },
       ],
       images: [
         {

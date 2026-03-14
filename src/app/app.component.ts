@@ -33,15 +33,13 @@ export const PagesAnchor: NavItem[] = [
     TranslateModule
   ],
   template: `
-
     <app-menu [navigation]="pagesAnchor"/>
-    <div class="flex justify-center mx-5 h-full">
+    <div class="flex justify-center mx-5 h-full max-md:mx-2">
       <main class="flex flex-col justify-between border-x border-solid border-gray-secondary min-h-[100vh] w-[75rem]">
         <div class="flex flex-col justify-start">
           <app-header [navigation]="pagesAnchor" />
           <router-outlet />
         </div>
-        &nbsp;
         <app-footer [navigation]="pagesAnchor"/>
       </main>
     </div>

@@ -1,14 +1,14 @@
-<div class="flex gap-12 max-md:flex-col-reverse">
+<div class="flex gap-6 max-md:flex-col-reverse">
       <div
         #dropArea
-        class="drop-area rounded-r-lg w-[80%] h-80 relative rounder-[12px] bg-[#fafafa00] grid place-items-center border-2 border-dashed border-gray-secondary max-md:w-full"
+        class="drop-area rounded-xl w-[80%] h-80 relative bg-transparent grid place-items-center border-2 border-dashed border-gray-secondary max-md:w-full transition-all duration-300"
         [class.drop-allowed]="hoverAllowed"
         (dragover)="onDragOver($event)"
         (dragleave)="onDragLeave()"
         (drop)="onDrop($event)"
       >
         @if (items.length === 0) {
-          <span class="opacity-60 font-semibold text-center max-md:text-xs">{{"ABOUT.DROPAREA" | translate}}</span>
+          <span class="opacity-40 font-medium text-center text-sm max-md:text-xs text-gray-primary">{{"ABOUT.DROPAREA" | translate}}</span>
         }
 
         @for (it of items; track $index) {
@@ -20,9 +20,9 @@
         }
       </div>
 
-      <div class="palette w-[20%] p-5 justify-center items-center text-center grid grid-cols-[repeat(auto-fill,minmax(50px,1fr))] rounded-lg gap-2 border solid border-gray-secondary max-md:w-full">
+      <div class="palette w-[20%] p-4 justify-center items-center text-center grid grid-cols-[repeat(auto-fill,minmax(50px,1fr))] rounded-xl gap-3 border border-gray-secondary bg-surface max-md:w-full">
         @for (p of palette; track $index) {
-        <i draggable="true" class="cursor-grab select-none text-ft-primary text-[42px] transition-all duration-300 ease-in-out hover:text-[#505050] chip" class="fa-brands fa-{{p.label}}" (dragstart)="onDragStart($event, p.id)"></i>
+        <i draggable="true" class="cursor-grab select-none text-gray-primary text-[36px] transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110 chip" class="fa-brands fa-{{p.label}}" (dragstart)="onDragStart($event, p.id)"></i>
         }
       </div>
     </div>

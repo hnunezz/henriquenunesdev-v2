@@ -20,29 +20,50 @@ html {
 }
 
 body {
-  --bg-app: #0c0c0c;
+  --bg-app: #0a0a0a;
+  --bg-surface: #111111;
+  --bg-surface-hover: #1a1a1a;
   --text-app-primary: #fff;
   --primary-brand: #7b3af2;
+  --primary-brand-soft: rgba(123, 58, 242, 0.12);
   --ft-primary: #ffffff;
   --gray-primary: #a1a1aa;
-  --gray-secondary: #414141;
+  --gray-secondary: #27272a;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(17, 17, 17, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.5);
 
   background-color: var(--bg-app);
   color: var(--text-app-primary);
 }
 
 .light {
-  --bg-app: #e8e8e8;
-  --text-app-primary: #27272a;
+  --bg-app: #f5f5f5;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f0f0f0;
+  --text-app-primary: #18181b;
   --primary-brand: #7b3af2;
-  --ft-primary: #27272a;
-  --gray-primary: #27272a;
-  --gray-secondary: #414141;
+  --primary-brand-soft: rgba(123, 58, 242, 0.08);
+  --ft-primary: #18181b;
+  --gray-primary: #52525b;
+  --gray-secondary: #d4d4d8;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.12);
 
   background-color: var(--bg-app);
   color: var(--text-app-primary);
 }
 
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
 
 .article {
     line-height: 30px;
