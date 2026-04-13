@@ -4,6 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TimelineComponent } from '../../components/timeline/timeline.component';
 import { ProjectsService } from '../../core/services/projects.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { RevealDirective } from '../../core/directives/reveal.directive';
 
 export interface ITestimonial {
   title: string;
@@ -48,13 +49,13 @@ export interface IProject {
 }
 @Component({
   selector: 'app-projects',
-  imports: [TimelineComponent,TranslateModule],
+  imports: [TimelineComponent, TranslateModule, RevealDirective],
   template: `
   <main class="px-10 max-md:px-4">
-    <h1 class="page-header">
+    <h1 appReveal class="page-header">
       {{"PROJECTS.TITLE" | translate}}
 
-      <span>{{"PROJECTS.DESCRIPTION" | translate}}</span>
+      <span appReveal [revealDelay]="100">{{"PROJECTS.DESCRIPTION" | translate}}</span>
     </h1>
 
     <app-timeline [projects]="projectsSignal()"/>

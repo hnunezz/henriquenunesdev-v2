@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { RevealDirective } from '../../core/directives/reveal.directive';
 
 @Component({
   selector: 'app-setup',
-  imports: [TranslateModule],
+  imports: [TranslateModule, RevealDirective],
   templateUrl: './setup.component.html',
-  styleUrl: './setup.component.scss'
+  styleUrl: './setup.component.scss',
 })
 export class SetupComponent {
+  private readonly revealedSections = new Set<number>();
+  private readonly revealDurationMs = 420;
+  readonly setupBaseDelayMs = 80;
+  readonly setupStaggerMs = 110;
+  readonly visibleSectionCount = signal(1);
+
   setupData = [
     {
       id: 1,
@@ -81,4 +88,43 @@ export class SetupComponent {
     },
   ];
 
+  isSectionVisible(sectionIndex: number): boolean {
+    return sectionIndex < this.visibleSectionCount();
+  }
+
+  onSetupItemRevealed(
+    sectionIndex: number,
+    itemIndex: number,
+    totalItems: number
+  ): void {
+    const isLastItem = itemIndex === totalItems - 1;
+    if (!isLastItem) {
+      return;
+    }
+
+    const revealSequenceCompletionDelay =
+      this.setupBaseDelayMs +
+      itemIndex * this.setupStaggerMs +
+      this.revealDurationMs;
+
+    this.unlockNextSection(sectionIndex, revealSequenceCompletionDelay);
+  }
+
+  private unlockNextSection(sectionIndex: number, delayMs: number): void {
+    if (sectionIndex + 1 !== this.visibleSectionCount()) {
+      return;
+    }
+
+    if (this.revealedSections.has(sectionIndex)) {
+      return;
+    }
+
+    this.revealedSections.add(sectionIndex);
+
+    window.setTimeout(() => {
+      this.visibleSectionCount.update((value) =>
+        Math.min(value + 1, this.setupData.length)
+      );
+    }, delayMs);
+  }
 }

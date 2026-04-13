@@ -1,7 +1,7 @@
-<main class="grid gap-32 px-10 max-md:px-4">
+<main class="grid gap-24 px-10 max-md:px-4">
   <section class="flex gap-10 max-md:flex-col max-md:items-center">
     <aside class="side-l flex flex-col items-center gap-10">
-      <div class="c-img h-72 w-72 flex items-center justify-center">
+      <div appReveal class="c-img h-72 w-72 flex items-center justify-center">
         <img
           class="h-72"
           src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG"
@@ -9,7 +9,7 @@
         />
       </div>
 
-      <div class="icons text-3xl flex gap-5">
+      <div appReveal [revealStagger]="80" class="icons text-3xl flex gap-5">
         <i
           class="fa-brands fa-github text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
           (click)="goTo('https://github.com/hnunezz')"
@@ -37,27 +37,48 @@
       <div
         class="flex flex-col justify-center h-72 max-xl:h-auto max-sm:text-center"
       >
-        <span class="hns-logo text-ft-primary"> hn. </span>
-        <span class="text-ft-primary"> henrique nunes </span>
-        <span class="text-ft-primary"> Software engineer </span>
+        <span appReveal class="hns-logo text-ft-primary"> hn. </span>
+        <span appReveal [revealDelay]="120" class="text-ft-primary">
+          henrique nunes
+        </span>
+        <span appReveal [revealDelay]="240" class="text-ft-primary">
+          Software engineer
+        </span>
       </div>
 
       <p
+        appReveal
+        [revealDelay]="360"
         class="text-gray-primary font-light text-lg leading-relaxed max-sm:text-center max-w-xl"
       >
         {{ "HOME.DESCRIPTION" | translate }}
       </p>
     </aside>
   </section>
+
+  <div
+    class="scroll-down-badge max-md:hidden"
+    [style.opacity]="scrollBadgeOpacity"
+    [class.is-hidden]="scrollBadgeOpacity < 0.04"
+    aria-hidden="true"
+  >
+    <span>Scroll down</span>
+    <span class="scroll-down-mouse">
+      <span class="scroll-down-dot"></span>
+    </span>
+  </div>
+
+  <hr class="divider !my-8" />
+
   <section
     class="flex justify-between max-md:flex-col-reverse max-md:items-center max-md:gap-20 mb-8"
   >
-    <app-timeline [projects]="projectsSignal()" />
+    <app-timeline [projects]="projectsSignal()" style="width: 100%" />
 
     <div
-      class="work-exp w-[360px] flex flex-col gap-5 max-sm:px-0 max-sm:w-full"
+      class="work-exp w-[800px] flex flex-col gap-5 max-sm:px-0 max-sm:w-full"
     >
-      <div class="header-container flex justify-between items-center">
+      <div appReveal class="header-container flex justify-between items-center">
         <span class="text-ft-primary text-lg font-bold tracking-tight">{{
           "HOME.WORK_EXP" | translate
         }}</span>
@@ -72,8 +93,10 @@
 
       <div class="rounded-xl border border-gray-secondary bg-surface p-1">
         <ul class="flex flex-col gap-1">
-          @for (work of works; track $index) {
+          @for (work of works; track $index; let itemIndex = $index) {
           <li
+            appReveal
+            [revealDelay]="80 + itemIndex * 90"
             class="flex gap-3 transition-all duration-300 ease-in-out p-3 hover:bg-surface-hover rounded-lg cursor-default"
           >
             <div

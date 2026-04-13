@@ -119,8 +119,8 @@ export class ProjectsService {
       path: 'conecta-curriculo',
       link: 'https://conecta-curriculo.com',
       miniLogo: 'assets/img/projects/conecta-curriculo/mini-logo.png', // Exemplo de mini logo
-      status: 'online',
-      usersCount: 27,
+      status: 'offline',
+      usersCount: 32,
       technologies: [
         { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
         { icon: 'fa-brands fa-js', name: 'JavaScript', color: '#F7DF1E' },

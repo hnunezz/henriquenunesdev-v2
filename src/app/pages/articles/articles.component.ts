@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { ArticlesService, IArticles } from '../../core/services/articles.service';
 import { ShortDateIntlPipe } from '../../core/pipe/short-date.pipe';
 import { TranslateModule } from '@ngx-translate/core';
+import { RevealDirective } from '../../core/directives/reveal.directive';
 
 @Component({
   selector: 'app-articles',
-  imports: [ShortDateIntlPipe,TranslateModule],
+  imports: [ShortDateIntlPipe, TranslateModule, RevealDirective],
   templateUrl: './articles.component.html',
 })
 export class ArticlesComponent implements OnInit{

@@ -1,7 +1,6 @@
 .page-header {
   @apply flex flex-col gap-6 font-extrabold text-[40px] mb-14;
 
-  animation: fadeInRight 0.8s both;
   letter-spacing: -0.02em;
 
   span {
@@ -10,7 +9,6 @@
     padding-right: 40px;
     line-height: 1.6;
     color: var(--gray-primary);
-    animation: fadeInRight 1.2s both;
   }
 }
 

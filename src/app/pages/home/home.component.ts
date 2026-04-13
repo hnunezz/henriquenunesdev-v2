@@ -1,4 +1,11 @@
-import { Component, Inject, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Inject,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { TimelineComponent } from '../../components/timeline/timeline.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProjectsService } from '../../core/services/projects.service';
@@ -7,10 +14,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SEOService } from '../../core/services/seo.service';
 import { SchemaService } from '../../core/services/schema.service';
+import { RevealDirective } from '../../core/directives/reveal.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [TimelineComponent, TranslateModule
+  imports: [TimelineComponent, TranslateModule, RevealDirective
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -20,6 +28,8 @@ export class HomeComponent implements OnInit {
   private seoService = inject(SEOService);
   private schemaService = inject(SchemaService);
   projectsSignal = toSignal(this.projectsService.get(), { initialValue: [] });
+  scrollBadgeOpacity = 1;
+  private readonly scrollFadeDistance = 220;
 
   works = [
     { title: 'Extreme Digital Solutions', path: 'assets/img/eds.jpeg', role: 'Front-end Dev. at PMERJ', date: '2024 - Present' },
@@ -67,6 +77,8 @@ export class HomeComponent implements OnInit {
       url: 'https://henriquenunes.com',
       description: 'Portfólio de Henrique Nunes - Software Engineer especializado em Front-end'
     });
+
+    this.updateScrollBadge();
   }
 
   goTo(url: string) {
@@ -91,5 +103,20 @@ export class HomeComponent implements OnInit {
         a.remove();
         URL.revokeObjectURL(url);
       });
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.updateScrollBadge();
+  }
+
+  private updateScrollBadge(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const y = window.scrollY || 0;
+    const opacity = Math.max(0, 1 - y / this.scrollFadeDistance);
+    this.scrollBadgeOpacity = Number(opacity.toFixed(3));
   }
 }

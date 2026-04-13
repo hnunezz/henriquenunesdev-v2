@@ -7,10 +7,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { DecimalPipe } from '@angular/common';
 import { SEOService } from '../../../core/services/seo.service';
 import { SchemaService } from '../../../core/services/schema.service';
+import { RevealDirective } from '../../../core/directives/reveal.directive';
 
 @Component({
   selector: 'app-view',
-  imports: [SafeHtmlPipe, TranslateModule, DecimalPipe],
+  imports: [SafeHtmlPipe, TranslateModule, DecimalPipe, RevealDirective],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
 })

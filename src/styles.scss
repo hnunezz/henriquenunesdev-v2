@@ -65,6 +65,28 @@ body {
   50% { opacity: 0.5; }
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .article {
     line-height: 30px;
 

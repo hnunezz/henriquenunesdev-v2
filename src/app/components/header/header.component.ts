@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, ElementRef, HostListener, inject, input, signal, ViewChild } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { AfterViewInit, Component, computed, ElementRef, HostListener, inject, input, signal, ViewChild } from '@angular/core';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { NavItem, PagesAnchor } from '../../app.component';
 import { ThemeService } from '../../core/services/theme.service';
 import { FormsModule } from '@angular/forms';
@@ -13,12 +14,16 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   private menuService = inject(MenuService);
   themeService = inject(ThemeService);
 
   router = inject(Router);
   navigation = input<NavItem[]>([]);
+
+  @ViewChild('navPill') navPill?: ElementRef<HTMLElement>;
+
+  glider = signal<{ left: number; width: number; visible: boolean }>({ left: 0, width: 0, visible: false });
 
   private lang = signal<'pt' | 'en'>('pt');
   private get isBrowser() { return typeof window !== 'undefined'; }
@@ -36,6 +41,43 @@ export class HeaderComponent {
       this.lang.set(l);
       if (this.isBrowser) localStorage.setItem('lang', l);
       if (this.isBrowser) document.documentElement.setAttribute('lang', l);
+      this.scheduleGliderUpdate();
+    });
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => this.scheduleGliderUpdate());
+  }
+
+  ngAfterViewInit() {
+    this.scheduleGliderUpdate();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.updateGlider();
+  }
+
+  private scheduleGliderUpdate() {
+    if (!this.isBrowser) return;
+    requestAnimationFrame(() => this.updateGlider());
+  }
+
+  private updateGlider() {
+    if (!this.isBrowser) return;
+    const container = this.navPill?.nativeElement;
+    if (!container) return;
+    const active = container.querySelector<HTMLElement>('.nav-link.active');
+    if (!active) {
+      this.glider.update(g => ({ ...g, visible: false }));
+      return;
+    }
+    const cRect = container.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    this.glider.set({
+      left: aRect.left - cRect.left,
+      width: aRect.width,
+      visible: true,
     });
   }
 

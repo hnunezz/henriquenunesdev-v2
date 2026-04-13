@@ -1,11 +1,19 @@
 <header class="items-center grid">
-
   @if (router.url !== '/home' && router.url !== '/about') {
-  <div class="flex items-center gap-3 hover:opacity-80 cursor-pointer group" [routerLink]="'/home'">
+  <div
+    class="flex items-center gap-3 hover:opacity-80 cursor-pointer group"
+    [routerLink]="'/home'"
+  >
     <div class="c-img h-10 w-10 flex items-center">
-      <img class="h-10" src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG" alt="Henrique Nunes">
+      <img
+        class="h-10"
+        src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG"
+        alt="Henrique Nunes"
+      />
     </div>
-    <span class="hns-logo text-xl text-ft-primary group-hover:text-primary-brand transition-colors duration-300">
+    <span
+      class="hns-logo text-xl text-ft-primary group-hover:text-primary-brand transition-colors duration-300"
+    >
       hn.
     </span>
   </div>
@@ -13,34 +21,48 @@
   <span></span>
   }
 
-  <nav class="nav-pill flex rounded-full h-[52px] justify-evenly items-center z-50 px-2 max-md:hidden">
+  <nav
+    #navPill
+    class="nav-pill flex rounded-full h-[52px] justify-evenly items-center z-50 px-2 max-md:hidden"
+  >
+    <span
+      class="nav-glider"
+      [class.visible]="glider().visible"
+      [style.transform]="'translateX(' + glider().left + 'px)'"
+      [style.width.px]="glider().width"
+    ></span>
     @for (nav of navigation(); track $index) {
     <span
-      class="nav-link cursor-pointer text-sm font-medium text-[#a1a1aa] transition-all duration-300 ease-in-out hover:text-white px-4 py-2 rounded-full"
-      [ngClass]="{'active': router.url === nav.anchor}" [routerLink]="nav.anchor">
-      {{nav.labelKey | translate}}
+      class="nav-link cursor-pointer text-sm font-medium text-[#a1a1aa] transition-colors duration-300 ease-in-out hover:text-primary-brand px-4 py-2 rounded-full"
+      [ngClass]="{ active: router.url === nav.anchor }"
+      [routerLink]="nav.anchor"
+    >
+      {{ nav.labelKey | translate }}
     </span>
     }
   </nav>
 
-  <p class="hidden max-md:flex">
-    &nbsp;
-  </p>
+  <p class="hidden max-md:flex">&nbsp;</p>
 
   <div class="flex justify-end gap-2">
-    <div (click)="open()"
-      class="mobile-nav header-action-btn justify-center items-center cursor-pointer hidden max-md:flex">
+    <div
+      (click)="open()"
+      class="mobile-nav header-action-btn justify-center items-center cursor-pointer hidden max-md:flex"
+    >
       <i class="fa-solid fa-bars text-[#e8e8e8] text-lg"></i>
     </div>
 
-    <div (click)="toggleLang()"
-      class="header-action-btn flex justify-center items-center cursor-pointer">
-       <span class="text-lg">{{ nextFlag() }}</span>
+    <div
+      (click)="toggleLang()"
+      class="header-action-btn flex justify-center items-center cursor-pointer"
+    >
+      <span class="text-lg">{{ nextFlag() }}</span>
     </div>
 
     <div
       class="header-action-btn flex justify-center items-center cursor-pointer"
-      (click)="themeService.toggleTheme()">
+      (click)="themeService.toggleTheme()"
+    >
       @if (themeService.currentTheme() === 'light') {
       <i class="fa-regular fa-moon text-[#8ee7fc] text-lg"></i>
       } @else {

@@ -1,5 +1,5 @@
 <main class="px-10 max-md:px-4">
-  <div class="flex flex-col items-start gap-4">
+  <div appReveal class="flex flex-col items-start gap-4">
     <div class="flex items-center gap-4 mb-4">
       <div (click)="router.navigate(['/projects'])"
         class="h-9 w-9 rounded-full flex justify-center items-center cursor-pointer border border-gray-secondary bg-surface transition-all duration-300 ease-in-out text-gray-primary hover:text-primary-brand hover:border-primary-brand flex-shrink-0">
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col items-start gap-3 mb-4 flex-wrap">
+    <div appReveal [revealDelay]="100" class="flex flex-col items-start gap-3 mb-4 flex-wrap">
       @if (projectFiltered().status) {
       <div class="flex items-center gap-3">
         <span class="px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2"
@@ -41,11 +41,11 @@
       </a>
     </div>
 
-    <p class="text-sm text-gray-primary leading-relaxed max-w-2xl mb-4"
+    <p appReveal [revealDelay]="180" class="text-sm text-gray-primary leading-relaxed max-w-2xl mb-4"
       [innerHTML]="projectFiltered().descriptionKey | translate | safeHtml"></p>
 
     @if (projectFiltered().technologies && projectFiltered().technologies!.length > 0) {
-    <div class="flex items-center gap-3 flex-wrap mt-2">
+    <div appReveal [revealStagger]="70" class="flex items-center gap-3 flex-wrap mt-2">
       @for (tech of projectFiltered().technologies; track tech.name) {
       <div class="group relative">
         <i [class]="tech.icon + ' text-xl text-gray-primary transition-all duration-300 cursor-pointer'"
@@ -59,9 +59,9 @@
   @if (projectFiltered().testimonials && projectFiltered().testimonials!.length > 0) {
   <hr class="divider !my-10">
 
-  <div class="mb-8">
-    <h2 class="text-xl font-bold text-ft-primary mb-6 tracking-tight">Relatos e Impacto Real</h2>
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 max-md:flex max-md:flex-col">
+  <div appReveal class="mb-8">
+    <h2 appReveal class="text-xl font-bold text-ft-primary mb-6 tracking-tight">Relatos e Impacto Real</h2>
+    <div appReveal [revealStagger]="90" class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 max-md:flex max-md:flex-col">
       @for (testimonial of projectFiltered().testimonials; track $index) {
       <div
         class="border border-gray-secondary rounded-xl p-5 bg-surface hover:border-primary-brand hover:bg-primary-brand-soft transition-all duration-300">
@@ -83,9 +83,9 @@
   @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
   projectFiltered().conversionMetrics && projectFiltered().conversionMetrics!.length > 0) {
 
-  <div class="mb-8">
-    <h2 class="text-xl font-bold text-ft-primary mb-6 tracking-tight">{{'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate}}</h2>
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4 max-md:flex max-md:flex-col">
+  <div appReveal class="mb-8">
+    <h2 appReveal class="text-xl font-bold text-ft-primary mb-6 tracking-tight">{{'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate}}</h2>
+    <div appReveal [revealStagger]="90" class="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4 max-md:flex max-md:flex-col">
       @for (metric of projectFiltered().conversionMetrics; track $index) {
       <div
         class="border border-gray-secondary rounded-xl p-5 bg-surface hover:border-primary-brand hover:bg-primary-brand-soft transition-all duration-300">
@@ -102,7 +102,7 @@
 
   <hr class="divider !my-10">
 
-  <div class="mb-8">
+  <div appReveal class="mb-8">
     @if (projectFiltered().beforeAfterImages!.before.length > 0 && projectFiltered().beforeAfterImages!.after.length >
     0) {
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -112,8 +112,10 @@
           {{'PROJECTS-VIEW.ANTES_E_DEPOIS.ANTES' | translate}}
         </h3>
         <div class="grid grid-cols-1 gap-3">
-          @for (beforeImg of projectFiltered().beforeAfterImages!.before; track $index) {
+          @for (beforeImg of projectFiltered().beforeAfterImages!.before; track $index; let itemIndex = $index) {
           <div
+            appReveal
+            [revealDelay]="80 + (itemIndex * 90)"
             class="border border-gray-secondary rounded-xl p-2 bg-surface hover:border-red-500 transition-all duration-300 overflow-hidden">
             <img class="rounded-lg w-full h-auto" [src]="beforeImg.url" [alt]="beforeImg.alt">
           </div>
@@ -127,8 +129,10 @@
           {{'PROJECTS-VIEW.ANTES_E_DEPOIS.DEPOIS' | translate}}
         </h3>
         <div class="grid grid-cols-1 gap-3">
-          @for (afterImg of projectFiltered().beforeAfterImages!.after; track $index) {
+          @for (afterImg of projectFiltered().beforeAfterImages!.after; track $index; let itemIndex = $index) {
           <div
+            appReveal
+            [revealDelay]="80 + (itemIndex * 90)"
             class="border border-gray-secondary rounded-xl p-2 bg-surface hover:border-green-500 transition-all duration-300 overflow-hidden">
             <img class="rounded-lg w-full h-auto" [src]="afterImg.url" [alt]="afterImg.alt">
           </div>
@@ -144,8 +148,10 @@
   <hr class="divider !my-10">
 
   <div class="grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-4 max-md:flex max-md:flex-col items-center">
-    @for (images of projectFiltered().images; track $index) {
+    @for (images of projectFiltered().images; track $index; let itemIndex = $index) {
     <div
+      appReveal
+      [revealDelay]="80 + (itemIndex * 90)"
       class="group p-2 w-full border border-gray-secondary bg-surface rounded-xl transition-all duration-300 hover:border-primary-brand overflow-hidden">
       <img class="rounded-lg w-full h-auto" [src]="images.url" [alt]="images.alt">
     </div>

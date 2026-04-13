@@ -1,60 +1,82 @@
-<main class="px-10 max-md:px-4">
-  <h1 class="page-header max-md:px-0">
+<main class="px-10 max-md:px-4 mb-4">
+  <h1 appReveal class="page-header max-md:px-0">
     Setup + Gadgets + Softwares
 
-    <span>{{"SETUP.DESCRIPTION"|translate}}</span>
+    <span appReveal [revealDelay]="100">{{ "SETUP.DESCRIPTION" | translate }}</span>
   </h1>
 
-  <div class="flex flex-col gap-16 fadeIn">
-    @for (setup of setupData; track $index) {
+  <div class="flex flex-col gap-16">
+    @for (setup of setupData; track $index; let sectionIndex = $index) {
       @switch (setup.id) {
         @case (1) {
-        <div class="setup-category">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-1 h-8 rounded-full bg-primary-brand"></div>
-            <h2 class="text-lg font-bold text-primary-brand tracking-tight">{{setup.title}}</h2>
+          <div class="setup-category">
+            <div appReveal [revealEnabled]="isSectionVisible(sectionIndex)" class="flex items-center gap-3 mb-8">
+              <div class="w-1 h-8 rounded-full bg-primary-brand"></div>
+              <h2 class="text-lg font-bold text-primary-brand tracking-tight">{{ setup.title }}</h2>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 max-md:grid-cols-1">
+              @for (item of setup.items; track $index; let itemIndex = $index) {
+                <div
+                  appReveal
+                  [revealEnabled]="isSectionVisible(sectionIndex)"
+                  [revealDelay]="setupBaseDelayMs + (itemIndex * setupStaggerMs)"
+                  (revealed)="onSetupItemRevealed(sectionIndex, itemIndex, setup.items.length)"
+                  class="p-5 rounded-xl border border-gray-secondary bg-surface transition-all duration-300 hover:border-primary-brand hover:bg-primary-brand-soft"
+                >
+                  <span class="font-semibold text-ft-primary text-sm">{{ item.title | translate }}</span>
+                  <p class="text-gray-primary text-sm mt-1.5 leading-relaxed">{{ item.descriptionKey | translate }}</p>
+                </div>
+              }
+            </div>
           </div>
-          <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 max-md:grid-cols-1">
-            @for (item of setup.items; track $index) {
-              <div class="p-5 rounded-xl border border-gray-secondary bg-surface transition-all duration-300 hover:border-primary-brand hover:bg-primary-brand-soft">
-                <span class="font-semibold text-ft-primary text-sm">{{item.title | translate}}</span>
-                <p class="text-gray-primary text-sm mt-1.5 leading-relaxed">{{item.descriptionKey | translate}}</p>
-              </div>
-            }
-          </div>
-        </div>
         }
         @case (2) {
-        <div class="setup-category">
-          <div class="flex items-center gap-3 mb-8 justify-end max-md:justify-start">
-            <div class="w-1 h-8 rounded-full bg-[#3AC4F2]"></div>
-            <h2 class="text-lg font-bold text-[#3AC4F2] tracking-tight">Development tools</h2>
+          <div class="setup-category">
+            <div
+              appReveal
+              [revealEnabled]="isSectionVisible(sectionIndex)"
+              class="flex items-center gap-3 mb-8 justify-end max-md:justify-start"
+            >
+              <div class="w-1 h-8 rounded-full bg-[#3AC4F2]"></div>
+              <h2 class="text-lg font-bold text-[#3AC4F2] tracking-tight">Development tools</h2>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 max-md:grid-cols-1">
+              @for (item of setup.items; track $index; let itemIndex = $index) {
+                <div
+                  appReveal
+                  [revealEnabled]="isSectionVisible(sectionIndex)"
+                  [revealDelay]="setupBaseDelayMs + (itemIndex * setupStaggerMs)"
+                  (revealed)="onSetupItemRevealed(sectionIndex, itemIndex, setup.items.length)"
+                  class="p-5 rounded-xl border border-gray-secondary bg-surface transition-all duration-300 hover:border-[#3AC4F2] hover:bg-[#3ac4f20d]"
+                >
+                  <span class="font-semibold text-ft-primary text-sm">{{ item.title | translate }}</span>
+                  <p class="text-gray-primary text-sm mt-1.5 leading-relaxed">{{ item.descriptionKey | translate }}</p>
+                </div>
+              }
+            </div>
           </div>
-          <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 max-md:grid-cols-1">
-            @for (item of setup.items; track $index) {
-              <div class="p-5 rounded-xl border border-gray-secondary bg-surface transition-all duration-300 hover:border-[#3AC4F2] hover:bg-[#3ac4f20d]">
-                <span class="font-semibold text-ft-primary text-sm">{{item.title | translate}}</span>
-                <p class="text-gray-primary text-sm mt-1.5 leading-relaxed">{{item.descriptionKey | translate}}</p>
-              </div>
-            }
-          </div>
-        </div>
         }
         @case (3) {
-        <div class="setup-category">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-1 h-8 rounded-full bg-[#F2C43A]"></div>
-            <h2 class="text-lg font-bold text-[#F2C43A] tracking-tight">{{setup.title}}</h2>
+          <div class="setup-category">
+            <div appReveal [revealEnabled]="isSectionVisible(sectionIndex)" class="flex items-center gap-3 mb-8">
+              <div class="w-1 h-8 rounded-full bg-[#F2C43A]"></div>
+              <h2 class="text-lg font-bold text-[#F2C43A] tracking-tight">{{ setup.title }}</h2>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 max-md:grid-cols-1">
+              @for (item of setup.items; track $index; let itemIndex = $index) {
+                <div
+                  appReveal
+                  [revealEnabled]="isSectionVisible(sectionIndex)"
+                  [revealDelay]="setupBaseDelayMs + (itemIndex * setupStaggerMs)"
+                  (revealed)="onSetupItemRevealed(sectionIndex, itemIndex, setup.items.length)"
+                  class="p-5 rounded-xl border border-gray-secondary bg-surface transition-all duration-300 hover:border-[#F2C43A] hover:bg-[#f2c43a0d]"
+                >
+                  <span class="font-semibold text-ft-primary text-sm">{{ item.title | translate }}</span>
+                  <p class="text-gray-primary text-sm mt-1.5 leading-relaxed">{{ item.descriptionKey | translate }}</p>
+                </div>
+              }
+            </div>
           </div>
-          <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 max-md:grid-cols-1">
-            @for (item of setup.items; track $index) {
-              <div class="p-5 rounded-xl border border-gray-secondary bg-surface transition-all duration-300 hover:border-[#F2C43A] hover:bg-[#f2c43a0d]">
-                <span class="font-semibold text-ft-primary text-sm">{{item.title | translate}}</span>
-                <p class="text-gray-primary text-sm mt-1.5 leading-relaxed">{{item.descriptionKey | translate}}</p>
-              </div>
-            }
-          </div>
-        </div>
         }
       }
     }
