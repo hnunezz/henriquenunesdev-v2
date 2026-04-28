@@ -174,12 +174,24 @@ export class ProjectsService {
           alt: 'UCC2',
         },
         {
+          url: 'assets/img/projects/UCC3.png',
+          alt: 'UCC3',
+        },
+        {
           url: 'assets/img/projects/UCC4.png',
           alt: 'UCC4',
         },
         {
-          url: 'assets/img/projects/UCC3.png',
-          alt: 'UCC3',
+          url: 'assets/img/projects/UCC5.png',
+          alt: 'UCC5',
+        },
+        {
+          url: 'assets/img/projects/UCC6.png',
+          alt: 'UCC6',
+        },
+        {
+          url: 'assets/img/projects/UCC7.png',
+          alt: 'UCC7',
         },
       ],
     },
