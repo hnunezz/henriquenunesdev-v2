@@ -22,6 +22,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/articles/articles.routes').then((c) => c.routes),
   },
+  {
+    path: "studio",
+    loadChildren: () =>
+      import('./pages/studio/studio.routes').then((c) => c.routes),
+  },
   { path: "contact", component: ContactComponent },
   { path: "about", component: AboutComponent },
   { path: "setup", component: SetupComponent },

@@ -1,161 +1,156 @@
-<main class="px-10 max-md:px-4">
-  <div appReveal class="flex flex-col items-start gap-4">
-    <div class="flex items-center gap-4 mb-4">
-      <div (click)="router.navigate(['/projects'])"
-        class="h-9 w-9 rounded-full flex justify-center items-center cursor-pointer border border-gray-secondary bg-surface transition-all duration-300 ease-in-out text-gray-primary hover:text-primary-brand hover:border-primary-brand flex-shrink-0">
-        <i class="fa-solid fa-arrow-left text-sm"></i>
+@if (projectFiltered(); as p) {
+
+<main class="project-detail">
+
+  <!-- Back -->
+  <div appReveal class="detail-back">
+    <a (click)="router.navigate(['/projects'])" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i>
+      Projetos
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section appReveal [revealDelay]="80" class="detail-hero">
+    <div class="detail-hero-meta">
+      @if (p.projectType) {
+        <span class="detail-category">{{ p.projectType }}</span>
+      }
+
+      <div class="detail-title-row">
+        @if (p.logo) {
+          <img [src]="p.logo" [alt]="p.title + ' logo'" class="detail-logo" />
+        }
+        <h1 class="detail-title">{{ p.title }}</h1>
       </div>
 
-      <div class="flex items-center gap-3 flex-wrap">
-        @if (projectFiltered().logo) {
-        <img [src]="projectFiltered().logo" [alt]="projectFiltered().title + ' logo'" class="h-7 w-auto object-contain">
+      <div class="detail-meta-row">
+        <span class="detail-year">{{ p.year }}</span>
+
+        @if (p.status) {
+          <span class="detail-status" [class.online]="p.status === 'online'" [class.offline]="p.status === 'offline'">
+            <span class="status-dot"></span>
+            {{ p.status === 'online' ? 'Online' : 'Offline' }}
+          </span>
         }
-        <h1 class="text-3xl font-extrabold tracking-tight mb-0 max-md:text-2xl">
-          {{projectFiltered().title}}
-        </h1>
+
+        @if (p.usersCount) {
+          <span class="detail-users">
+            <i class="fa-solid fa-users"></i>
+            {{ p.usersCount | number }} {{ 'PROJECTS-VIEW.USERS_COUNT' | translate }}
+          </span>
+        }
       </div>
     </div>
 
-    <div appReveal [revealDelay]="100" class="flex flex-col items-start gap-3 mb-4 flex-wrap">
-      @if (projectFiltered().status) {
-      <div class="flex items-center gap-3">
-        <span class="px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-2"
-          [class.bg-green-500]="projectFiltered().status === 'online'"
-          [class.bg-red-500]="projectFiltered().status === 'offline'" [class.text-white]="true">
-          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-          {{projectFiltered().status === 'online' ? 'Online' : 'Offline'}}
+    <button class="visit-btn" (click)="goTo(p.link)">
+      Visitar Site
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </button>
+  </section>
+
+  <!-- Cover (primeira imagem) -->
+  @if (p.images.length > 0) {
+    <div appReveal [revealDelay]="120" class="detail-cover">
+      <img [src]="p.images[0].url" [alt]="p.images[0].alt" />
+    </div>
+  }
+
+  <!-- Description -->
+  <section appReveal [revealDelay]="160" class="detail-content">
+    <p [innerHTML]="p.descriptionKey | translate | safeHtml"></p>
+  </section>
+
+  <!-- Technologies -->
+  @if (p.technologies && p.technologies.length > 0) {
+    <section appReveal [revealDelay]="200" class="detail-tech">
+      @for (tech of p.technologies; track tech.name) {
+        <span class="tech-tag" [style.--tech-color]="tech.color">
+          <i [class]="tech.icon"></i>
+          {{ tech.name }}
         </span>
-        @if (projectFiltered().usersCount) {
-        <span class="text-gray-primary text-xs flex items-center gap-1.5">
-          <i class="fa-solid fa-users text-xs"></i>
-          {{projectFiltered().usersCount | number}} {{'PROJECTS-VIEW.USERS_COUNT' | translate}}
-        </span>
+      }
+    </section>
+  }
+
+  <!-- Gallery (imagens restantes) -->
+  @if (p.images.length > 1) {
+    <section class="detail-gallery">
+      @for (img of p.images.slice(1); track img.url; let i = $index) {
+        <div appReveal [revealDelay]="i * 60" class="gallery-item">
+          <img [src]="img.url" [alt]="img.alt" loading="lazy" />
+        </div>
+      }
+    </section>
+  }
+
+  <!-- Testimonials -->
+  @if (p.testimonials && p.testimonials.length > 0) {
+    <hr class="detail-divider" />
+    <section appReveal class="detail-section">
+      <h2 class="detail-section-title">Relatos e Impacto Real</h2>
+      <div class="testimonials-grid">
+        @for (testimonial of p.testimonials; track $index) {
+          <div class="testimonial-card">
+            <h3>{{ testimonial.title }}</h3>
+            <p>{{ testimonial.description }}</p>
+            @if (testimonial.author) {
+              <small>— {{ testimonial.author }}</small>
+            }
+          </div>
         }
       </div>
-      }
-      <a
-        class="flex items-center gap-2 text-sm transition-all duration-300 ease-in-out text-gray-primary hover:text-primary-brand font-medium cursor-pointer"
-        (click)="goTo(projectFiltered().link)">
-        <i class="fa-solid fa-arrow-up-right-from-square text-primary-brand text-xs"></i>
-        {{projectFiltered().link}}
-      </a>
-    </div>
+    </section>
+  }
 
-    <p appReveal [revealDelay]="180" class="text-sm text-gray-primary leading-relaxed max-w-2xl mb-4"
-      [innerHTML]="projectFiltered().descriptionKey | translate | safeHtml"></p>
-
-    @if (projectFiltered().technologies && projectFiltered().technologies!.length > 0) {
-    <div appReveal [revealStagger]="70" class="flex items-center gap-3 flex-wrap mt-2">
-      @for (tech of projectFiltered().technologies; track tech.name) {
-      <div class="group relative">
-        <i [class]="tech.icon + ' text-xl text-gray-primary transition-all duration-300 cursor-pointer'"
-          [style.--hover-color]="tech.color" [title]="tech.name" class="tech-icon"></i>
-      </div>
-      }
-    </div>
-    }
-  </div>
-
-  @if (projectFiltered().testimonials && projectFiltered().testimonials!.length > 0) {
-  <hr class="divider !my-10">
-
-  <div appReveal class="mb-8">
-    <h2 appReveal class="text-xl font-bold text-ft-primary mb-6 tracking-tight">Relatos e Impacto Real</h2>
-    <div appReveal [revealStagger]="90" class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 max-md:flex max-md:flex-col">
-      @for (testimonial of projectFiltered().testimonials; track $index) {
-      <div
-        class="border border-gray-secondary rounded-xl p-5 bg-surface hover:border-primary-brand hover:bg-primary-brand-soft transition-all duration-300">
-        <h3 class="text-base font-bold text-ft-primary mb-2">{{testimonial.title}}</h3>
-        <p class="text-gray-primary text-sm leading-relaxed mb-3">{{testimonial.description}}</p>
-        @if (testimonial.author) {
-        <p class="text-xs text-gray-primary italic">— {{testimonial.author}}</p>
+  <!-- Metrics -->
+  @if ((p.projectType === 'client' || p.projectType === 'freelance') && p.conversionMetrics && p.conversionMetrics.length > 0) {
+    <hr class="detail-divider" />
+    <section appReveal class="detail-section">
+      <h2 class="detail-section-title">{{ 'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate }}</h2>
+      <div class="metrics-grid">
+        @for (metric of p.conversionMetrics; track $index) {
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i [class]="'fa-solid ' + metric.icon"></i>
+              <span>{{ metric.label | translate }}</span>
+            </div>
+            <p class="metric-value">{{ metric.value }}</p>
+          </div>
         }
       </div>
-      }
-    </div>
-  </div>
+    </section>
   }
 
-  @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
-  projectFiltered().beforeAfterImages) {
-  <hr class="divider !my-10">
-
-  @if ((projectFiltered().projectType === 'client' || projectFiltered().projectType === 'freelance') &&
-  projectFiltered().conversionMetrics && projectFiltered().conversionMetrics!.length > 0) {
-
-  <div appReveal class="mb-8">
-    <h2 appReveal class="text-xl font-bold text-ft-primary mb-6 tracking-tight">{{'PROJECTS-VIEW.ANTES_E_DEPOIS.METRICAS' | translate}}</h2>
-    <div appReveal [revealStagger]="90" class="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4 max-md:flex max-md:flex-col">
-      @for (metric of projectFiltered().conversionMetrics; track $index) {
-      <div
-        class="border border-gray-secondary rounded-xl p-5 bg-surface hover:border-primary-brand hover:bg-primary-brand-soft transition-all duration-300">
-        <div class="flex items-center gap-2.5 mb-3">
-          <i [class]="'fa-solid ' + metric.icon + ' text-primary-brand text-lg'"></i>
-          <h3 class="text-sm font-semibold text-ft-primary">{{metric.label | translate}}</h3>
-        </div>
-        <p class="text-2xl font-extrabold text-primary-brand">{{metric.value}}</p>
-      </div>
-      }
-    </div>
-  </div>
-  }
-
-  <hr class="divider !my-10">
-
-  <div appReveal class="mb-8">
-    @if (projectFiltered().beforeAfterImages!.before.length > 0 && projectFiltered().beforeAfterImages!.after.length >
-    0) {
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-      <div class="flex flex-col gap-4">
-        <h3 class="text-base font-bold text-ft-primary flex items-center gap-2">
-          <i class="fa-solid fa-circle-arrow-left text-red-500 text-sm"></i>
-          {{'PROJECTS-VIEW.ANTES_E_DEPOIS.ANTES' | translate}}
+  <!-- Before / After -->
+  @if ((p.projectType === 'client' || p.projectType === 'freelance') && p.beforeAfterImages) {
+    <hr class="detail-divider" />
+    <section class="detail-section before-after-grid">
+      <div class="before-after-col">
+        <h3 class="before-after-label before">
+          <i class="fa-solid fa-circle-arrow-left"></i>
+          {{ 'PROJECTS-VIEW.ANTES_E_DEPOIS.ANTES' | translate }}
         </h3>
-        <div class="grid grid-cols-1 gap-3">
-          @for (beforeImg of projectFiltered().beforeAfterImages!.before; track $index; let itemIndex = $index) {
-          <div
-            appReveal
-            [revealDelay]="80 + (itemIndex * 90)"
-            class="border border-gray-secondary rounded-xl p-2 bg-surface hover:border-red-500 transition-all duration-300 overflow-hidden">
-            <img class="rounded-lg w-full h-auto" [src]="beforeImg.url" [alt]="beforeImg.alt">
+        @for (img of p.beforeAfterImages.before; track $index; let i = $index) {
+          <div appReveal [revealDelay]="80 + i * 90" class="before-after-img before-img">
+            <img [src]="img.url" [alt]="img.alt" />
           </div>
-          }
-        </div>
+        }
       </div>
-
-      <div class="flex flex-col gap-4">
-        <h3 class="text-base font-bold text-ft-primary flex items-center gap-2">
-          <i class="fa-solid fa-circle-arrow-right text-green-500 text-sm"></i>
-          {{'PROJECTS-VIEW.ANTES_E_DEPOIS.DEPOIS' | translate}}
+      <div class="before-after-col">
+        <h3 class="before-after-label after">
+          <i class="fa-solid fa-circle-arrow-right"></i>
+          {{ 'PROJECTS-VIEW.ANTES_E_DEPOIS.DEPOIS' | translate }}
         </h3>
-        <div class="grid grid-cols-1 gap-3">
-          @for (afterImg of projectFiltered().beforeAfterImages!.after; track $index; let itemIndex = $index) {
-          <div
-            appReveal
-            [revealDelay]="80 + (itemIndex * 90)"
-            class="border border-gray-secondary rounded-xl p-2 bg-surface hover:border-green-500 transition-all duration-300 overflow-hidden">
-            <img class="rounded-lg w-full h-auto" [src]="afterImg.url" [alt]="afterImg.alt">
+        @for (img of p.beforeAfterImages.after; track $index; let i = $index) {
+          <div appReveal [revealDelay]="80 + i * 90" class="before-after-img after-img">
+            <img [src]="img.url" [alt]="img.alt" />
           </div>
-          }
-        </div>
+        }
       </div>
-    </div>
-    }
-  </div>
+    </section>
   }
 
-  @if (projectFiltered().images.length > 0) {
-  <hr class="divider !my-10">
-
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-4 max-md:flex max-md:flex-col items-center">
-    @for (images of projectFiltered().images; track $index; let itemIndex = $index) {
-    <div
-      appReveal
-      [revealDelay]="80 + (itemIndex * 90)"
-      class="group p-2 w-full border border-gray-secondary bg-surface rounded-xl transition-all duration-300 hover:border-primary-brand overflow-hidden">
-      <img class="rounded-lg w-full h-auto" [src]="images.url" [alt]="images.alt">
-    </div>
-    }
-  </div>
-  }
 </main>
+
+}

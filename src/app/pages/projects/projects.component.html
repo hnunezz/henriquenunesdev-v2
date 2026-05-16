@@ -1,0 +1,19 @@
+<main class="px-10 max-md:px-4 pb-16">
+  <h1 appReveal class="page-header">
+    {{ "PROJECTS.TITLE" | translate }}
+    <span appReveal [revealDelay]="100">{{ "PROJECTS.DESCRIPTION" | translate }}</span>
+  </h1>
+
+  <app-timeline [projects]="projectsSignal()" />
+
+  <a routerLink="/studio" appReveal [revealDelay]="200" class="studio-cta-banner">
+    <div class="studio-cta-text">
+      <span class="studio-cta-label">{{ "STUDIO.TITLE" | translate }}</span>
+      <p class="studio-cta-desc">{{ "STUDIO.PROJECTS_CTA" | translate }}</p>
+    </div>
+    <span class="studio-cta-arrow">
+      {{ "STUDIO.SEE_ALL" | translate }}
+      <i class="fa-solid fa-arrow-right"></i>
+    </span>
+  </a>
+</main>

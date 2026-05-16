@@ -28,7 +28,9 @@ main {
           letter-spacing: -0.03em;
           line-height: 1.1;
 
-          &:nth-child(2) { font-weight: 200; }
+          &:nth-child(2) {
+            font-weight: 200;
+          }
         }
       }
     }
@@ -40,6 +42,57 @@ main {
         box-shadow: 0 0 20px rgba(123, 58, 242, 0.15);
       }
     }
+  }
+}
+
+.home-studio-cta {
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--gray-secondary);
+  border-radius: 14px;
+  background: var(--bg-surface);
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    border-color: var(--primary-brand);
+    box-shadow: 0 4px 24px rgba(123, 58, 242, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .home-studio-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ft-primary);
+    display: block;
+    letter-spacing: -0.01em;
+  }
+
+  .home-studio-desc {
+    font-size: 13px;
+    color: var(--gray-primary);
+    margin: 2px 0 0;
+  }
+
+  .home-studio-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-brand);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 

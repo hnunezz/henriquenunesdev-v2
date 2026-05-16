@@ -17,6 +17,7 @@ export type NavItem = {
 export const PagesAnchor: NavItem[] = [
   { labelKey: 'NAV.HOME', active: true, anchor: '/home' },
   { labelKey: 'NAV.PROJECTS', active: false, anchor: '/projects' },
+  { labelKey: 'NAV.STUDIO', active: false, anchor: '/studio' },
   { labelKey: 'NAV.ARTICLES', active: false, anchor: '/articles' },
   { labelKey: 'NAV.CONTACT', active: false, anchor: '/contact' },
   { labelKey: 'NAV.ABOUT', active: false, anchor: '/about' },
@@ -111,6 +112,11 @@ export class AppComponent {
         title: 'Setup',
         description: 'Conheça o setup de trabalho de Henrique Nunes: hardware, software e ferramentas de desenvolvimento.',
         keywords: 'Setup, Hardware, Software, Ferramentas de Desenvolvimento'
+      },
+      '/studio': {
+        title: 'Studio',
+        description: 'Vitrine de freelas e landing pages desenvolvidos por Henrique Nunes. Sites modernos, responsivos e com foco em conversão.',
+        keywords: 'Studio, Freela, Landing Page, Desenvolvimento Web, Sites, Henrique Nunes'
       }
     };
 

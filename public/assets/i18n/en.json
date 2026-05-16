@@ -99,10 +99,24 @@
   "NAV": {
     "HOME": "Home",
     "PROJECTS": "Projects",
+    "STUDIO": "Studio",
+    "PREV": "Previous",
+    "NEXT": "Next",
     "ARTICLES": "Articles",
     "CONTACT": "Contact",
     "ABOUT": "About",
     "SETUP": "Setup"
+  },
+  "STUDIO": {
+    "TITLE": "Studio",
+    "DESCRIPTION": "Freelance & Landing Pages",
+    "HOME_CTA": "Sites built for clients.",
+    "PROJECTS_CTA": "Browse my showcase of client-built websites.",
+    "SEE_ALL": "See Studio",
+    "VISIT_SITE": "Visit Site",
+    "BACK": "See all",
+    "EMPTY": "No projects in this category.",
+    "CONTACT_CTA": "Like what you see?"
   },
   "PROJECTS-VIEW": {
     "USERS_COUNT": "Users",
@@ -138,6 +152,9 @@
     },
     "POKEFRENZY": {
       "DESCRIPTION": "<b>Pokefrenzy</b> is a PokeTibia server with approximately 300 players, where I had the opportunity to work with the development team to modernize and improve the experience of players with the server's website."
+    },
+    "BM-CLEANING-QUEENS": {
+      "DESCRIPTION": "  <b>BM Cleaning Queens</b> website with a strong focus on conversion and user experience. The site showcases residential cleaning services with a modern design, social proof, and quick contact options for quote requests."
     }
   }
 }

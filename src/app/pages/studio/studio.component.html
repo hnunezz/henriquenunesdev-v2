@@ -1,0 +1,61 @@
+<main class="px-10 max-md:px-4 pb-24">
+
+  <div class="studio-header">
+    <h1 appReveal class="page-header">
+      {{ 'STUDIO.TITLE' | translate }}
+      <span appReveal [revealDelay]="100">{{ 'STUDIO.DESCRIPTION' | translate }}</span>
+    </h1>
+  </div>
+
+  <div appReveal [revealDelay]="150" class="filter-pills">
+    @for (cat of categories(); track cat) {
+      <button
+        class="filter-pill"
+        [class.active]="activeFilter() === cat"
+        (click)="setFilter(cat)"
+      >
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <div class="studio-grid">
+    @for (project of filteredProjects(); track project.slug; let i = $index) {
+      <a
+        [routerLink]="['/studio', project.slug]"
+        class="studio-card"
+        [class.featured]="project.featured"
+        appReveal
+        [revealDelay]="i * 70"
+      >
+        @if (project.coverImage) {
+          <img [src]="project.coverImage" [alt]="project.title" loading="lazy" />
+        } @else {
+          <div class="studio-card-placeholder">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+        }
+
+        <div class="studio-card-overlay">
+          <span class="studio-card-category">{{ project.category }}</span>
+          <h3 class="studio-card-title">{{ project.title }}</h3>
+          <span class="studio-card-year">{{ project.year }}</span>
+        </div>
+
+        <button
+          class="studio-card-visit"
+          (click)="visitSite($event, project.url)"
+          [title]="'STUDIO.VISIT_SITE' | translate"
+          [attr.aria-label]="'STUDIO.VISIT_SITE' | translate"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </a>
+    }
+  </div>
+
+  @if (filteredProjects().length === 0) {
+    <p class="studio-empty">{{ 'STUDIO.EMPTY' | translate }}</p>
+  }
+
+</main>

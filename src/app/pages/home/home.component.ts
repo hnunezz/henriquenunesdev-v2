@@ -15,11 +15,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SEOService } from '../../core/services/seo.service';
 import { SchemaService } from '../../core/services/schema.service';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [TimelineComponent, TranslateModule, RevealDirective
-  ],
+  imports: [TimelineComponent, TranslateModule, RevealDirective, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

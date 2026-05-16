@@ -1,0 +1,134 @@
+@if (project(); as p) {
+
+<main class="studio-detail">
+  <!-- Back / breadcrumb -->
+  <div appReveal class="detail-back">
+    <a routerLink="/studio" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i>
+      {{ "STUDIO.BACK" | translate }}
+    </a>
+    <kbd class="esc-hint">ESC</kbd>
+  </div>
+
+  <!-- Hero -->
+  <section appReveal [revealDelay]="80" class="detail-hero">
+    <div class="detail-hero-meta">
+      <span class="detail-category">{{ p.category }}</span>
+      <h1 class="detail-title">{{ p.title }}</h1>
+      @if (p.client) {
+      <span class="detail-client">{{ p.client }} · {{ p.year }}</span>
+      } @else {
+      <span class="detail-client">{{ p.year }}</span>
+      }
+    </div>
+
+    @if (p.url !== '#') {
+    <button class="visit-btn" (click)="goToSite(p.url)">
+      {{ "STUDIO.VISIT_SITE" | translate }}
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </button>
+    }
+  </section>
+
+  <!-- Cover image -->
+  @if (p.coverImage) {
+  <div appReveal [revealDelay]="120" class="detail-cover">
+    <img [src]="p.coverImage" [alt]="p.title" />
+  </div>
+  }
+
+  <!-- Description -->
+  <section appReveal [revealDelay]="160" class="detail-content">
+    <p [innerHTML]="p.descriptionKey | translate | safeHtml"></p>
+  </section>
+
+  <!-- Technologies -->
+  @if (p.technologies && p.technologies.length) {
+  <section appReveal [revealDelay]="200" class="detail-tech">
+    @for (tech of p.technologies; track tech.name) {
+    <span class="tech-tag" [style.--tech-color]="tech.color">
+      <i [class]="tech.icon"></i>
+      {{ tech.name }}
+    </span>
+    }
+  </section>
+  }
+
+  <!-- Image gallery -->
+  @if (p.images.length > 1) {
+  <section class="detail-gallery">
+    @for (img of p.images; track img.url; let i = $index) {
+    <div appReveal [revealDelay]="i * 60" class="gallery-item">
+      <img [src]="img.url" [alt]="img.alt" loading="lazy" />
+    </div>
+    }
+  </section>
+  }
+
+  <!-- Contact footer -->
+  <section appReveal class="detail-contact">
+    <p class="contact-cta">{{ "STUDIO.CONTACT_CTA" | translate }}</p>
+    <div class="contact-links">
+      <a
+        href="mailto:nunesdealmeidahenrique&#64;gmail.com"
+        class="contact-link"
+      >
+        <i class="fa-solid fa-envelope"></i>
+        eu&#64;henriquenunes.com
+      </a>
+      <a
+        href="https://henriquenunes.com"
+        target="_blank"
+        rel="noopener"
+        class="contact-link"
+      >
+        <i class="fa-solid fa-globe"></i>
+        henriquenunes.com
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- Floating nav pill -->
+<nav class="studio-nav-bar">
+  <div class="nav-bar-inner">
+    @if (prevProject(); as prev) {
+    <a [routerLink]="['/studio', prev.slug]" class="nav-item nav-prev">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span class="nav-label">{{ "NAV.PREV" | translate }}</span>
+    </a>
+    } @else {
+    <a class="nav-item nav-prev disabled">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span class="nav-label">{{ "NAV.PREV" | translate }}</span>
+    </a>
+    }
+
+    <div class="nav-divider"></div>
+
+    <a routerLink="/studio" class="nav-esc">
+      <kbd>ESC</kbd>
+      <span>{{ "STUDIO.BACK" | translate }}</span>
+    </a>
+
+    <div class="nav-divider"></div>
+
+    @if (nextProject(); as next) {
+    <a [routerLink]="['/studio', next.slug]" class="nav-item nav-next">
+      <span class="nav-label">{{ "NAV.NEXT" | translate }}</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    } @else {
+    <a class="nav-item nav-next disabled">
+      <span class="nav-label">{{ "NAV.NEXT" | translate }}</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    }
+  </div>
+</nav>
+
+} @else {
+<div class="detail-loading">
+  <i class="fa-solid fa-spinner fa-spin"></i>
+</div>
+}

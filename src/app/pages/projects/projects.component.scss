@@ -1,0 +1,54 @@
+.studio-cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding: 24px 28px;
+  border: 1px solid var(--gray-secondary);
+  border-radius: 14px;
+  background: var(--bg-surface);
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: var(--primary-brand);
+    box-shadow: 0 4px 24px rgba(123, 58, 242, 0.12);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.studio-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.studio-cta-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ft-primary);
+  letter-spacing: -0.01em;
+}
+
+.studio-cta-desc {
+  font-size: 13px;
+  color: var(--gray-primary);
+  margin: 0;
+}
+
+.studio-cta-arrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-brand);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
