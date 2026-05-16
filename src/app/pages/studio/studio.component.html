@@ -23,33 +23,34 @@
     @for (project of filteredProjects(); track project.slug; let i = $index) {
       <a
         [routerLink]="['/studio', project.slug]"
-        class="studio-card"
+        class="studio-card-wrapper"
         [class.featured]="project.featured"
         appReveal
         [revealDelay]="i * 70"
       >
-        @if (project.coverImage) {
-          <img [src]="project.coverImage" [alt]="project.title" loading="lazy" />
-        } @else {
-          <div class="studio-card-placeholder">
-            <i class="fa-solid fa-globe"></i>
-          </div>
-        }
+        <div class="studio-card">
+          @if (project.coverImage) {
+            <img [src]="project.coverImage" [alt]="project.title" loading="lazy" />
+          } @else {
+            <div class="studio-card-placeholder">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+          }
 
-        <div class="studio-card-overlay">
-          <span class="studio-card-category">{{ project.category }}</span>
-          <h3 class="studio-card-title">{{ project.title }}</h3>
-          <span class="studio-card-year">{{ project.year }}</span>
+          <button
+            class="studio-card-visit"
+            (click)="visitSite($event, project.url)"
+            [title]="'STUDIO.VISIT_SITE' | translate"
+            [attr.aria-label]="'STUDIO.VISIT_SITE' | translate"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
         </div>
 
-        <button
-          class="studio-card-visit"
-          (click)="visitSite($event, project.url)"
-          [title]="'STUDIO.VISIT_SITE' | translate"
-          [attr.aria-label]="'STUDIO.VISIT_SITE' | translate"
-        >
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </button>
+        <div class="studio-card-info">
+          <span class="studio-card-info-meta">{{ project.category }} · {{ project.year }}</span>
+          <h3 class="studio-card-info-title">{{ project.title }}</h3>
+        </div>
       </a>
     }
   </div>

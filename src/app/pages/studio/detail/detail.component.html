@@ -33,7 +33,7 @@
   <!-- Cover image -->
   @if (p.coverImage) {
   <div appReveal [revealDelay]="120" class="detail-cover">
-    <img [src]="p.coverImage" [alt]="p.title" />
+    <img [src]="p.coverImage" [alt]="p.title" class="expandable" (click)="openLightbox(p.coverImage)" />
   </div>
   }
 
@@ -59,7 +59,7 @@
   <section class="detail-gallery">
     @for (img of p.images; track img.url; let i = $index) {
     <div appReveal [revealDelay]="i * 60" class="gallery-item">
-      <img [src]="img.url" [alt]="img.alt" loading="lazy" />
+      <img [src]="img.url" [alt]="img.alt" loading="lazy" class="expandable" (click)="openLightbox(img.url)" />
     </div>
     }
   </section>
@@ -131,4 +131,20 @@
 <div class="detail-loading">
   <i class="fa-solid fa-spinner fa-spin"></i>
 </div>
+}
+
+@if (lightboxSrc()) {
+  <div class="lightbox-overlay" (click)="closeLightbox()">
+    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Fechar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img
+      [src]="lightboxSrc()!"
+      alt="Imagem expandida"
+      [ngStyle]="lbImgStyle()"
+      (click)="$event.stopPropagation()"
+      (touchstart)="onLbTouchStart($event)"
+      (touchmove)="onLbTouchMove($event)"
+    />
+  </div>
 }

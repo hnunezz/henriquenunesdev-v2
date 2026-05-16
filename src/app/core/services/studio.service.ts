@@ -28,34 +28,26 @@ export class StudioService {
       url: 'https://wwww.wafitas.com/',
       year: '2026',
       category: 'Landing Page',
-      coverImage: 'assets/img/projects/bmcleaning/bmq1.png',
+      coverImage: 'assets/img/projects/wafitas/wa1.png',
       images: [
         {
-          url: 'assets/img/projects/bmcleaning/bmq1.png',
+          url: 'assets/img/projects/wafitas/wa1.png',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq2.png',
+          url: 'assets/img/projects/wafitas/wa2.png',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq3.png',
+          url: 'assets/img/projects/wafitas/wa3.png',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq4.png',
+          url: 'assets/img/projects/wafitas/wa4.png',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq5.png',
-          alt: 'BM Cleaning Queens - Tela principal',
-        },
-        {
-          url: 'assets/img/projects/bmcleaning/bmq6.png',
-          alt: 'BM Cleaning Queens - Tela principal',
-        },
-        {
-          url: 'assets/img/projects/bmcleaning/bmq7.png',
+          url: 'assets/img/projects/wafitas/wa5.png',
           alt: 'BM Cleaning Queens - Tela principal',
         },
       ],

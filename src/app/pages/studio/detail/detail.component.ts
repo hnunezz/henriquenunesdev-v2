@@ -1,4 +1,5 @@
-import { Component, computed, effect, HostListener, inject, input } from '@angular/core';
+import { Component, computed, effect, HostListener, inject, input, signal } from '@angular/core';
+import { NgStyle } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { combineLatest, map } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
@@ -12,7 +13,7 @@ import { mapProjectToStudio } from '../studio.component';
 
 @Component({
   selector: 'app-studio-detail',
-  imports: [RouterLink, TranslateModule, RevealDirective, SafeHtmlPipe],
+  imports: [RouterLink, TranslateModule, RevealDirective, SafeHtmlPipe, NgStyle],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })
@@ -75,9 +76,80 @@ export class StudioDetailComponent {
     });
   }
 
+  lightboxSrc = signal<string | null>(null);
+  lbScale = signal(1);
+  lbTx = signal(0);
+  lbTy = signal(0);
+
+  lbImgStyle = computed(() => ({
+    transform: `translate(${this.lbTx()}px, ${this.lbTy()}px) scale(${this.lbScale()})`,
+    cursor: this.lbScale() > 1 ? 'grab' : 'default',
+  }));
+
+  private _pinchDist = 0;
+  private _panX = 0;
+  private _panY = 0;
+  private _lastTap = 0;
+
+  openLightbox(src: string) {
+    this._resetTransform();
+    this.lightboxSrc.set(src);
+  }
+
+  closeLightbox() {
+    this.lightboxSrc.set(null);
+    this._resetTransform();
+  }
+
+  private _resetTransform() {
+    this.lbScale.set(1);
+    this.lbTx.set(0);
+    this.lbTy.set(0);
+  }
+
+  onLbTouchStart(e: TouchEvent) {
+    e.stopPropagation();
+    if (e.touches.length === 2) {
+      this._pinchDist = this._touchDist(e.touches[0], e.touches[1]);
+    } else if (e.touches.length === 1) {
+      this._panX = e.touches[0].clientX;
+      this._panY = e.touches[0].clientY;
+      const now = Date.now();
+      if (now - this._lastTap < 280) {
+        this.lbScale() > 1 ? this._resetTransform() : this.lbScale.set(2.5);
+      }
+      this._lastTap = now;
+    }
+  }
+
+  onLbTouchMove(e: TouchEvent) {
+    e.stopPropagation();
+    if (e.touches.length === 2) {
+      const d = this._touchDist(e.touches[0], e.touches[1]);
+      const ratio = d / this._pinchDist;
+      this.lbScale.update(s => Math.min(5, Math.max(1, s * ratio)));
+      this._pinchDist = d;
+    } else if (e.touches.length === 1 && this.lbScale() > 1) {
+      const dx = e.touches[0].clientX - this._panX;
+      const dy = e.touches[0].clientY - this._panY;
+      this.lbTx.update(x => x + dx);
+      this.lbTy.update(y => y + dy);
+      this._panX = e.touches[0].clientX;
+      this._panY = e.touches[0].clientY;
+    }
+  }
+
+  private _touchDist(a: Touch, b: Touch) {
+    return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+  }
+
   @HostListener('document:keydown.escape')
   onEscKey() {
-    this.router.navigate(['/studio']);
+    if (this.lightboxSrc()) {
+      this.closeLightbox();
+    } else {
+      this.router.navigate(['/studio']);
+    }
   }
 
   goToSite(url: string) {

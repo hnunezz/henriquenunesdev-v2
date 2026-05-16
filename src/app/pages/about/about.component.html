@@ -1,50 +1,89 @@
 <main class="flex flex-col gap-20 justify-between h-full">
-  <div class="flex gap-14 px-10 max-md:flex-col max-md:px-4 max-md:items-center">
+  <div
+    class="flex gap-14 px-10 max-md:flex-col max-md:px-4 max-md:items-center"
+  >
     <aside class="side-l flex flex-col items-center gap-8">
       <div appReveal class="c-img h-72 w-72 flex items-center justify-center">
-        <img class="h-72" src="assets/img/2BE6DDB9-305C-40EF-8DF8-9543316D09CB.JPG" alt="Henrique Nunes">
+        <img class="h-72" src="assets/img/eu.jpeg" alt="Henrique Nunes" />
       </div>
 
       <div appReveal [revealStagger]="80" class="text-3xl flex gap-5">
-        <i class="fa-brands fa-github text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
-          (click)="goTo('https://github.com/hnunezz')"></i>
-        <i class="fa-brands fa-x-twitter text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
-          (click)="goTo('')"></i>
-        <i class="fa-brands fa-instagram text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
-          (click)="goTo('https://www.instagram.com/hnunes0/')"></i>
-        <i class="fa-brands fa-linkedin text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
-          (click)="goTo('https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/')"></i>
+        <i
+          class="fa-brands fa-github text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="goTo('https://github.com/hnunezz')"
+        ></i>
+        <i
+          class="fa-brands fa-x-twitter text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="goTo('')"
+        ></i>
+        <i
+          class="fa-brands fa-instagram text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="goTo('https://www.instagram.com/hnunes0/')"
+        ></i>
+        <i
+          class="fa-brands fa-linkedin text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary hover:scale-110"
+          (click)="
+            goTo(
+              'https://www.linkedin.com/in/henrique-nunes-de-almeida-ba897a1aa/'
+            )
+          "
+        ></i>
       </div>
     </aside>
 
     <aside class="flex flex-col gap-6 max-md:text-center">
-      <h1 appReveal class="text-5xl font-extrabold tracking-tight">Henrique Nunes</h1>
-      <p appReveal [revealDelay]="120" class="text-gray-primary leading-relaxed text-base">
-        {{"ABOUT.LINE_1.DESCRIPTION" | translate}}
-        <b class="text-ft-primary">{{"ABOUT.LINE_1.FRONT-END" | translate}}</b>,
-        {{"ABOUT.LINE_1.SPECIALIZING" | translate}} <b class="text-primary-brand">{{"ABOUT.LINE_1.ANGULAR" | translate}}</b>,
-        {{"ABOUT.LINE_1.WORK_TOOL" | translate}}.
+      <h1 appReveal class="text-5xl font-extrabold tracking-tight">
+        Henrique Nunes
+      </h1>
+      <p
+        appReveal
+        [revealDelay]="120"
+        class="text-gray-primary leading-relaxed text-base"
+      >
+        {{ "ABOUT.LINE_1.DESCRIPTION" | translate }}
+        <b class="text-ft-primary">{{ "ABOUT.LINE_1.FRONT-END" | translate }}</b
+        >, {{ "ABOUT.LINE_1.SPECIALIZING" | translate }}
+        <b class="text-primary-brand">{{
+          "ABOUT.LINE_1.ANGULAR" | translate
+        }}</b
+        >, {{ "ABOUT.LINE_1.WORK_TOOL" | translate }}. <br /><br />
+
+        {{ "ABOUT.LINE_2.DESCRIPTION" | translate }}
         <br /><br />
 
-        {{"ABOUT.LINE_2.DESCRIPTION" | translate}}
-        <br /><br />
-
-        {{"ABOUT.LINE_3.DESCRIPTION" | translate}}
-        (<b class="text-ft-primary">Corinthians</b>).<br /> {{"ABOUT.LINE_3.DESCRIPTION_2" | translate}} <b class="text-ft-primary italic">TOCA RAUL</b>! <br />
-        {{"ABOUT.LINE_3.DESCRIPTION_3" | translate}}
+        {{ "ABOUT.LINE_3.DESCRIPTION" | translate }}
+        (<b class="text-ft-primary">Corinthians</b>).<br />
+        {{ "ABOUT.LINE_3.DESCRIPTION_2" | translate }}
+        <b class="text-ft-primary italic">TOCA RAUL</b>! <br />
+        {{ "ABOUT.LINE_3.DESCRIPTION_3" | translate }}
       </p>
     </aside>
   </div>
 
-  <hr class="divider">
+  <hr class="divider" />
 
   <div class="px-10 max-md:px-4">
-    <h2 appReveal class="text-2xl font-bold pl-5 mb-10 max-md:p-0 max-md:text-center tracking-tight">{{"ABOUT.TITLE_SECT1" | translate}}</h2>
+    <h2
+      appReveal
+      class="text-2xl font-bold pl-5 mb-10 max-md:p-0 max-md:text-center tracking-tight"
+    >
+      {{ "ABOUT.TITLE_SECT1" | translate }}
+    </h2>
     <app-drop-area appReveal [revealDelay]="120" />
   </div>
 
   <div>
-    <h2 appReveal class="text-2xl font-bold mb-10 pl-[60px] max-md:p-0 max-md:text-center tracking-tight">{{"ABOUT.TITLE_SECT2" | translate}}</h2>
-    <app-card-carousel appReveal [revealDelay]="120" [data]="cards" [interval]="3500"></app-card-carousel>
+    <h2
+      appReveal
+      class="text-2xl font-bold mb-10 pl-[60px] max-md:p-0 max-md:text-center tracking-tight"
+    >
+      {{ "ABOUT.TITLE_SECT2" | translate }}
+    </h2>
+    <app-card-carousel
+      appReveal
+      [revealDelay]="120"
+      [data]="cards"
+      [interval]="3500"
+    ></app-card-carousel>
   </div>
 </main>

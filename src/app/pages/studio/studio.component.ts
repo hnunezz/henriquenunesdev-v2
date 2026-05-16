@@ -55,8 +55,10 @@ export class StudioComponent {
 
   filteredProjects = computed(() => {
     const filter = this.activeFilter();
-    if (filter === 'Todos') return this.allProjects();
-    return this.allProjects().filter(p => p.category === filter);
+    const base = filter === 'Todos'
+      ? this.allProjects()
+      : this.allProjects().filter(p => p.category === filter);
+    return [...base].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
   });
 
   setFilter(cat: string) {
