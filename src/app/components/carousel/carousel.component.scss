@@ -26,10 +26,10 @@
   gap: var(--gap);
   will-change: transform;
   transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 0 0.5rem;
 }
 
-.track.dragging {
+.track.dragging,
+.track.teleporting {
   transition: none !important;
   cursor: grabbing;
 }
@@ -133,4 +133,32 @@
 
 .btn.right {
   margin-right: 0.5rem;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 0 4px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gray-secondary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
+
+  &.active {
+    width: 20px;
+    background: var(--primary-brand);
+  }
+
+  &:hover:not(.active) {
+    background: var(--gray-primary);
+  }
 }

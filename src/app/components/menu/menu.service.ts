@@ -14,10 +14,8 @@ export class MenuService {
 
   private state$ = new Subject<boolean>();
   private item$ = new Subject<string>();
-
-  // constructor() {
-  //   this.state$ = new BehaviorSubject<boolean>();
-  // }
+  private isOpen = false;
+  readonly menuOpen = signal(false);
 
   state() {
     return this.state$.asObservable();
@@ -28,10 +26,18 @@ export class MenuService {
   }
 
   open() {
+    this.isOpen = true;
+    this.menuOpen.set(true);
     this.state$.next(true);
   }
   close() {
+    this.isOpen = false;
+    this.menuOpen.set(false);
     this.state$.next(false);
+  }
+  toggle() {
+    if (this.isOpen) this.close();
+    else this.open();
   }
   // private itemsState = new BehaviorSubject<FabMenuItem[]>([
   //   { id: 'item-1', label: 'Item 1' },

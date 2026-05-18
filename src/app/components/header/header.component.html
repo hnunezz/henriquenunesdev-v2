@@ -42,28 +42,42 @@
   <div appReveal [revealStagger]="80" class="flex justify-end gap-2">
     <div
       (click)="open()"
-      class="mobile-nav header-action-btn menu justify-center items-center cursor-pointer hidden max-md:flex items-center gap-2"
+      class="mobile-nav header-action-btn menu justify-center items-center cursor-pointer hidden max-md:flex gap-2"
     >
-      <span class="text-sm text-[#e8e8e8]"> Menu </span>
-      <i class="fa-solid fa-angle-down text-[#e8e8e8] text-xs"></i>
+      <span class="text-xs font-medium"> Menu </span>
+
+      <span class="menu-icon-swap">
+        <i class="fa-solid fa-bars text-xs" [class.slide-away]="menuService.menuOpen()"></i>
+        <i class="fa-solid fa-bars-staggered text-xs" [class.slide-ready]="!menuService.menuOpen()"></i>
+      </span>
     </div>
 
     <div
       (click)="toggleLang()"
       class="header-action-btn flex justify-center items-center cursor-pointer"
     >
-      <span class="text-lg">{{ nextFlag() }}</span>
+      <span
+        class="text-lg"
+        [class.icon-out]="langAnim() === 'out'"
+        [class.icon-in]="langAnim() === 'in'"
+        >{{ nextFlag() }}</span
+      >
     </div>
 
     <div
       class="header-action-btn flex justify-center items-center cursor-pointer"
-      (click)="themeService.toggleTheme()"
+      (click)="toggleTheme()"
     >
-      @if (themeService.currentTheme() === 'light') {
-      <i class="fa-regular fa-moon text-[#8ee7fc] text-lg"></i>
-      } @else {
-      <i class="fa-regular fa-sun text-[#edf153] text-lg"></i>
-      }
+      <span
+        [class.icon-out]="themeAnim() === 'out'"
+        [class.icon-in]="themeAnim() === 'in'"
+      >
+        @if (themeService.currentTheme() === 'light') {
+        <i class="fa-regular fa-moon text-ft-primary text-lg"></i>
+        } @else {
+        <i class="fa-regular fa-sun text-ft-primary text-lg"></i>
+        }
+      </span>
     </div>
   </div>
 </header>

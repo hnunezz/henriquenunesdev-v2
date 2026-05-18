@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, HostListener, inject, input } from '@angular/core';
 import { MenuService } from './menu.service';
 import { NgClass } from '@angular/common';
 import { NavItem, PagesAnchor } from '../../app.component';
@@ -19,6 +19,11 @@ export class MenuComponent {
 
   constructor() {
     this.menuService.state().subscribe(t => this.open = t);
+  }
+
+  @HostListener('window:scroll')
+  onScroll() {
+    if (this.open) this.close();
   }
 
   onSelect(item: string) {

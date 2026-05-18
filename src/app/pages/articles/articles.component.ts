@@ -1,7 +1,10 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-import { ArticlesService, IArticles } from '../../core/services/articles.service';
+import {
+  ArticlesService,
+  IArticles,
+} from '../../core/services/articles.service';
 import { ShortDateIntlPipe } from '../../core/pipe/short-date.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { RevealDirective } from '../../core/directives/reveal.directive';
@@ -10,13 +13,16 @@ import { RevealDirective } from '../../core/directives/reveal.directive';
   selector: 'app-articles',
   imports: [ShortDateIntlPipe, TranslateModule, RevealDirective],
   templateUrl: './articles.component.html',
+  styleUrl: './articles.component.scss',
 })
-export class ArticlesComponent implements OnInit{
+export class ArticlesComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
   private router = inject(Router);
   private articlesService = inject(ArticlesService);
 
   articlesSignal = signal<IArticles[]>([]);
+  loading = signal(true);
+  skeletonCount = Array(2).fill(0);
 
   ngOnInit() {
     this.getArticles();
@@ -36,9 +42,7 @@ export class ArticlesComponent implements OnInit{
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((res: any) => {
         this.articlesSignal.set(res.items);
+        this.loading.set(false);
       });
   }
-
-
-
 }

@@ -9,10 +9,13 @@
      role="region" aria-label="Carrossel de cards">
 
   <div class="viewport">
-    <div class="track" [class.dragging]="dragging" [style.transform]="transform()"
-         (transitionend)="onTransitionEnd()">
+    <div class="track"
+         [class.dragging]="dragging()"
+         [class.teleporting]="teleporting()"
+         [style.transform]="transform()"
+         (transitionend)="onTransitionEnd($event)">
       <div class="slide max-md:w-full" *ngFor="let it of renderItems(); let i = index">
-          <img *ngIf="it.image" class="thumb" [src]="'assets/img/carousel/'+it.image" [alt]="it.title" loading="lazy" decoding="async">
+        <img *ngIf="it.image" class="thumb" [src]="'assets/img/carousel/'+it.image" [alt]="it.title" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -21,4 +24,15 @@
     <button class="btn left"  aria-label="Anterior" (click)="prev()">‹</button>
     <button class="btn right" aria-label="Próximo"  (click)="next()">›</button>
   </div>
+</div>
+
+<div class="dots">
+  @for (item of items(); track $index; let i = $index) {
+    <button
+      class="dot"
+      [class.active]="activeIndex() === i"
+      (click)="goTo(i)"
+      [attr.aria-label]="'Ir para foto ' + (i + 1)"
+    ></button>
+  }
 </div>

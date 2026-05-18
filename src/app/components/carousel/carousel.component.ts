@@ -20,28 +20,35 @@ export type CardItem = {
   styleUrl: './carousel.component.scss',
 })
 export class CardCarouselComponent implements OnInit, OnDestroy {
-  /** seus cards */
   @Input({ required: true }) set data(v: CardItem[]) { this.items.set(v ?? []); this.rebuild(); }
 
-  /** quantos cards por view (base). Responsivo pode sobrescrever via CSS var(--per-view) */
   @Input() perView = 3;
 
   items = signal<CardItem[]>([]);
   private clonesHead = 0;
   private clonesTail = 0;
 
-  /** índice lógico (no array original) */
-  index = signal(0);
+  /** posição absoluta no array renderItems (inclui clones) */
+  renderPos = signal(0);
 
-  /** estado de drag */
-  dragging = false;
+  /** true enquanto ocorre o silent-jump após transição — desliga CSS transition */
+  teleporting = signal(false);
+
+  /** drag state como signals para que computed(transform) reaja */
+  dragging = signal(false);
+  private deltaX = signal(0);
   private startX = 0;
-  private deltaX = 0;
 
-  /** timer de autoplay opcional (comente se não quiser) */
   private timer: any = null;
   @Input() autoplay = true;
   @Input() interval = 1000;
+
+  /** índice lógico no array original (usado pelos dots) */
+  activeIndex = computed(() => {
+    const len = this.items().length;
+    if (!len) return 0;
+    return ((this.renderPos() - this.clonesHead) % len + len) % len;
+  });
 
   /** array renderizado com clones (head + items + tail) */
   renderItems: Signal<CardItem[]> = computed(() => {
@@ -52,7 +59,6 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
     return [...head, ...src, ...tail];
   });
 
-  /** largura de um slide em px (pega da viewport) */
   private slideWidthPx(): number {
     const host = this.el.nativeElement as HTMLElement;
     const vw = host.querySelector('.viewport') as HTMLElement;
@@ -62,11 +68,9 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
     return (vw.clientWidth - gap * (per - 1)) / per;
   }
 
-  /** transform com base no índice + drag */
   transform = computed(() => {
     const width = this.slideWidthPx();
-    const baseIndex = this.index() + this.clonesHead; // desloca por causa dos clones de cabeça
-    const x = -(baseIndex * (width + this.gapPx())) + (this.dragging ? this.deltaX : 0);
+    const x = -(this.renderPos() * (width + this.gapPx())) + (this.dragging() ? this.deltaX() : 0);
     return `translateX(${x}px)`;
   });
 
@@ -77,7 +81,6 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
 
   constructor(private el: ElementRef<HTMLElement>) {
     effect(() => {
-      // rearmar autoplay quando mudar interval/autoplay
       this.clearTimer();
       if (this.autoplay && this.items().length > 1) {
         this.timer = setInterval(() => this.next(), this.interval);
@@ -86,66 +89,82 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // clones básicos = perView para loop suave
     this.clonesHead = this.perView;
     this.clonesTail = this.perView;
+    // após setar clonesHead, posiciona no primeiro item real
+    const len = this.items().length;
+    if (len > 0) {
+      this.renderPos.set(this.clonesHead);
+    }
   }
+
   ngOnDestroy(): void { this.clearTimer(); }
 
   private rebuild() {
-    // garante que index esteja dentro do intervalo
     const len = this.items().length;
-    if (len === 0) { this.index.set(0); return; }
-    this.index.set((this.index() % len + len) % len);
+    if (!len) { this.renderPos.set(this.clonesHead); return; }
+    const logical = ((this.renderPos() - this.clonesHead) % len + len) % len;
+    this.renderPos.set(this.clonesHead + logical);
   }
 
-  // CONTROLES
   next(): void { this.move(1); }
   prev(): void { this.move(-1); }
+
+  goTo(index: number): void {
+    this.renderPos.set(this.clonesHead + index);
+  }
+
   private move(step: number) {
+    if (!this.items().length) return;
+    this.renderPos.update(p => p + step);
+  }
+
+  // LOOP INFINITO — silent-jump após animação terminar
+  onTransitionEnd(event: TransitionEvent) {
+    if (event.propertyName !== 'transform') return;
     const len = this.items().length;
     if (!len) return;
-    this.index.set((this.index() + step + len) % len);
+    const pos = this.renderPos();
+    const jump = (newPos: number) => {
+      this.teleporting.set(true);
+      this.renderPos.set(newPos);
+      requestAnimationFrame(() => requestAnimationFrame(() => this.teleporting.set(false)));
+    };
+    if (pos >= this.clonesHead + len) jump(pos - len);
+    else if (pos < this.clonesHead) jump(pos + len);
   }
 
   // DRAG
   onPointerDown(ev: PointerEvent) {
     (ev.target as Element).setPointerCapture?.(ev.pointerId);
-    this.dragging = true;
+    this.dragging.set(true);
     this.startX = ev.clientX;
-    this.deltaX = 0;
+    this.deltaX.set(0);
     this.clearTimer();
   }
-  onPointerMove(ev: PointerEvent) {
-    if (!this.dragging) return;
-    this.deltaX = ev.clientX - this.startX;
-  }
-  onPointerUp() {
-    if (!this.dragging) return;
-    const threshold = this.slideWidthPx() * 0.2; // 20% do card
-    const dx = this.deltaX;
-    this.dragging = false;
-    this.deltaX = 0;
 
+  onPointerMove(ev: PointerEvent) {
+    if (!this.dragging()) return;
+    this.deltaX.set(ev.clientX - this.startX);
+  }
+
+  onPointerUp() {
+    if (!this.dragging()) return;
+    const threshold = this.slideWidthPx() * 0.2;
+    const dx = this.deltaX();
+    this.dragging.set(false);
+    this.deltaX.set(0);
     if (Math.abs(dx) > threshold) {
       dx < 0 ? this.next() : this.prev();
     }
-    // reativa autoplay
     if (this.autoplay && this.items().length > 1) {
       this.timer = setInterval(() => this.next(), this.interval);
     }
   }
 
-  // KEYBOARD (opcional)
   onKey(e: KeyboardEvent) {
     if (e.key === 'ArrowRight') { e.preventDefault(); this.next(); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); this.prev(); }
-  }
-
-  // LOOP INFINITO (ajuste visual após animação)
-  onTransitionEnd() {
-    // como o índice é sempre modulo do array, não precisamos teletransportar.
-    // Mantemos esse hook caso queira efeitos extras no futuro.
   }
 
   private clearTimer() { if (this.timer) { clearInterval(this.timer); this.timer = null; } }

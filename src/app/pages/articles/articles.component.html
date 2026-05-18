@@ -20,32 +20,44 @@
   <div
     class="grid grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-5 max-md:flex max-md:flex-col mb-16"
   >
-    @for (article of articlesSignal(); track $index; let itemIndex = $index) {
-    <div
-      appReveal
-      [revealDelay]="80 + itemIndex * 90"
-      class="group flex flex-col justify-between p-5 min-h-48 border border-gray-secondary bg-surface cursor-pointer rounded-xl transition-all duration-300 ease-in-out hover:border-primary-brand hover:bg-primary-brand-soft hover:shadow-card"
-      (click)="read(article)"
-    >
-      <div class="flex flex-col gap-2">
-        <h2
-          class="font-semibold text-xl text-ft-primary leading-snug tracking-tight"
+    @if (loading()) {
+      @for (item of skeletonCount; track $index) {
+        <div class="flex flex-col justify-between p-5 min-h-48 border border-gray-secondary bg-surface rounded-xl">
+          <div class="flex flex-col gap-3">
+            <div class="skeleton-line h-6 w-3/4"></div>
+            <div class="skeleton-line h-4 w-1/3"></div>
+          </div>
+          <div class="skeleton-line h-4 w-20 self-end mt-4"></div>
+        </div>
+      }
+    } @else {
+      @for (article of articlesSignal(); track $index; let itemIndex = $index) {
+        <div
+          appReveal
+          [revealDelay]="80 + itemIndex * 90"
+          class="group flex flex-col justify-between p-5 min-h-48 border border-gray-secondary bg-surface cursor-pointer rounded-xl transition-all duration-300 ease-in-out hover:border-primary-brand hover:bg-primary-brand-soft hover:shadow-card"
+          (click)="read(article)"
         >
-          {{ article.title }}
-        </h2>
-        <small class="text-sm font-medium text-gray-primary">{{
-          article.pubDate | shortDateIntl
-        }}</small>
-      </div>
-      <span
-        class="text-sm text-end font-semibold text-gray-primary group-hover:text-primary-brand transition-colors duration-300 mt-4"
-      >
-        {{ "ARTICLES.READ" | translate }}
-        <i
-          class="fa-solid fa-arrow-right text-xs ml-1 transition-transform duration-300 group-hover:translate-x-1"
-        ></i>
-      </span>
-    </div>
+          <div class="flex flex-col gap-2">
+            <h2
+              class="font-semibold text-xl text-ft-primary leading-snug tracking-tight"
+            >
+              {{ article.title }}
+            </h2>
+            <small class="text-sm font-medium text-gray-primary">{{
+              article.pubDate | shortDateIntl
+            }}</small>
+          </div>
+          <span
+            class="text-sm text-end font-semibold text-gray-primary group-hover:text-primary-brand transition-colors duration-300 mt-4"
+          >
+            {{ "ARTICLES.READ" | translate }}
+            <i
+              class="fa-solid fa-arrow-right text-xs ml-1 transition-transform duration-300 group-hover:translate-x-1"
+            ></i>
+          </span>
+        </div>
+      }
     }
   </div>
 </main>

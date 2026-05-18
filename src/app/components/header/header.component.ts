@@ -26,7 +26,7 @@ import { RevealDirective } from '../../core/directives/reveal.directive';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements AfterViewInit {
-  private menuService = inject(MenuService);
+  menuService = inject(MenuService);
   themeService = inject(ThemeService);
 
   router = inject(Router);
@@ -39,6 +39,9 @@ export class HeaderComponent implements AfterViewInit {
     width: 0,
     visible: false,
   });
+
+  langAnim = signal<'idle' | 'out' | 'in'>('idle');
+  themeAnim = signal<'idle' | 'out' | 'in'>('idle');
 
   private lang = signal<'pt' | 'en'>('pt');
   private get isBrowser() {
@@ -99,8 +102,22 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   toggleLang() {
-    const next = this.lang() === 'pt' ? 'en' : 'pt';
-    this.translate.use(next); // dispara onLangChange, que persiste no storage
+    this.langAnim.set('out');
+    setTimeout(() => {
+      const next = this.lang() === 'pt' ? 'en' : 'pt';
+      this.translate.use(next);
+      this.langAnim.set('in');
+      setTimeout(() => this.langAnim.set('idle'), 200);
+    }, 150);
+  }
+
+  toggleTheme() {
+    this.themeAnim.set('out');
+    setTimeout(() => {
+      this.themeService.toggleTheme();
+      this.themeAnim.set('in');
+      setTimeout(() => this.themeAnim.set('idle'), 200);
+    }, 150);
   }
 
   private restoreLang() {
@@ -121,7 +138,7 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   open() {
-    this.menuService.open();
+    this.menuService.toggle();
   }
 
   switch(lang: string) {

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -50,6 +50,7 @@ export class AppComponent {
   themeService = inject(ThemeService)
   router = inject(Router)
   seoService = inject(SEOService)
+  translate = inject(TranslateService)
 
   title = 'Henrique Nunes';
   pagesAnchor = PagesAnchor;
@@ -78,7 +79,16 @@ export class AppComponent {
     ).subscribe((event: NavigationEnd) => {
       const url = event.urlAfterRedirects;
       this.updateSEOForRoute(url);
+      this.checkLangParam(event.url);
     });
+  }
+
+  private checkLangParam(url: string) {
+    const queryParams = this.router.parseUrl(url).queryParams;
+    const lang = queryParams['lang'];
+    if (lang === 'pt' || lang === 'en') {
+      this.translate.use(lang);
+    }
   }
 
   private updateSEOForRoute(url: string): void {
