@@ -60,6 +60,11 @@ header {
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-1px);
   }
+
+  &.menu {
+    padding: 0 12px !important;
+    width: auto !important;
+  }
 }
 
 .c-img {

@@ -42,9 +42,10 @@
   <div appReveal [revealStagger]="80" class="flex justify-end gap-2">
     <div
       (click)="open()"
-      class="mobile-nav header-action-btn justify-center items-center cursor-pointer hidden max-md:flex"
+      class="mobile-nav header-action-btn menu justify-center items-center cursor-pointer hidden max-md:flex items-center gap-2"
     >
-      <i class="fa-solid fa-bars text-[#e8e8e8] text-lg"></i>
+      <span class="text-sm text-[#e8e8e8]"> Menu </span>
+      <i class="fa-solid fa-angle-down text-[#e8e8e8] text-xs"></i>
     </div>
 
     <div
