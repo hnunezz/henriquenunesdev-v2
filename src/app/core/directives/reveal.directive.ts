@@ -103,7 +103,6 @@ export class RevealDirective implements OnInit, OnChanges, OnDestroy {
         (child as HTMLElement).classList.add('is-visible')
       );
     }
-
     this.revealed.emit();
   }
 

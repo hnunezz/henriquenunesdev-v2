@@ -65,17 +65,25 @@ body {
   50% { opacity: 0.5; }
 }
 
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .reveal {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
-  transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
+  transform: translateY(28px);
 }
 
 .reveal.is-visible {
-  opacity: 1;
-  transform: none;
+  animation: reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -83,7 +91,7 @@ body {
   .reveal.is-visible {
     opacity: 1;
     transform: none;
-    transition: none;
+    animation: none;
   }
 }
 

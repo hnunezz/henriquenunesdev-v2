@@ -217,3 +217,9 @@
   color: var(--gray-primary);
   font-size: 15px;
 }
+
+@media (hover: none) {
+  .studio-card-wrapper .studio-card-visit {
+    display: none;
+  }
+}

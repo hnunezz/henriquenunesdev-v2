@@ -1,5 +1,15 @@
 import { NgClass } from '@angular/common';
-import { AfterViewInit, Component, computed, ElementRef, HostListener, inject, input, signal, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  computed,
+  ElementRef,
+  HostListener,
+  inject,
+  input,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavItem, PagesAnchor } from '../../app.component';
@@ -7,12 +17,13 @@ import { ThemeService } from '../../core/services/theme.service';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../menu/menu.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { RevealDirective } from '../../core/directives/reveal.directive';
 
 @Component({
   selector: 'app-header',
-  imports: [NgClass, RouterLink, FormsModule, TranslateModule],
+  imports: [NgClass, RouterLink, FormsModule, TranslateModule, RevealDirective],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements AfterViewInit {
   private menuService = inject(MenuService);
@@ -23,20 +34,26 @@ export class HeaderComponent implements AfterViewInit {
 
   @ViewChild('navPill') navPill?: ElementRef<HTMLElement>;
 
-  glider = signal<{ left: number; width: number; visible: boolean }>({ left: 0, width: 0, visible: false });
+  glider = signal<{ left: number; width: number; visible: boolean }>({
+    left: 0,
+    width: 0,
+    visible: false,
+  });
 
   private lang = signal<'pt' | 'en'>('pt');
-  private get isBrowser() { return typeof window !== 'undefined'; }
-  nextFlag = computed(() => this.lang() === 'pt' ? '🇺🇸' : '🇧🇷');
+  private get isBrowser() {
+    return typeof window !== 'undefined';
+  }
+  nextFlag = computed(() => (this.lang() === 'pt' ? '🇺🇸' : '🇧🇷'));
 
   constructor(private translate: TranslateService) {
     this.restoreLang();
 
-    this.menuService.anchor().subscribe(anchor => {
+    this.menuService.anchor().subscribe((anchor) => {
       this.router.navigate([anchor]);
     });
 
-    this.translate.onLangChange.subscribe(e => {
+    this.translate.onLangChange.subscribe((e) => {
       const l = (e.lang === 'en' ? 'en' : 'pt') as 'pt' | 'en';
       this.lang.set(l);
       if (this.isBrowser) localStorage.setItem('lang', l);
@@ -44,9 +61,9 @@ export class HeaderComponent implements AfterViewInit {
       this.scheduleGliderUpdate();
     });
 
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => this.scheduleGliderUpdate());
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => this.scheduleGliderUpdate());
   }
 
   ngAfterViewInit() {
@@ -69,7 +86,7 @@ export class HeaderComponent implements AfterViewInit {
     if (!container) return;
     const active = container.querySelector<HTMLElement>('.nav-link.active');
     if (!active) {
-      this.glider.update(g => ({ ...g, visible: false }));
+      this.glider.update((g) => ({ ...g, visible: false }));
       return;
     }
     const cRect = container.getBoundingClientRect();

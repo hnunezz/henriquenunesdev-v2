@@ -61,6 +61,11 @@ export class StudioDetailComponent {
 
   constructor() {
     effect(() => {
+      this.slug();
+      window.scrollTo(0, 0);
+    });
+
+    effect(() => {
       const p = this.project();
       if (p) {
         const desc = this.translate.instant(p.descriptionKey) || p.title;

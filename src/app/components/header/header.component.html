@@ -1,6 +1,8 @@
 <header class="items-center grid">
   @if (router.url !== '/home' && router.url !== '/about') {
   <div
+    appReveal
+    [revealDelay]="120"
     class="flex items-center gap-3 hover:opacity-80 cursor-pointer group w-fit"
     [routerLink]="'/home'"
   >
@@ -37,7 +39,7 @@
 
   <p class="hidden max-md:flex">&nbsp;</p>
 
-  <div class="flex justify-end gap-2">
+  <div appReveal [revealStagger]="80" class="flex justify-end gap-2">
     <div
       (click)="open()"
       class="mobile-nav header-action-btn justify-center items-center cursor-pointer hidden max-md:flex"
