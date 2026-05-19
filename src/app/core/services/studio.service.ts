@@ -25,7 +25,7 @@ export class StudioService {
       slug: 'wa-fitas',
       title: 'W.A Fitas',
       descriptionKey: 'PROJECTS-VIEW.BM-CLEANING-QUEENS.DESCRIPTION',
-      url: 'https://wwww.wafitas.com/',
+      url: 'https://www.wafitas.com/',
       year: '2026',
       category: 'Landing Page',
       coverImage: 'assets/img/projects/wafitas/wa1.png',
