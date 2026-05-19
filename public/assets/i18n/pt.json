@@ -13,7 +13,9 @@
   "ARTICLES": {
     "TITLE": "Artigos",
     "DESCRIPTION": "algumas coisas que venho escrevendo, me acompanhe no",
-    "READ": "ler artigo"
+    "READ": "ler artigo",
+    "BACK": "Ver todos",
+    "BACK_TO_TOP": "Voltar ao topo"
   },
   "CONTACT": {
     "TITLE": "Contato",

@@ -13,7 +13,9 @@
   "ARTICLES": {
     "TITLE": "Articles",
     "DESCRIPTION": "some things I've been writing, follow me on",
-    "READ": "read article"
+    "READ": "read article",
+    "BACK": "All articles",
+    "BACK_TO_TOP": "Back to top"
   },
   "CONTACT": {
     "TITLE": "Contact me",

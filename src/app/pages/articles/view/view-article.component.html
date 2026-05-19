@@ -1,16 +1,52 @@
 <main class="px-10 max-md:px-4">
-  <div class="flex flex-col items-center text-center gap-4 mb-0">
-    <h1 class="text-3xl font-extrabold tracking-tight max-w-2xl leading-tight">
-      {{article.title}}
-    </h1>
-
-    <i class="text-2xl fa-brands fa-medium text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary"
-      (click)="goTo(article.link)"></i>
+  <div class="flex items-center gap-3 mb-10 pt-2">
+    <a
+      routerLink="/articles"
+      class="inline-flex items-center gap-2 text-sm font-medium text-gray-primary no-underline transition-colors duration-200 hover:text-ft-primary"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+      {{ "ARTICLES.BACK" | translate }}
+    </a>
   </div>
 
-  <hr class="divider !my-12">
+  <div class="flex flex-col items-center text-center gap-4 mb-0">
+    <h1 class="text-3xl font-extrabold tracking-tight max-w-2xl leading-tight">
+      {{ article.title }}
+    </h1>
+
+    <i
+      class="text-2xl fa-brands fa-medium text-gray-primary cursor-pointer transition-all duration-300 ease-in-out hover:text-ft-primary"
+      (click)="goTo(article.link)"
+    ></i>
+  </div>
+
+  <hr class="divider !my-12" />
 
   <div class="flex justify-center items-center pb-12">
-    <div class="article flex flex-col gap-6 text-base w-[min(720px,100%)] font-normal text-gray-primary leading-relaxed" [innerHTML]="article.content | safeHtml"></div>
+    <div
+      class="article flex flex-col gap-6 text-base w-[min(720px,100%)] font-normal text-gray-primary leading-relaxed"
+      [innerHTML]="article.content | safeHtml"
+    ></div>
+  </div>
+
+  <div
+    class="flex items-center justify-center gap-4 pt-12 pb-16 border-t border-[var(--gray-secondary)] mt-4"
+  >
+    <a
+      routerLink="/articles"
+      class="inline-flex items-center gap-2 text-sm font-medium text-gray-primary no-underline transition-colors duration-200 hover:text-ft-primary"
+    >
+      <i class="fa-solid fa-list"></i>
+      {{ "ARTICLES.BACK" | translate }}
+    </a>
+
+    <span class="text-gray-primary opacity-30">·</span>
+    <button
+      (click)="scrollToTop()"
+      class="inline-flex items-center gap-2 text-sm font-medium text-gray-primary transition-colors duration-200 hover:text-ft-primary bg-transparent border-none cursor-pointer"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+      {{ "ARTICLES.BACK_TO_TOP" | translate }}
+    </button>
   </div>
 </main>

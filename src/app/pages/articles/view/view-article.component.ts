@@ -1,13 +1,14 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { ArticlesService, IArticles } from '../../../core/services/articles.service';
 import { SafeHtmlPipe } from '../../../core/pipe/safe-html.pipe';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SEOService } from '../../../core/services/seo.service';
 import { SchemaService } from '../../../core/services/schema.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view-article',
-  imports: [SafeHtmlPipe],
+  imports: [SafeHtmlPipe, RouterLink, TranslateModule],
   templateUrl: './view-article.component.html',
 })
 export class ViewArticleComponent implements OnInit {
@@ -75,5 +76,9 @@ export class ViewArticleComponent implements OnInit {
 
   goTo(url: string) {
     window.open(url, '_blank');
+  }
+
+  scrollToTop() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
 }
