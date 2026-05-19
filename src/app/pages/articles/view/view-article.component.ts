@@ -1,4 +1,18 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  inject,
+  Input,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+  signal,
+  ViewChild,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ArticlesService, IArticles } from '../../../core/services/articles.service';
 import { SafeHtmlPipe } from '../../../core/pipe/safe-html.pipe';
 import { Router, RouterLink } from '@angular/router';
@@ -11,13 +25,23 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [SafeHtmlPipe, RouterLink, TranslateModule],
   templateUrl: './view-article.component.html',
 })
-export class ViewArticleComponent implements OnInit {
+export class ViewArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() path: string = '';
+
+  @ViewChild('contentRef') contentRef!: ElementRef;
+  @ViewChild('bottomNavRef') bottomNavRef!: ElementRef;
 
   private router = inject(Router);
   private articlesService = inject(ArticlesService);
   private seoService = inject(SEOService);
   private schemaService = inject(SchemaService);
+
+  readingProgress = signal(0);
+  reachedEnd = signal(false);
+
+  private observer!: IntersectionObserver;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   article: IArticles = {
     title: '',
@@ -41,7 +65,6 @@ export class ViewArticleComponent implements OnInit {
 
       this.article = article as IArticles;
 
-      // Update SEO for article
       this.seoService.updateSEO({
         title: article.title,
         description: article.description || article.title,
@@ -54,7 +77,6 @@ export class ViewArticleComponent implements OnInit {
         modifiedTime: article.pubDate
       });
 
-      // Add Article Schema
       this.schemaService.addArticleSchema({
         headline: article.title,
         description: article.description || article.title,
@@ -73,6 +95,42 @@ export class ViewArticleComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    this.observer = new IntersectionObserver(
+      ([entry]) => this.reachedEnd.set(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    this.observer.observe(this.bottomNavRef.nativeElement);
+  }
+
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+  }
+
+  @HostListener('window:scroll')
+  onScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const content = this.contentRef?.nativeElement;
+    const nav = this.bottomNavRef?.nativeElement;
+    if (!content || !nav) return;
+
+    const contentTop = content.getBoundingClientRect().top + window.scrollY;
+    const navTop = nav.getBoundingClientRect().top + window.scrollY;
+
+    const start = contentTop;
+    const end = navTop - window.innerHeight;
+
+    if (end <= start) return;
+
+    const progress = Math.min(100, Math.max(0,
+      (window.scrollY - start) / (end - start) * 100
+    ));
+    this.readingProgress.set(progress);
+  }
 
   goTo(url: string) {
     window.open(url, '_blank');

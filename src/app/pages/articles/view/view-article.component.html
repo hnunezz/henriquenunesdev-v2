@@ -22,7 +22,7 @@
 
   <hr class="divider !my-12" />
 
-  <div class="flex justify-center items-center pb-12">
+  <div #contentRef class="flex justify-center items-center pb-12">
     <div
       class="article flex flex-col gap-6 text-base w-[min(720px,100%)] font-normal text-gray-primary leading-relaxed"
       [innerHTML]="article.content | safeHtml"
@@ -30,6 +30,7 @@
   </div>
 
   <div
+    #bottomNavRef
     class="flex items-center justify-center gap-4 pt-12 pb-16 border-t border-[var(--gray-secondary)] mt-4"
   >
     <a
@@ -50,3 +51,20 @@
     </button>
   </div>
 </main>
+
+<!-- Reading progress indicator -->
+<div
+  class="fixed right-5 top-1/2 -translate-y-1/2 z-50 pointer-events-none transition-opacity duration-500"
+  [class.opacity-0]="readingProgress() === 0"
+  [class.opacity-100]="readingProgress() > 0"
+>
+  <div
+    class="relative w-[2px] h-20 rounded-full overflow-hidden bg-[var(--gray-secondary)] opacity-20"
+  >
+    <div
+      class="absolute top-0 left-0 w-full rounded-full transition-[height,background-color] duration-300 ease-out"
+      [style.height.%]="readingProgress()"
+      [style.background-color]="reachedEnd() ? '#4ade80' : 'var(--ft-primary)'"
+    ></div>
+  </div>
+</div>
