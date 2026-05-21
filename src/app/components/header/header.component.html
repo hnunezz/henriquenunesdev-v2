@@ -15,7 +15,6 @@
   } @else {
   <span></span>
   }
-
   <nav
     #navPill
     class="nav-pill flex rounded-full h-[52px] justify-evenly items-center z-50 px-2 max-md:hidden"
@@ -47,8 +46,14 @@
       <span class="text-xs font-medium"> Menu </span>
 
       <span class="menu-icon-swap">
-        <i class="fa-solid fa-bars text-xs" [class.slide-away]="menuService.menuOpen()"></i>
-        <i class="fa-solid fa-bars-staggered text-xs" [class.slide-ready]="!menuService.menuOpen()"></i>
+        <i
+          class="fa-solid fa-bars text-xs"
+          [class.slide-away]="menuService.menuOpen()"
+        ></i>
+        <i
+          class="fa-solid fa-bars-staggered text-xs"
+          [class.slide-ready]="!menuService.menuOpen()"
+        ></i>
       </span>
     </div>
 
@@ -57,8 +62,20 @@
       <span class="pill-sep"></span>
       <div class="pill-track">
         <div class="pill-indicator" [class.slide-right]="lang() === 'en'"></div>
-        <button class="pill-opt" [class.active]="lang() === 'pt'" (click)="selectLang('pt')">PT</button>
-        <button class="pill-opt" [class.active]="lang() === 'en'" (click)="selectLang('en')">EN</button>
+        <button
+          class="pill-opt"
+          [class.active]="lang() === 'pt'"
+          (click)="selectLang('pt')"
+        >
+          PT
+        </button>
+        <button
+          class="pill-opt"
+          [class.active]="lang() === 'en'"
+          (click)="selectLang('en')"
+        >
+          EN
+        </button>
       </div>
     </div>
 
