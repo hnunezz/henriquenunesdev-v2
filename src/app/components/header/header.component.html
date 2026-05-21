@@ -52,16 +52,14 @@
       </span>
     </div>
 
-    <div
-      (click)="toggleLang()"
-      class="header-action-btn flex justify-center items-center cursor-pointer"
-    >
-      <span
-        class="text-lg"
-        [class.icon-out]="langAnim() === 'out'"
-        [class.icon-in]="langAnim() === 'in'"
-        >{{ nextFlag() }}</span
-      >
+    <div class="toggle-pill">
+      <i class="fa-solid fa-globe pill-globe"></i>
+      <span class="pill-sep"></span>
+      <div class="pill-track">
+        <div class="pill-indicator" [class.slide-right]="lang() === 'en'"></div>
+        <button class="pill-opt" [class.active]="lang() === 'pt'" (click)="selectLang('pt')">PT</button>
+        <button class="pill-opt" [class.active]="lang() === 'en'" (click)="selectLang('en')">EN</button>
+      </div>
     </div>
 
     <div

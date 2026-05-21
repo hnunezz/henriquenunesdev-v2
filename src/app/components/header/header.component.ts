@@ -2,7 +2,6 @@ import { NgClass } from '@angular/common';
 import {
   AfterViewInit,
   Component,
-  computed,
   ElementRef,
   HostListener,
   inject,
@@ -40,14 +39,12 @@ export class HeaderComponent implements AfterViewInit {
     visible: false,
   });
 
-  langAnim = signal<'idle' | 'out' | 'in'>('idle');
   themeAnim = signal<'idle' | 'out' | 'in'>('idle');
 
-  private lang = signal<'pt' | 'en'>('pt');
+  lang = signal<'pt' | 'en'>('pt');
   private get isBrowser() {
     return typeof window !== 'undefined';
   }
-  nextFlag = computed(() => (this.lang() === 'pt' ? '🇺🇸' : '🇧🇷'));
 
   constructor(private translate: TranslateService) {
     this.restoreLang();
@@ -101,14 +98,9 @@ export class HeaderComponent implements AfterViewInit {
     });
   }
 
-  toggleLang() {
-    this.langAnim.set('out');
-    setTimeout(() => {
-      const next = this.lang() === 'pt' ? 'en' : 'pt';
-      this.translate.use(next);
-      this.langAnim.set('in');
-      setTimeout(() => this.langAnim.set('idle'), 200);
-    }, 150);
+  selectLang(lang: 'pt' | 'en') {
+    if (this.lang() === lang) return;
+    this.translate.use(lang);
   }
 
   toggleTheme() {

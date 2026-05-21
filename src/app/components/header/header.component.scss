@@ -31,24 +31,20 @@
 }
 
 .menu-icon-swap {
-  position: relative;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   i {
-    position: absolute;
-    top: 0;
-    left: 0;
     transition: opacity 180ms ease;
   }
 
   .slide-away {
-    opacity: 0;
+    display: none;
   }
 
   .slide-ready {
-    opacity: 0;
+    display: none;
   }
 }
 
@@ -98,6 +94,77 @@ header {
   }
 }
 
+.toggle-pill {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  padding: 3px;
+  z-index: 50;
+
+  .pill-globe {
+    padding: 0 8px 0 10px;
+    color: var(--gray-primary);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .pill-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 2px;
+    flex-shrink: 0;
+  }
+
+  .pill-track {
+    position: relative;
+    display: flex;
+    border-radius: 999px;
+
+    .pill-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+
+      &.slide-right {
+        transform: translateX(100%);
+      }
+    }
+
+    .pill-opt {
+      position: relative;
+      z-index: 1;
+      width: 32px;
+      height: 28px;
+      border-radius: 999px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gray-primary);
+      transition: color 200ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        color: var(--ft-primary);
+      }
+    }
+  }
+}
+
 .header-action-btn {
   width: 36px;
   height: 36px;
@@ -117,7 +184,7 @@ header {
   }
 
   &.menu {
-    padding: 0 16px !important;
+    padding: 0 14px !important;
     width: auto !important;
 
     span,
@@ -130,6 +197,18 @@ header {
 :host-context(.light) {
   .nav-pill {
     background: rgba(250, 250, 252, 0.88);
+  }
+
+  .toggle-pill {
+    background: rgba(250, 250, 252, 0.88);
+    border-color: rgba(0, 0, 0, 0.1);
+
+    .pill-sep {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .pill-indicator {
+      background: rgba(0, 0, 0, 0.08);
+    }
   }
 
   .header-action-btn {
