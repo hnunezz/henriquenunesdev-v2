@@ -163,9 +163,3 @@ npm run build
 [![GitHub](https://img.shields.io/badge/hnunezz-181717?logo=github&logoColor=white)](https://github.com/hnunezz)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/henriquenunesdealmeida)
 [![Medium](https://img.shields.io/badge/Medium-000?logo=medium&logoColor=white)](https://medium.com/@nunesdealmeidahenrique)
-
----
-
-<div align="center">
-  <sub>Built with Angular 19 · Designed and developed by Henrique Nunes</sub>
-</div>
