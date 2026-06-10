@@ -37,45 +37,45 @@ export class ProjectsService {
     //   beforeAfterImages: {
     //     before: [
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/antes1.png',
+    //         url: 'assets/img/projects/pokefrenzy/antes1.webp',
     //         alt: 'Antes - Tela inicial antiga',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/antes2.png',
+    //         url: 'assets/img/projects/pokefrenzy/antes2.webp',
     //         alt: 'Antes - Interface antiga',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/antes3.png',
+    //         url: 'assets/img/projects/pokefrenzy/antes3.webp',
     //         alt: 'Antes - Design antigo',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/antes4.png',
+    //         url: 'assets/img/projects/pokefrenzy/antes4.webp',
     //         alt: 'Antes - Design antigo',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/antes5.png',
+    //         url: 'assets/img/projects/pokefrenzy/antes5.webp',
     //         alt: 'Antes - Design antigo',
     //       },
     //     ],
     //     after: [
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/depois1.png',
+    //         url: 'assets/img/projects/pokefrenzy/depois1.webp',
     //         alt: 'Depois - Nova tela inicial',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/depois2.png',
+    //         url: 'assets/img/projects/pokefrenzy/depois2.webp',
     //         alt: 'Depois - Nova interface',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/depois3.png',
+    //         url: 'assets/img/projects/pokefrenzy/depois3.webp',
     //         alt: 'Depois - Novo design',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/depois4.png',
+    //         url: 'assets/img/projects/pokefrenzy/depois4.webp',
     //         alt: 'Depois - Melhorias implementadas',
     //       },
     //       {
-    //         url: 'assets/img/projects/pokefrenzy/depois5.png',
+    //         url: 'assets/img/projects/pokefrenzy/depois5.webp',
     //         alt: 'Depois - Melhorias implementadas',
     //       },
     //     ],
@@ -88,7 +88,7 @@ export class ProjectsService {
       descriptionKey: 'PROJECTS-VIEW.PLVNO.DESCRIPTION',
       path: 'plvno',
       link: 'https://plvno.com',
-      miniLogo: 'assets/img/projects/plvno/mini.png',
+      miniLogo: 'assets/img/projects/plvno/mini.webp',
       status: 'online',
       technologies: [
         { icon: 'fa-brands fa-angular', name: 'Angular', color: '#DD0031' },
@@ -99,15 +99,15 @@ export class ProjectsService {
       ],
       images: [
         {
-          url: 'assets/img/projects/plvno/1.png',
+          url: 'assets/img/projects/plvno/1.webp',
           alt: '1',
         },
         {
-          url: 'assets/img/projects/plvno/2.png',
+          url: 'assets/img/projects/plvno/2.webp',
           alt: '2',
         },
         {
-          url: 'assets/img/projects/plvno/3.png',
+          url: 'assets/img/projects/plvno/3.webp',
           alt: '3',
         },
       ],
@@ -118,7 +118,7 @@ export class ProjectsService {
       descriptionKey: 'PROJECTS-VIEW.CONECTA_CURRICULO.DESCRIPTION',
       path: 'conecta-curriculo',
       link: 'https://conecta-curriculo.com',
-      miniLogo: 'assets/img/projects/conecta-curriculo/mini-logo.png', // Exemplo de mini logo
+      miniLogo: 'assets/img/projects/conecta-curriculo/mini-logo.webp', // Exemplo de mini logo
       status: 'offline',
       usersCount: 32,
       technologies: [
@@ -130,23 +130,23 @@ export class ProjectsService {
       ],
       images: [
         {
-          url: 'assets/img/projects/conecta-curriculo/CC1.png',
+          url: 'assets/img/projects/conecta-curriculo/CC1.webp',
           alt: 'CC1',
         },
         {
-          url: 'assets/img/projects/conecta-curriculo/CC2.png',
+          url: 'assets/img/projects/conecta-curriculo/CC2.webp',
           alt: 'CC2',
         },
         {
-          url: 'assets/img/projects/conecta-curriculo/CC3.png',
+          url: 'assets/img/projects/conecta-curriculo/CC3.webp',
           alt: 'CC3',
         },
         {
-          url: 'assets/img/projects/conecta-curriculo/CC4.png',
+          url: 'assets/img/projects/conecta-curriculo/CC4.webp',
           alt: 'CC4',
         },
         {
-          url: 'assets/img/projects/conecta-curriculo/CC5.png',
+          url: 'assets/img/projects/conecta-curriculo/CC5.webp',
           alt: 'CC5',
         },
       ],
@@ -166,31 +166,31 @@ export class ProjectsService {
       ],
       images: [
         {
-          url: 'assets/img/projects/UCC1.png',
+          url: 'assets/img/projects/UCC1.webp',
           alt: 'UCC1',
         },
         {
-          url: 'assets/img/projects/UCC2.png',
+          url: 'assets/img/projects/UCC2.webp',
           alt: 'UCC2',
         },
         {
-          url: 'assets/img/projects/UCC3.png',
+          url: 'assets/img/projects/UCC3.webp',
           alt: 'UCC3',
         },
         {
-          url: 'assets/img/projects/UCC4.png',
+          url: 'assets/img/projects/UCC4.webp',
           alt: 'UCC4',
         },
         {
-          url: 'assets/img/projects/UCC5.png',
+          url: 'assets/img/projects/UCC5.webp',
           alt: 'UCC5',
         },
         {
-          url: 'assets/img/projects/UCC6.png',
+          url: 'assets/img/projects/UCC6.webp',
           alt: 'UCC6',
         },
         {
-          url: 'assets/img/projects/UCC7.png',
+          url: 'assets/img/projects/UCC7.webp',
           alt: 'UCC7',
         },
       ],

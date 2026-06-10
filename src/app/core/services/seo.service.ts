@@ -1,5 +1,6 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 export interface SEOData {
   title?: string;
@@ -19,6 +20,7 @@ export interface SEOData {
 export class SEOService {
   private meta = inject(Meta);
   private title = inject(Title);
+  private platformId = inject(PLATFORM_ID);
 
   private readonly defaultTitle = 'Henrique Nunes - Software Engineer & Front-end Developer';
   private readonly defaultDescription = 'Software Engineer especializado em Front-end, trabalhando com Angular e tecnologias modernas. Portfólio, projetos e artigos sobre desenvolvimento web.';
@@ -76,6 +78,7 @@ export class SEOService {
   }
 
   private updateCanonicalUrl(url: string): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
     
     if (!link) {

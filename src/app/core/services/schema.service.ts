@@ -1,11 +1,13 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SchemaService {
   private meta = inject(Meta);
+  private platformId = inject(PLATFORM_ID);
 
   addPersonSchema(data: {
     name: string;
@@ -124,7 +126,7 @@ export class SchemaService {
   }
 
   private addScriptTag(json: string): void {
-    // Remove existing schema script if any
+    if (!isPlatformBrowser(this.platformId)) return;
     const existingScript = document.querySelector('script[type="application/ld+json"]');
     if (existingScript) {
       existingScript.remove();
@@ -137,6 +139,7 @@ export class SchemaService {
   }
 
   clearSchemas(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     const scripts = document.querySelectorAll('script[type="application/ld+json"]');
     scripts.forEach(script => script.remove());
   }

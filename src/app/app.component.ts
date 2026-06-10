@@ -65,11 +65,9 @@ export class AppComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationStart)
     ).subscribe(() => {
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'instant'
-      });
+      if (typeof window !== 'undefined') {
+        window.scroll({ top: 0, left: 0, behavior: 'instant' });
+      }
     });
   }
 

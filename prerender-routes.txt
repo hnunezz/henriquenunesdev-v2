@@ -1,0 +1,14 @@
+/home
+/about
+/contact
+/setup
+/projects
+/projects/view/plvno
+/projects/view/conecta-curriculo
+/projects/view/ultimate-champion-creator
+/studio
+/studio/wa-fitas
+/studio/bm-cleaning-queens
+/studio/pokefrenzy
+/studio/ig-clean
+/articles

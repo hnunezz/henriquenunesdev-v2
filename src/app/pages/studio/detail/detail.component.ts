@@ -1,5 +1,5 @@
-import { Component, computed, effect, HostListener, inject, input, signal } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { Component, computed, effect, HostListener, inject, input, signal, PLATFORM_ID } from '@angular/core';
+import { NgStyle, isPlatformBrowser } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { combineLatest, map } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
@@ -26,6 +26,7 @@ export class StudioDetailComponent {
   private router = inject(Router);
   private seoService = inject(SEOService);
   private translate = inject(TranslateService);
+  private platformId = inject(PLATFORM_ID);
 
   private allProjects$ = combineLatest([
     this.projectsService.get(),
@@ -62,7 +63,9 @@ export class StudioDetailComponent {
   constructor() {
     effect(() => {
       this.slug();
-      window.scrollTo(0, 0);
+      if (isPlatformBrowser(this.platformId)) {
+        window.scrollTo(0, 0);
+      }
     });
 
     effect(() => {

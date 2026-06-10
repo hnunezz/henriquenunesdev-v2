@@ -1,8 +1,8 @@
 import {
-  Component, ChangeDetectionStrategy, Input, ElementRef, Signal,
-  signal, computed, effect, OnInit, OnDestroy
+  Component, ChangeDetectionStrategy, Input, ElementRef, NgZone, Signal,
+  signal, computed, effect, OnInit, OnDestroy, PLATFORM_ID, inject
 } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, isPlatformBrowser } from '@angular/common';
 
 export type CardItem = {
   title: string;
@@ -60,6 +60,7 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
   });
 
   private slideWidthPx(): number {
+    if (!isPlatformBrowser(this.platformId)) return 1;
     const host = this.el.nativeElement as HTMLElement;
     const vw = host.querySelector('.viewport') as HTMLElement;
     if (!vw) return 1;
@@ -75,15 +76,21 @@ export class CardCarouselComponent implements OnInit, OnDestroy {
   });
 
   private gapPx(): number {
+    if (!isPlatformBrowser(this.platformId)) return 0;
     const track = this.el.nativeElement.querySelector('.track') as HTMLElement | null;
     return track ? parseFloat(getComputedStyle(track).gap || '0') : 0;
   }
 
+  private platformId = inject(PLATFORM_ID);
+  private ngZone = inject(NgZone);
+
   constructor(private el: ElementRef<HTMLElement>) {
     effect(() => {
       this.clearTimer();
-      if (this.autoplay && this.items().length > 1) {
-        this.timer = setInterval(() => this.next(), this.interval);
+      if (this.autoplay && this.items().length > 1 && isPlatformBrowser(this.platformId)) {
+        this.ngZone.runOutsideAngular(() => {
+          this.timer = setInterval(() => this.ngZone.run(() => this.next()), this.interval);
+        });
       }
     });
   }

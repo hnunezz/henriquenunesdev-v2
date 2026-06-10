@@ -121,10 +121,12 @@ export class SetupComponent {
 
     this.revealedSections.add(sectionIndex);
 
-    window.setTimeout(() => {
-      this.visibleSectionCount.update((value) =>
-        Math.min(value + 1, this.setupData.length)
-      );
-    }, delayMs);
+    if (typeof window !== 'undefined') {
+      window.setTimeout(() => {
+        this.visibleSectionCount.update((value) =>
+          Math.min(value + 1, this.setupData.length)
+        );
+      }, delayMs);
+    }
   }
 }

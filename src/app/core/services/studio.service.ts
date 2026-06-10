@@ -28,26 +28,26 @@ export class StudioService {
       url: 'https://www.wafitas.com/',
       year: '2026',
       category: 'Landing Page',
-      coverImage: 'assets/img/projects/wafitas/wa1.png',
+      coverImage: 'assets/img/projects/wafitas/wa1.webp',
       images: [
         {
-          url: 'assets/img/projects/wafitas/wa1.png',
+          url: 'assets/img/projects/wafitas/wa1.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/wafitas/wa2.png',
+          url: 'assets/img/projects/wafitas/wa2.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/wafitas/wa3.png',
+          url: 'assets/img/projects/wafitas/wa3.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/wafitas/wa4.png',
+          url: 'assets/img/projects/wafitas/wa4.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/wafitas/wa5.png',
+          url: 'assets/img/projects/wafitas/wa5.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
       ],
@@ -67,34 +67,34 @@ export class StudioService {
       url: 'https://bmcleaningqueens.com/',
       year: '2026',
       category: 'Landing Page',
-      coverImage: 'assets/img/projects/bmcleaning/bmq1.png',
+      coverImage: 'assets/img/projects/bmcleaning/bmq1.webp',
       images: [
         {
-          url: 'assets/img/projects/bmcleaning/bmq1.png',
+          url: 'assets/img/projects/bmcleaning/bmq1.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq2.png',
+          url: 'assets/img/projects/bmcleaning/bmq2.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq3.png',
+          url: 'assets/img/projects/bmcleaning/bmq3.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq4.png',
+          url: 'assets/img/projects/bmcleaning/bmq4.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq5.png',
+          url: 'assets/img/projects/bmcleaning/bmq5.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq6.png',
+          url: 'assets/img/projects/bmcleaning/bmq6.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
         {
-          url: 'assets/img/projects/bmcleaning/bmq7.png',
+          url: 'assets/img/projects/bmcleaning/bmq7.webp',
           alt: 'BM Cleaning Queens - Tela principal',
         },
       ],
@@ -115,26 +115,26 @@ export class StudioService {
       url: 'https://pokefrenzy.com/',
       year: '2026',
       category: 'Web Design',
-      coverImage: 'assets/img/projects/pokefrenzy/depois1.png',
+      coverImage: 'assets/img/projects/pokefrenzy/depois1.webp',
       images: [
         {
-          url: 'assets/img/projects/pokefrenzy/depois1.png',
+          url: 'assets/img/projects/pokefrenzy/depois1.webp',
           alt: 'Pokefrenzy - Nova tela inicial',
         },
         {
-          url: 'assets/img/projects/pokefrenzy/depois2.png',
+          url: 'assets/img/projects/pokefrenzy/depois2.webp',
           alt: 'Pokefrenzy - Nova interface',
         },
         {
-          url: 'assets/img/projects/pokefrenzy/depois3.png',
+          url: 'assets/img/projects/pokefrenzy/depois3.webp',
           alt: 'Pokefrenzy - Novo design',
         },
         {
-          url: 'assets/img/projects/pokefrenzy/depois4.png',
+          url: 'assets/img/projects/pokefrenzy/depois4.webp',
           alt: 'Pokefrenzy - Melhorias',
         },
         {
-          url: 'assets/img/projects/pokefrenzy/depois5.png',
+          url: 'assets/img/projects/pokefrenzy/depois5.webp',
           alt: 'Pokefrenzy - Melhorias',
         },
       ],
@@ -154,22 +154,22 @@ export class StudioService {
       url: '#',
       year: '2025',
       category: 'Landing Page',
-      coverImage: 'assets/img/projects/igclean/Depois1.png',
+      coverImage: 'assets/img/projects/igclean/Depois1.webp',
       images: [
         {
-          url: 'assets/img/projects/igclean/Depois1.png',
+          url: 'assets/img/projects/igclean/Depois1.webp',
           alt: 'IG Clean - Tela principal',
         },
         {
-          url: 'assets/img/projects/igclean/Depois2.png',
+          url: 'assets/img/projects/igclean/Depois2.webp',
           alt: 'IG Clean - Tela principal',
         },
         {
-          url: 'assets/img/projects/igclean/Depois3.png',
+          url: 'assets/img/projects/igclean/Depois3.webp',
           alt: 'IG Clean - Tela principal',
         },
         {
-          url: 'assets/img/projects/igclean/Depois4.png',
+          url: 'assets/img/projects/igclean/Depois4.webp',
           alt: 'IG Clean - Tela principal',
         },
       ],

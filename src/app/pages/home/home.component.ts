@@ -32,10 +32,10 @@ export class HomeComponent implements OnInit {
   private readonly scrollFadeDistance = 220;
 
   works = [
-    { title: 'Extreme Digital Solutions', path: 'assets/img/eds.jpeg', role: 'Front-end Dev. at PMERJ', date: '2024 - Present' },
-    { title: 'Nava', path: 'assets/img/nava.jpeg', role: 'Mid-level Dev. at Santander', date: '2023 - 2024' },
-    { title: 'Black101', path: 'assets/img/black101.jpeg', role: 'Mid-level Dev.', date: '2022 - 2023' },
-    { title: 'Atlas Inovações', path: 'assets/img/atlas.jpeg', role: 'Jr Dev.', date: '2021 - 2022' },
+    { title: 'Extreme Digital Solutions', path: 'assets/img/eds.webp', role: 'Front-end Dev. at PMERJ', date: '2024 - Present' },
+    { title: 'Nava', path: 'assets/img/nava.webp', role: 'Mid-level Dev. at Santander', date: '2023 - 2024' },
+    { title: 'Black101', path: 'assets/img/black101.webp', role: 'Mid-level Dev.', date: '2022 - 2023' },
+    { title: 'Atlas Inovações', path: 'assets/img/atlas.webp', role: 'Jr Dev.', date: '2021 - 2022' },
   ]
 
   constructor(
